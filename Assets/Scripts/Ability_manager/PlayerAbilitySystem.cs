@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
+using UnityEngine.Events;
 
 public class PlayerAbilitySystem : MonoBehaviour
 {
-    [SerializeField] private List<Slot> Slots = new();
+    public readonly List<Slot> Slots = new();
     [SerializeField] private ItemArgs ItemArgumets = new();
     [SerializeField] private Inventory Inventory;
+
+
+    [SerializeField] public UnityEvent onAddedItem;
+
 
     private InputManager inputManager;
 
@@ -49,6 +54,8 @@ public class PlayerAbilitySystem : MonoBehaviour
         {
             newItem.Activate(ItemArgumets);
         }
+
+        onAddedItem.Invoke();
     }
 
 
