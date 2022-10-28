@@ -436,6 +436,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3343996715317466244, guid: a1a0b0afa0d1cc04dadcece1ee9957fa, type: 3}
+      propertyPath: maxHp
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3343996715317466269, guid: a1a0b0afa0d1cc04dadcece1ee9957fa, type: 3}
       propertyPath: m_Name
       value: RangedEnemy
