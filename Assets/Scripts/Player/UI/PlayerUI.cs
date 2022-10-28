@@ -22,8 +22,6 @@ public class PlayerUI : MonoBehaviour
     private TMP_Text[] texts;
 
     private int score;
-    //public StopTime time;
-
     public int Score 
     { 
         get => score; 
