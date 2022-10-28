@@ -61,6 +61,7 @@ public class EnemyAI : MonoBehaviour
     private void Attack() {
         //Debug.Log(this + " attacked player at " + Time.time);
         lastAttackTime = Time.time;
+        gameObject.GetComponent<Attack>().Perform(player, enemy);
     }
 
     public void getKnockedBack(AttackInfo info) {

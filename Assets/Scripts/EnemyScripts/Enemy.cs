@@ -21,8 +21,10 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float pursueDistance;
 
-    [SerializeField]
     private float knockbackSpeed = 100.0f;
+
+    [SerializeField]
+    GameObject bloodPuddle;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //returns true if this unit got killed
@@ -45,6 +47,7 @@ public class Enemy : MonoBehaviour
 
         //TODO: animation and sound feedback
         if (hp <= 0) {
+            Instantiate(bloodPuddle, gameObject.transform.position + Vector3.up * 1.5f, bloodPuddle.transform.rotation);
             Destroy(gameObject);
             //TODO: get killed
         }
@@ -75,6 +78,10 @@ public class Enemy : MonoBehaviour
 
     public float getKnockbackSpeed() {
         return knockbackSpeed;
+    }
+
+    public int getDmg() {
+        return dmg;
     }
 
 }
