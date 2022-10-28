@@ -1,32 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAbilitySystem : MonoBehaviour
 {
+    [SerializeField]
     public AbilitieList Abilities = new();
-    public int MaxItems { get; set; } = 5;
+    [SerializeField]
+    public ItemArgs argumets = new();
+
 
     #region mockKeyBinds
+    [SerializeField]
     bool mockKeyBindLeftClick = false;
-    public bool MockKeyBindLeftClick {
-        get
-        {
-            bool returnValue = mockKeyBindLeftClick;
-            mockKeyBindLeftClick = false;
-            return returnValue;
-        }
-        set
-        {
-            mockKeyBindLeftClick = value;
-        }    
-    }
     #endregion
+
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -34,7 +27,8 @@ public class PlayerAbilitySystem : MonoBehaviour
     {
         if (mockKeyBindLeftClick)
         {
-            Abilities.GetAbility(KeyCode.Mouse0).Activate();
+            mockKeyBindLeftClick = false;
+            Abilities.GetAbility(KeyCode.Mouse0).Activate(argumets);
         }
 
 

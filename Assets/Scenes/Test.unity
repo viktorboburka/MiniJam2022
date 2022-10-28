@@ -436,6 +436,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3343996715317466244, guid: a1a0b0afa0d1cc04dadcece1ee9957fa, type: 3}
+      propertyPath: maxHp
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3343996715317466269, guid: a1a0b0afa0d1cc04dadcece1ee9957fa, type: 3}
       propertyPath: m_Name
       value: RangedEnemy
@@ -1358,6 +1362,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1003425952098238645, guid: 14506e51b5bf4a74e8fa424968666164, type: 3}
+      propertyPath: mockKeyBindLeftClick
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1003425952098238645, guid: 14506e51b5bf4a74e8fa424968666164, type: 3}
+      propertyPath: Abilities.items.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1003425952098238645, guid: 14506e51b5bf4a74e8fa424968666164, type: 3}
+      propertyPath: Abilities.items.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 719a4efeec68be04ba72c1cbc49b9fe0, type: 2}
     - target: {fileID: 215626373571790535, guid: 14506e51b5bf4a74e8fa424968666164, type: 3}
       propertyPath: m_RootOrder
       value: 0
