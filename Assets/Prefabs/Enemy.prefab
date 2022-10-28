@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6063514177523548864}
   - component: {fileID: 6063514177523548867}
   - component: {fileID: 6063514177523548869}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -154,3 +154,4 @@ MonoBehaviour:
   dmg: 0
   attackSpeed: 2
   pursueDistance: 1.5
+  bloodPuddle: {fileID: 0}
