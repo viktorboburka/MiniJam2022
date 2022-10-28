@@ -75,4 +75,19 @@ public class Inventory : MonoBehaviour
 
         return false;
     }
+
+    public int GetItemCount(Item _item){
+        switch(_item.itemName){
+            case "Bolt":
+                    return stats.boltCount;
+            case "Cross":
+                    return stats.crossCount;
+            case "Crossbow":
+                    return stats.crossbowCount;
+            case "Stake":
+                    return stats.stakeCount;
+        }
+
+        return 0;
+    }
 }
