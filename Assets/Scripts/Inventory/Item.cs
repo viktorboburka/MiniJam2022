@@ -7,6 +7,7 @@ public enum ItemType {
     AutoWeapon
 }
 
+[System.Serializable]
 public class ItemArgs {
     public Transform shootPoint;
 }
@@ -27,7 +28,7 @@ public class Item : ScriptableObject
     public virtual void Activate(ItemArgs _args){
         
     }
-    
+
     public virtual void Activate(){
         
     }
