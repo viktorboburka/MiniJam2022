@@ -421,13 +421,13 @@ MonoBehaviour:
   cameraObstructLayers:
     serializedVersion: 2
     m_Bits: 1
-  cameraSpringStep: 0.1
-  cameraHolderT: {fileID: 7116497163556506179}
+  obstructHandleRotation: 1
+  obstructOffset: 0.25
+  cameraRotationT: {fileID: 7116497163556506179}
+  cameraHolderT: {fileID: 3773165809628933185}
   cameraT: {fileID: 7116497163804018474}
   obstructions: []
-  cameraInBorder: 0
-  CameraToBorderDist: 0
-  cameraSpring: 1
+  CameraSpring: 1
 --- !u!1 &7116497164779117940
 GameObject:
   m_ObjectHideFlags: 0
