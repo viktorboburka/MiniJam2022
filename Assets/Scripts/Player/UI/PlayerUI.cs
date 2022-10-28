@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,25 +11,27 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private PlayerAbilitySystem AbilitySys;
     [SerializeField] private GameObject itemIcons;
 
+    [SerializeField] private Image heartImage;
+
+    [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text timeText;
+
+
     private Image[] iconImage;
     private RectTransform[] barImage;
     private TMP_Text[] texts;
 
+    private int score;
+    //public StopTime time;
 
-
-    private void Start()
-    {
-        var count = itemIcons.transform.childCount;
-        iconImage = new Image[count];
-        texts = new TMP_Text[count];
-        barImage = new RectTransform[count];
-        for (int i = 0; i < count; ++i)
+    public int Score 
+    { 
+        get => score; 
+        set 
         {
-            iconImage[i] = itemIcons.transform.GetChild(i).GetComponent<Image>();
-            texts[i] = itemIcons.transform.GetChild(i).GetComponentInChildren<TMP_Text>();
-            barImage[i] = itemIcons.transform.GetChild(i).Find("Coldown_bar").GetComponent<RectTransform>();
+            score = value;
+            scoreText.text = score.ToString("000");
         }
-
     }
 
     public void NewSlotWasAdded() {
@@ -42,9 +45,26 @@ public class PlayerUI : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        StopTime.resetTimer();
+
+        var count = itemIcons.transform.childCount;
+        iconImage = new Image[count];
+        texts = new TMP_Text[count];
+        barImage = new RectTransform[count];
+        for (int i = 0; i < count; ++i)
+        {
+            iconImage[i] = itemIcons.transform.GetChild(i).GetComponent<Image>();
+            texts[i] = itemIcons.transform.GetChild(i).GetComponentInChildren<TMP_Text>();
+            barImage[i] = itemIcons.transform.GetChild(i).Find("Coldown_bar").GetComponent<RectTransform>();
+        }
+
+    }
+
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         var slots = AbilitySys.Slots;
         var slotCount = slots.Count;
@@ -62,5 +82,10 @@ public class PlayerUI : MonoBehaviour
                 texts[i].text = "";
             }
         }
+
+        //time
+        timeText.text = StopTime.GetTime<string>();
+
+
     }
 }

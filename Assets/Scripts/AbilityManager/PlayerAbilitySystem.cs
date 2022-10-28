@@ -7,14 +7,11 @@ using UnityEngine.Events;
 
 public class PlayerAbilitySystem : MonoBehaviour
 {
-    public readonly List<Slot> Slots = new();
+    public List<Slot> Slots = new();
+    public UnityEvent onAddedItem;
+
+
     [SerializeField] private ItemArgs ItemArgumets = new();
-    [SerializeField] private Inventory Inventory;
-
-
-    [SerializeField] public UnityEvent onAddedItem;
-
-
     private InputManager inputManager;
 
 

@@ -11,6 +11,7 @@ public enum ItemType {
 [System.Serializable]
 public class ItemArgs {
     public Transform shootPoint;
+    public Inventory inventory;
 }
 
 public class Item : ScriptableObject
