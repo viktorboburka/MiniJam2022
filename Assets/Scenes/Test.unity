@@ -401,9 +401,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3343996715317466244, guid: a1a0b0afa0d1cc04dadcece1ee9957fa, type: 3}
-      propertyPath: maxHp
-      value: 20
-      objectReference: {fileID: 0}
+      propertyPath: bloodPuddle
+      value: 
+      objectReference: {fileID: 9088948930767243423, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
     - target: {fileID: 3343996715317466269, guid: a1a0b0afa0d1cc04dadcece1ee9957fa, type: 3}
       propertyPath: m_Name
       value: RangedEnemy
@@ -502,9 +502,10 @@ GameObject:
   - component: {fileID: 1493411099}
   - component: {fileID: 1493411098}
   - component: {fileID: 1493411097}
+  - component: {fileID: 1493411103}
   m_Layer: 8
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: World
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -520,7 +521,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 313375578}
 --- !u!33 &1493411098
@@ -832,6 +833,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1493411103
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493411096}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1562186490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -887,6 +904,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6063514177523548869, guid: a78f6e3a79d13b441903b80f773788d1, type: 3}
+      propertyPath: bloodPuddle
+      value: 
+      objectReference: {fileID: 9088948930767243423, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a78f6e3a79d13b441903b80f773788d1, type: 3}
 --- !u!1 &1581397291
@@ -1239,6 +1260,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4461302466518279988, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4461302466518279988, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
+      propertyPath: CollisionModule.m_Dampen.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4461302466518279988, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -4461302466518279988, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
+      propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4461302466518279988, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1940003297935421286, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
       propertyPath: m_RootOrder
       value: 7

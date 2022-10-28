@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1940003297935421286
 Transform:
   m_ObjectHideFlags: 0
@@ -50,12 +50,7 @@ MonoBehaviour:
   - {fileID: 1143363853473790955, guid: 13fe64c61c966114a9264c5de0992b90, type: 3}
   - {fileID: 1143363853473790955, guid: 5320bd2e55aa0964281fc8bd5031b15d, type: 3}
   - {fileID: 1143363853473790955, guid: 1dca2988dcdad2c4b940fcc097ff5fb1, type: 3}
-  numOfBloodSpots: 50
-  distance: 8
-  angle: 60
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 256
+  part: {fileID: 0}
 --- !u!198 &-4461302466518279988
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -192,7 +187,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5
+      scalar: 7
       minScalar: 3
       maxCurve:
         serializedVersion: 2
@@ -1000,7 +995,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 50
+        scalar: 25
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -3705,7 +3700,7 @@ ParticleSystem:
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.57
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3758,7 +3753,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3811,7 +3806,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3870,7 +3865,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:

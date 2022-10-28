@@ -5,29 +5,31 @@ using UnityEngine;
 public class BloodCast : MonoBehaviour
 {
     [SerializeField] private GameObject[] bloodPrefab;
-    [SerializeField] private int numOfBloodSpots = 25;
-    [SerializeField] private float distance = 15f;
-    [SerializeField] private float angle = 85f;
-    [SerializeField] private LayerMask layerMask;
+    public ParticleSystem part;
+    public List<ParticleCollisionEvent> collisionEvents;
 
     // Start is called before the first frame update
     void Start()
     {
-        Splat();
-    }
-
-    void Splat(){
-        for(int i = 0; i < 25; i++){
-            RaycastHit hit;
-            if(Physics.Raycast(transform.position, RandomDirection(), out hit, distance, layerMask)){
-                Instantiate(bloodPrefab[Random.Range(0, bloodPrefab.Length)], hit.point + (Vector3.up * 0.01f), Quaternion.Euler(bloodPrefab[0].transform.rotation.eulerAngles.x, Random.Range(0, 360), bloodPrefab[0].transform.rotation.eulerAngles.z));
-            }
-        }
+        part = GetComponent<ParticleSystem>();
+        collisionEvents = new List<ParticleCollisionEvent>();
         Destroy(gameObject, 4f);
     }
-
-    Vector3 RandomDirection()
+    
+    void OnParticleCollision(GameObject other)
     {
-        return Quaternion.Euler(Random.Range(-angle, angle), 0, Random.Range(-angle, angle)) * Vector3.down;
+        if(other.gameObject.layer != LayerMask.NameToLayer("World"))
+            return;
+
+        int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
+
+        int i = 0;
+
+        while (i < numCollisionEvents)
+        {
+            Vector3 pos = collisionEvents[i].intersection;
+            Instantiate(bloodPrefab[Random.Range(0, bloodPrefab.Length)], collisionEvents[i].intersection + (Vector3.up * 0.01f), Quaternion.FromToRotation(Vector3.forward, collisionEvents[i].normal));
+            i++;
+        }
     }
 }

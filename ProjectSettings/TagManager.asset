@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - WorldBorder
   - WorldObject
+  - World
   layers:
   - Default
   - TransparentFX
