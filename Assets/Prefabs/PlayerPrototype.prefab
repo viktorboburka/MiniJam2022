@@ -130,9 +130,10 @@ GameObject:
   - component: {fileID: 215626373571790552}
   - component: {fileID: 215626373571790533}
   - component: {fileID: 215626373571790532}
+  - component: {fileID: 9031532861578914208}
   m_Layer: 0
   m_Name: PlayerPrototype
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,6 +233,9 @@ MonoBehaviour:
   speed: 10
   speedMultiplier: 1
   sensitivity: 1
+  enableCameraYRotation: 0
+  cameraClampMin: -45
+  cameraClampMax: 45
   rb: {fileID: 215626373571790532}
   cameraT: {fileID: 5250676322210081660}
   moveInput:
@@ -273,3 +277,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &9031532861578914208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215626373571790555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9bdb1c7ee76812488d193f6e93b87b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
