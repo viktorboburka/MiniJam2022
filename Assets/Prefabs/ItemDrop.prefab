@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6457156803058264129}
   - component: {fileID: 6457156803058264131}
   - component: {fileID: 6457156803058264130}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ItemDrop
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 6457156803622060065}
   - component: {fileID: 6457156803622060067}
   - component: {fileID: 6457156803622060064}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ItemSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

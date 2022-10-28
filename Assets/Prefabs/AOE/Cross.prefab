@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2509374899383086469}
   - component: {fileID: 4980837740496082306}
   - component: {fileID: 3814770012375561347}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cross
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d512128818cc9e84497905b8c4dde959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AOEName: 
-  inventory: {fileID: 0}
   _item: {fileID: 0}
+  AOEName: 
+  rend: {fileID: 811154195873046540}
+  coll: {fileID: 3814770012375561347}
 --- !u!135 &3814770012375561347
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -60,7 +61,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.91
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7041652695202839713
 GameObject:
@@ -72,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6608514285453827683}
   - component: {fileID: 811154195873046540}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,8 +89,8 @@ Transform:
   m_GameObject: {fileID: 7041652695202839713}
   m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.70710784}
   m_LocalPosition: {x: 0, y: -0.8, z: 0}
-  m_LocalScale: {x: 3.8638, y: 3.8638, z: 3.8638}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2509374899383086469}
   m_RootOrder: 0
