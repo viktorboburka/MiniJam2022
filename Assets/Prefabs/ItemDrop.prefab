@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  spriteRend: {fileID: 0}
+  spriteRend: {fileID: 6457156803622060067}
 --- !u!54 &6457156803058264130
 Rigidbody:
   m_ObjectHideFlags: 0
