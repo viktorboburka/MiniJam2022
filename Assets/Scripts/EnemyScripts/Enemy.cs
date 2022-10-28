@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private int hp;
     [SerializeField]
-    private int maxHp;
+    private int maxHp = 10;
     [SerializeField]
     private float movementSpeed = 3.5f;
     [SerializeField]
@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     private float pursueDistance;
 
     [SerializeField]
-    private float knockbackSpeed = 20.0f;
+    private float knockbackSpeed = 100.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -38,13 +38,14 @@ public class Enemy : MonoBehaviour
 
     //returns true if this unit got killed
     public bool getAttacked(AttackInfo info) {
-        Debug.Log(this + " getAttacked called");
+        //Debug.Log(this + " getAttacked called");
 
         hp -= info.dmg;
         gameObject.GetComponent<EnemyAI>().getKnockedBack(info);
-        //TODO: knockback
+
         //TODO: animation and sound feedback
         if (hp <= 0) {
+            Destroy(gameObject);
             //TODO: get killed
         }
         return false;

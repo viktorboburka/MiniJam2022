@@ -14,13 +14,20 @@ public class EnemyAI : MonoBehaviour
 
     private float lastAttackTime = -Mathf.Infinity;
 
+    private float navAccelerationModifier = 20f;
+    private float navAngularModifier = 35;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         navAgent = this.GetComponent<NavMeshAgent>();
         enemy = gameObject.GetComponent<Enemy>();
         isKnockedBack = false;
+
+
         navAgent.speed = enemy.getMovementSpeed();
+        navAgent.angularSpeed = navAgent.speed * navAngularModifier;
+        navAgent.acceleration = navAgent.speed * navAccelerationModifier;
     }
 
     void Update()
@@ -69,13 +76,13 @@ public class EnemyAI : MonoBehaviour
 
         navAgent.speed = enemy.getKnockbackSpeed();
         navAgent.angularSpeed = 0;
-        navAgent.acceleration = 40;
+        navAgent.acceleration = 100;
         
         yield return new WaitForSeconds(0.1f);
 
         navAgent.speed = enemy.getMovementSpeed();
-        navAgent.angularSpeed = navAgent.speed * 35;
-        navAgent.acceleration = navAgent.speed * 2;
+        navAgent.angularSpeed = navAgent.speed * navAngularModifier;
+        navAgent.acceleration = navAgent.speed * navAccelerationModifier;
         isKnockedBack = false;
     }
 }
