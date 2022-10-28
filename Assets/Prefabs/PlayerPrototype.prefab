@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6409138189213260748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3773165809628933185}
+  m_Layer: 0
+  m_Name: CameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3773165809628933185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409138189213260748}
+  m_LocalRotation: {x: 0.19783986, y: -0, z: -0, w: 0.9802344}
+  m_LocalPosition: {x: 0, y: 4.28, z: -7.77}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7116497163804018474}
+  m_Father: {fileID: 7116497163556506179}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 22.821, y: 0, z: 0}
 --- !u!1 &7116497163556506178
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7116497163556506179}
   m_Layer: 0
-  m_Name: CameraHolder
+  m_Name: CameraRotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,11 +56,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7116497163556506178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.196, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7116497163804018474}
+  - {fileID: 3773165809628933185}
   m_Father: {fileID: 7116497164510363323}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -119,7 +151,6 @@ GameObject:
   - component: {fileID: 7116497163804018474}
   - component: {fileID: 7116497163804018645}
   - component: {fileID: 7116497163804018644}
-  - component: {fileID: 7116497163804018475}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -134,12 +165,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7116497163804018647}
-  m_LocalRotation: {x: 0.19783986, y: -0, z: -0, w: 0.9802344}
-  m_LocalPosition: {x: 0, y: 4.28, z: -7.77}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7116497163556506179}
+  m_Father: {fileID: 3773165809628933185}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 22.821, y: 0, z: 0}
 --- !u!20 &7116497163804018645
@@ -193,19 +224,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7116497163804018647}
   m_Enabled: 1
---- !u!135 &7116497163804018475
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7116497163804018647}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7116497164510363303
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +400,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+  onAddedItem:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2432553973928320025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,12 +416,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawRays: 1
-  cameraDefaultPos: {x: 0, y: 0, z: 0}
+  cameraDefaultDir: {x: 0, y: 0, z: 0}
+  cameraDefaultDist: 0
   cameraObstructLayers:
     serializedVersion: 2
     m_Bits: 1
-  cameraHolderT: {fileID: 7116497163556506179}
+  obstructHandleRotation: 1
+  obstructOffset: 0.25
+  cameraRotationT: {fileID: 7116497163556506179}
+  cameraHolderT: {fileID: 3773165809628933185}
   cameraT: {fileID: 7116497163804018474}
+  obstructions: []
+  CameraSpring: 1
 --- !u!1 &7116497164779117940
 GameObject:
   m_ObjectHideFlags: 0
