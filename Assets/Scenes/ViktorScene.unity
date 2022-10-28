@@ -766,6 +766,7 @@ GameObject:
   - component: {fileID: 134910683}
   - component: {fileID: 134910682}
   - component: {fileID: 134910681}
+  - component: {fileID: 134910687}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Untagged
@@ -785,7 +786,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106fee2b339ae141b4030a4b5459255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pursueDistance: 3
 --- !u!195 &134910682
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -887,6 +887,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &134910687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134910680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6820a2868e9e54843a794f1ae3cd4c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  maxHp: 0
+  movementSpeed: 0
+  range: 2
+  dmg: 0
+  attackSpeed: 2
+  pursueDistance: 1.5
 --- !u!1 &226914829
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +920,7 @@ GameObject:
   - component: {fileID: 226914832}
   - component: {fileID: 226914831}
   - component: {fileID: 226914830}
+  - component: {fileID: 226914836}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -920,7 +940,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106fee2b339ae141b4030a4b5459255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pursueDistance: 0
 --- !u!195 &226914831
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1022,6 +1041,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &226914836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226914829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6820a2868e9e54843a794f1ae3cd4c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  maxHp: 0
+  movementSpeed: 0
+  range: 5
+  dmg: 0
+  attackSpeed: 0.5
+  pursueDistance: 4
 --- !u!1 &452641970
 GameObject:
   m_ObjectHideFlags: 0
