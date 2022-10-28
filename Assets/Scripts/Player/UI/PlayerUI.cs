@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,16 +9,24 @@ public class PlayerUI : MonoBehaviour
 {
     [SerializeField] private PlayerAbilitySystem AbilitySys;
     [SerializeField] private GameObject itemIcons;
-    [SerializeField] private Image[] images;
+
+    private Image[] iconImage;
+    private RectTransform[] barImage;
+    private TMP_Text[] texts;
+
 
 
     private void Start()
     {
         var count = itemIcons.transform.childCount;
-        images = new Image[count];
+        iconImage = new Image[count];
+        texts = new TMP_Text[count];
+        barImage = new RectTransform[count];
         for (int i = 0; i < count; ++i)
         {
-            images[i] = itemIcons.transform.GetChild(i).GetComponent<Image>();
+            iconImage[i] = itemIcons.transform.GetChild(i).GetComponent<Image>();
+            texts[i] = itemIcons.transform.GetChild(i).GetComponentInChildren<TMP_Text>();
+            barImage[i] = itemIcons.transform.GetChild(i).Find("Coldown_bar").GetComponent<RectTransform>();
         }
 
     }
@@ -27,8 +36,8 @@ public class PlayerUI : MonoBehaviour
 
         for(int i = 0; i < slotCount; i++)
         {
-            images[i].color = Color.white;
-            images[i].sprite = AbilitySys.Slots[i].item.itemSprite;
+            iconImage[i].color = Color.white;
+            iconImage[i].sprite = AbilitySys.Slots[i].item.itemSprite;
         }
 
     }
@@ -43,8 +52,14 @@ public class PlayerUI : MonoBehaviour
         { 
             if(slots[i].CooldownTime > 0)
             {
-                var newColorIndex = 1 - Mathf.Clamp(slots[i].CooldownTime / slots[i].item.cooldown, 0, 1);
-                images[i].color = new Color(1, newColorIndex, newColorIndex);
+                texts[i].text = slots[i].CooldownTime.ToString("F1");
+                var completionPercantage = 1 - Mathf.Clamp01(slots[i].CooldownTime / slots[i].item.cooldown);
+                barImage[i].SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 100 * (1-completionPercantage));
+                iconImage[i].color = new Color(1, completionPercantage, completionPercantage);
+            }
+            else
+            {
+                texts[i].text = "";
             }
         }
     }
