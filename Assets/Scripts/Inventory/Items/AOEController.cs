@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class AOEController : MonoBehaviour
 {
-    public string AOEName;
-    public Inventory inventory;
-    
-    public Item _item;
+    [SerializeField] private Item _item;
+    [SerializeField] public string AOEName;
+    [SerializeField] private SpriteRenderer rend;
+    [SerializeField] private SphereCollider coll;
+
+    private Inventory inventory;
 
     List<Enemy> enemies = new List<Enemy>();
 
@@ -16,6 +18,10 @@ public class AOEController : MonoBehaviour
         Debug.Log(inventory.items[0]);
         _item = inventory.items.Find(x => x.itemName == AOEName);
         StartCoroutine(DealAOE(_item.cooldown, new AttackInfo(_item.damage, _item.knockback)));
+    }
+
+    void Update(){
+        //if(coll.radius != )
     }
 
     void OnTriggerEnter(Collider coll){
