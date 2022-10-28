@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class AbilitieList : List<Item>
+[System.Serializable]
+public class AbilitieList 
 {
-    public readonly KeyCode[] ControlKeys =
+    public List<Item> items;
+    [SerializeField]
+    public KeyCode[] ControlKeys =
     {
         KeyCode.Mouse0,
         KeyCode.Mouse1,
@@ -17,10 +20,10 @@ public class AbilitieList : List<Item>
 
     public KeyCode GetKeyBind(Item item)
     {
-        if (!Contains(item))
+        if (!items.Contains(item))
             return KeyCode.None;
 
-        return ControlKeys[IndexOf(item)];
+        return ControlKeys[items.IndexOf(item)];
     }
 
 
@@ -29,7 +32,7 @@ public class AbilitieList : List<Item>
         for( int i = 0; i < ControlKeys.Length; i++)
         {
             if (ControlKeys[i] == keyPress)
-                return this[i];
+                return items[i];
         }
         return default;
     }
