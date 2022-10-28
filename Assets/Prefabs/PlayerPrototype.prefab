@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99062097148959731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.015, y: -0.374, z: 1.325}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 215626372932452182}
   - component: {fileID: 215626372932452265}
   - component: {fileID: 215626372932452264}
+  - component: {fileID: 1447751809}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -234,14 +235,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215626372932452267}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9200001, z: -4.77}
+  m_LocalRotation: {x: 0.19783986, y: -0, z: -0, w: 0.9802344}
+  m_LocalPosition: {x: 0, y: 4.28, z: -7.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5250676322210081660}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 22.821, y: 0, z: 0}
 --- !u!20 &215626372932452265
 Camera:
   m_ObjectHideFlags: 0
@@ -293,6 +294,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215626372932452267}
   m_Enabled: 1
+--- !u!135 &1447751809
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215626372932452267}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &215626373571790555
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +322,7 @@ GameObject:
   - component: {fileID: 215626373571790533}
   - component: {fileID: 215626373571790532}
   - component: {fileID: 9031532861578914208}
+  - component: {fileID: 1012992277}
   m_Layer: 0
   m_Name: PlayerPrototype
   m_TagString: Player
@@ -468,3 +483,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+--- !u!114 &1012992277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215626373571790555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c23798620ff1e448bd1668f6afd375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawRays: 1
+  cameraDefaultPos: {x: 0, y: 0, z: 0}
+  cameraObstructLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  cameraHolderT: {fileID: 5250676322210081660}
+  cameraT: {fileID: 215626372932452182}
