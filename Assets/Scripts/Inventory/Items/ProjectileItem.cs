@@ -11,6 +11,8 @@ public class ProjectileItem : Item
     {
         base.Activate(_args);
 
-        Instantiate(projectilePrefab, _args.shootPoint.position, _args.shootPoint.rotation);
+        GameObject projectile = Instantiate(projectilePrefab, _args.shootPoint.position, _args.shootPoint.rotation);
+
+        projectile.GetComponent<Rigidbody>().velocity = projectile.transform.forward * speed;
     }
 }

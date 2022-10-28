@@ -28,7 +28,7 @@ public class Item : ScriptableObject
     public virtual void Activate(ItemArgs _args){
         
     }
-    
+
     public virtual void Activate(){
         
     }
