@@ -6,15 +6,44 @@ using UnityEngine.InputSystem;
 public class PlayerAbilitySystem : MonoBehaviour
 {
     [SerializeField]
-    public AbilitieList Abilities = new();
+    public Abilities Abilities = new();
     [SerializeField]
-    public ItemArgs argumets = new();
+    public ItemArgs ItemArgumets = new();
+
+    public InputManager inputManager;
 
 
-    #region mockKeyBinds
-    [SerializeField]
-    bool mockKeyBindLeftClick = false;
-    #endregion
+    void Awake()
+    {
+        inputManager = new InputManager();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+
+
+    private void OnEnable()
+    {
+        inputManager.Enable();
+
+        for (int i = 0; i < Abilities.Slots.Count; i++)
+        {
+            Abilities.Slots[i].KeyBind = inputManager.FindAction("Player/Abillity" + (i + 1));
+            Abilities.Slots[i].KeyBind.Enable();
+            var activatedSlot = Abilities.Slots[i];
+            Abilities.Slots[i].KeyBind.performed += ctx => ActivateItem(activatedSlot);
+
+        }
+    }
+
+    private void ActivateItem(Slot slot)
+    {
+        if (slot.CooldownTime > 0)
+            return;
+        slot.item.Activate(ItemArgumets);
+        slot.CooldownTime = slot.item.cooldown;
+    }
+
 
 
     // Start is called before the first frame update
@@ -25,13 +54,10 @@ public class PlayerAbilitySystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (mockKeyBindLeftClick)
-        {
-            mockKeyBindLeftClick = false;
-            Abilities.GetAbility(KeyCode.Mouse0).Activate(argumets);
-        }
-
-
+        //cooldown
+        Abilities.Slots
+            .FindAll(slot => slot.CooldownTime > 0)
+            .ForEach(slot => slot.CooldownTime -= Time.deltaTime);
     }
 
 
