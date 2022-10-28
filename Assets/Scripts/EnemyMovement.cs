@@ -9,17 +9,24 @@ public class EnemyMovement : MonoBehaviour
     private GameObject player;
     private NavMeshAgent navAgent;
 
+    //enemies stop pursuing the player if they get too close
+    [SerializeField]
+    private float pursueDistance = 0.0f;
 
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         navAgent = this.GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        navAgent.SetDestination(player.transform.position);
+        if (GetDistanceFromPlayer() >= pursueDistance) {
+            navAgent.SetDestination(player.transform.position);
+        }
+    }
+
+    private float GetDistanceFromPlayer() {
+        return Vector3.Distance(this.transform.position, player.transform.position);
     }
 }
