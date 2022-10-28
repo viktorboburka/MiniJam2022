@@ -34,9 +34,9 @@ public class Enemy : MonoBehaviour
     }
 
     //returns true if this unit got killed
-    public bool getAttacked(int dmg, float knockback) {
-        hp -= dmg;
-        
+    public bool getAttacked(AttackInfo info) {
+        hp -= info.dmg;
+        //TODO: knockback
         //TODO: animation and sound feedback
         if (hp <= 0) {
             //TODO: get killed
