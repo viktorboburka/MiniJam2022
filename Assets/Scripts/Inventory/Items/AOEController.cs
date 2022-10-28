@@ -21,11 +21,13 @@ public class AOEController : MonoBehaviour
     }
 
     void Update(){
-        //if(coll.radius != )
+        coll.radius = 2f + (2f * (inventory.stats.crossCount * 0.15f));
+        rend.gameObject.transform.localScale = new Vector3(4f, 4f, 4f) + (new Vector3(4f, 4f, 4f) * (inventory.stats.crossCount * 0.15f));
     }
 
     void OnTriggerEnter(Collider coll){
         if(coll.tag == "Enemy")
+        if(!enemies.Contains(coll.gameObject.GetComponent<Enemy>()))
             enemies.Add(coll.gameObject.GetComponent<Enemy>());
     }
 
@@ -38,7 +40,8 @@ public class AOEController : MonoBehaviour
     IEnumerator DealAOE(float _cooldown, AttackInfo atkInfo){
         if(enemies.Count > 0)
             foreach(Enemy enemy in enemies){
-                enemy.getAttacked(atkInfo);
+                if(enemy != null)
+                    enemy.getAttacked(atkInfo);
             }
 
         yield return new WaitForSeconds(_cooldown);

@@ -7,11 +7,11 @@ public class Projectile : MonoBehaviour
     public AttackInfo attackInfo;
 
     void OnTriggerEnter(Collider coll){
-        if(coll.tag == "projectile")
+        if(coll.tag == "Projectile")
             return;
 
         if(coll.tag == "Enemy"){
-            coll.SendMessageUpwards("getAttacked", attackInfo); // add HitArguments
+            coll.SendMessageUpwards("getAttacked", attackInfo, SendMessageOptions.DontRequireReceiver); // add HitArguments
         }
 
         Destroy(gameObject);
