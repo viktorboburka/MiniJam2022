@@ -15,4 +15,9 @@ public class TestItem : Item
     {
         
     }
+
+    public override void Activate()
+    {
+        base.Activate();
+    }
 }

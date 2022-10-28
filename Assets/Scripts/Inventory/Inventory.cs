@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    List<Item> items = new List<Item>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnTriggerEnter(Collider coll){
+        if(coll.tag == "item"){
+            coll.GetComponent<Item>();
+        }
     }
 }
