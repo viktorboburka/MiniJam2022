@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    List<Item> items = new List<Item>();
+    [SerializeField] private List<Item> items = new List<Item>();
 
     void OnTriggerEnter(Collider coll){
-        if(coll.tag == "item"){
-            coll.GetComponent<Item>();
+        Debug.Log("Entered");
+        if(coll.tag == "Item"){
+            items.Add(coll.GetComponent<ItemDrop>().GetItem());
+            Destroy(coll.gameObject);
         }
     }
 }
