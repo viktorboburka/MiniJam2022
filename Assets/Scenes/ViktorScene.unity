@@ -645,7 +645,7 @@ PrefabInstance:
     - target: {fileID: 2876065330878745800, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
       propertyPath: ItemArgumets.shootPoint
       value: 
-      objectReference: {fileID: 2033206839}
+      objectReference: {fileID: 1535204360}
     - target: {fileID: 2876065330878745800, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
       propertyPath: Abilities.Slots.Array.size
       value: 1
@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 134910687}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -880,13 +880,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  maxHp: 0
+  maxHp: 10
   movementSpeed: 3.5
   range: 2
   dmg: 0
   attackSpeed: 2
   pursueDistance: 1.5
-  knockbackSpeed: 20
+  knockbackSpeed: 100
 --- !u!1 &226914829
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +904,7 @@ GameObject:
   - component: {fileID: 226914836}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1035,20 +1035,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  maxHp: 0
+  maxHp: 10
   movementSpeed: 3.5
   range: 5
   dmg: 0
   attackSpeed: 0.5
   pursueDistance: 4
-  knockbackSpeed: 20
+  knockbackSpeed: 100
 --- !u!43 &537139413
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-28342
+  m_Name: pb_Mesh27372
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2691,6 +2691,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &1535204360 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7148424678005577671, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+  m_PrefabInstance: {fileID: 133052148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1914905825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,8 +2731,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2033206839 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2876065330878745840, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
-  m_PrefabInstance: {fileID: 133052148}
-  m_PrefabAsset: {fileID: 0}
