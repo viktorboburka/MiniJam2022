@@ -21,8 +21,9 @@ public class Item : ScriptableObject
 
     //Stats
     public float cooldown;
-    public float damage;
+    public int damage;
     public float speed;
+    public float knockback;
 
     //Functions
     public virtual void Activate(ItemArgs _args){

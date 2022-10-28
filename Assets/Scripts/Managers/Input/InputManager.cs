@@ -44,6 +44,51 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Abillity1"",
+                    ""type"": ""Button"",
+                    ""id"": ""5fd95c2a-af57-4206-8230-da4524cb49af"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Abillity2"",
+                    ""type"": ""Button"",
+                    ""id"": ""7a34b93e-cf5b-4a14-bfdc-38ea62d623b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Abillity3"",
+                    ""type"": ""Button"",
+                    ""id"": ""79eba128-4c78-47a9-9084-6fc0ecda7472"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Abillity4"",
+                    ""type"": ""Button"",
+                    ""id"": ""cfc934cb-aac2-4d5e-8ee6-2f6a6d1e63fe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Abillity5"",
+                    ""type"": ""Button"",
+                    ""id"": ""b8f4402b-7b33-4048-869f-e4a0719d11dd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +157,61 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d35754e-a7f6-4bf7-b849-483393735bc0"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Abillity1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ec375880-3753-4094-bbed-d15fa89a2418"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Abillity2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""abd3ed28-f580-44b3-8daf-c5914472a43e"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Abillity3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd1ecb63-f418-4e1a-8a48-c69a6107cec5"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Abillity4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11453bf5-9b7f-4a1c-bd66-f47670f1a28a"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Abillity5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +222,11 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_Abillity1 = m_Player.FindAction("Abillity1", throwIfNotFound: true);
+        m_Player_Abillity2 = m_Player.FindAction("Abillity2", throwIfNotFound: true);
+        m_Player_Abillity3 = m_Player.FindAction("Abillity3", throwIfNotFound: true);
+        m_Player_Abillity4 = m_Player.FindAction("Abillity4", throwIfNotFound: true);
+        m_Player_Abillity5 = m_Player.FindAction("Abillity5", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,12 +288,22 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_Abillity1;
+    private readonly InputAction m_Player_Abillity2;
+    private readonly InputAction m_Player_Abillity3;
+    private readonly InputAction m_Player_Abillity4;
+    private readonly InputAction m_Player_Abillity5;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
         public PlayerActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @Abillity1 => m_Wrapper.m_Player_Abillity1;
+        public InputAction @Abillity2 => m_Wrapper.m_Player_Abillity2;
+        public InputAction @Abillity3 => m_Wrapper.m_Player_Abillity3;
+        public InputAction @Abillity4 => m_Wrapper.m_Player_Abillity4;
+        public InputAction @Abillity5 => m_Wrapper.m_Player_Abillity5;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -204,6 +319,21 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Abillity1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity1;
+                @Abillity1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity1;
+                @Abillity1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity1;
+                @Abillity2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity2;
+                @Abillity2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity2;
+                @Abillity2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity2;
+                @Abillity3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity3;
+                @Abillity3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity3;
+                @Abillity3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity3;
+                @Abillity4.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity4;
+                @Abillity4.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity4;
+                @Abillity4.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity4;
+                @Abillity5.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity5;
+                @Abillity5.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity5;
+                @Abillity5.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbillity5;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -214,6 +344,21 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @Abillity1.started += instance.OnAbillity1;
+                @Abillity1.performed += instance.OnAbillity1;
+                @Abillity1.canceled += instance.OnAbillity1;
+                @Abillity2.started += instance.OnAbillity2;
+                @Abillity2.performed += instance.OnAbillity2;
+                @Abillity2.canceled += instance.OnAbillity2;
+                @Abillity3.started += instance.OnAbillity3;
+                @Abillity3.performed += instance.OnAbillity3;
+                @Abillity3.canceled += instance.OnAbillity3;
+                @Abillity4.started += instance.OnAbillity4;
+                @Abillity4.performed += instance.OnAbillity4;
+                @Abillity4.canceled += instance.OnAbillity4;
+                @Abillity5.started += instance.OnAbillity5;
+                @Abillity5.performed += instance.OnAbillity5;
+                @Abillity5.canceled += instance.OnAbillity5;
             }
         }
     }
@@ -222,5 +367,10 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnAbillity1(InputAction.CallbackContext context);
+        void OnAbillity2(InputAction.CallbackContext context);
+        void OnAbillity3(InputAction.CallbackContext context);
+        void OnAbillity4(InputAction.CallbackContext context);
+        void OnAbillity5(InputAction.CallbackContext context);
     }
 }
