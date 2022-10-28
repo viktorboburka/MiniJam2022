@@ -11,12 +11,17 @@ public class MovementComponent : MonoBehaviour
 {
 
     [Header("Player Attributes")]
-    [SerializeField] private float speed = 10;
-    [SerializeField] private float speedMultiplier = 1;
-    [SerializeField] private float sensitivity = 1;
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private float speedMultiplier = 1f;
+    [SerializeField] private float sensitivity = 1f;
+
+    [SerializeField] private bool enableCameraYRotation = false;
+    [SerializeField] private float cameraClampMin = -45f;
+    [SerializeField] private float cameraClampMax = 45f;
 
     [Header("Player Components")]
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private Transform cameraT;
     [SerializeField] public InputManager inputManager;
 
 
@@ -82,9 +87,16 @@ public class MovementComponent : MonoBehaviour
         rotationX += mouseX * sensitivity * 0.1f;
         rotationY -= mouseY * sensitivity * 0.1f;
 
-        rotationX = Mathf.Clamp(rotationX, -90f, 90f);
+        if (enableCameraYRotation)
+        {
+            rotationX = Mathf.Clamp(rotationX, cameraClampMin, cameraClampMax);
+            cameraT.localRotation = Quaternion.Euler(-rotationX, 0, 0);
+        }
+        else
+        {
+            cameraT.localRotation = Quaternion.Euler(0, 0, 0);
+        }
 
-        //cameraT.localRotation = Quaternion.Euler(-rotationX, 0, 0);
         transform.rotation = Quaternion.Euler(0, -rotationY, 0);
     }
 }
