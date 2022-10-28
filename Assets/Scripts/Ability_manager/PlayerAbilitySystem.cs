@@ -7,6 +7,9 @@ public class PlayerAbilitySystem : MonoBehaviour
 {
     [SerializeField]
     public AbilitieList Abilities = new();
+    [SerializeField]
+    public ItemArgs argumets = new();
+
 
     #region mockKeyBinds
     [SerializeField]
@@ -17,7 +20,6 @@ public class PlayerAbilitySystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Abilities.items.Add(new TestItem());
     }
 
     // Update is called once per frame
@@ -26,7 +28,7 @@ public class PlayerAbilitySystem : MonoBehaviour
         if (mockKeyBindLeftClick)
         {
             mockKeyBindLeftClick = false;
-            Abilities.GetAbility(KeyCode.Mouse0).Activate();
+            Abilities.GetAbility(KeyCode.Mouse0).Activate(argumets);
         }
 
 

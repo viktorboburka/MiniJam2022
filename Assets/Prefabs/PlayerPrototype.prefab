@@ -485,6 +485,8 @@ MonoBehaviour:
   Abilities:
     items: []
     ControlKeys: 4301000044010000710000006500000072000000
+  argumets:
+    shootPoint: {fileID: 879291420285987998}
   mockKeyBindLeftClick: 0
 --- !u!1 &8462754285528298830
 GameObject:

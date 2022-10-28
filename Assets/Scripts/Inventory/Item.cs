@@ -7,6 +7,7 @@ public enum ItemType {
     AutoWeapon
 }
 
+[System.Serializable]
 public class ItemArgs {
     public Transform shootPoint;
 }
