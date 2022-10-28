@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class PlayerAbilitySystem : MonoBehaviour
 {
-    [SerializeField]
-    public Abilities Abilities = new();
-    [SerializeField]
-    public ItemArgs ItemArgumets = new();
+    [SerializeField] private List<Slot> Slots = new();
+    [SerializeField] private ItemArgs ItemArgumets = new();
+    [SerializeField] private Inventory Inventory;
 
-    public InputManager inputManager;
+    private InputManager inputManager;
 
 
     void Awake()
@@ -21,20 +21,37 @@ public class PlayerAbilitySystem : MonoBehaviour
     }
 
 
-
     private void OnEnable()
     {
         inputManager.Enable();
+    }
 
-        for (int i = 0; i < Abilities.Slots.Count; i++)
+
+    /// <summary>
+    /// called when new item is added to inventory
+    /// </summary>
+    public void AddedItem(Item item)
+    {
+
+        Item newItem = item;
+        var newSlot = new Slot() { item = newItem };
+        Slots.Add(newSlot);
+
+        if (newItem.itemType == ItemType.ManualWeapon)
         {
-            Abilities.Slots[i].KeyBind = inputManager.FindAction("Player/Abillity" + (i + 1));
-            Abilities.Slots[i].KeyBind.Enable();
-            var activatedSlot = Abilities.Slots[i];
-            Abilities.Slots[i].KeyBind.performed += ctx => ActivateItem(activatedSlot);
-
+            //gets number of manual wepons
+            var position = Slots.FindAll(slot => slot.item.itemType == ItemType.ManualWeapon).Count;
+            newSlot.KeyBind = inputManager.FindAction("Player/Abillity" + (position));
+            newSlot.KeyBind.Enable();
+            newSlot.KeyBind.performed += ctx => ActivateItem(newSlot);
+        }
+        else if (newItem.itemType == ItemType.AOEWeapon)
+        {
+            newItem.Activate(ItemArgumets);
         }
     }
+
+
 
     private void ActivateItem(Slot slot)
     {
@@ -44,8 +61,6 @@ public class PlayerAbilitySystem : MonoBehaviour
         slot.CooldownTime = slot.item.cooldown;
     }
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -54,10 +69,17 @@ public class PlayerAbilitySystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //cooldown
-        Abilities.Slots
+        //cooling down
+        Slots
             .FindAll(slot => slot.CooldownTime > 0)
             .ForEach(slot => slot.CooldownTime -= Time.deltaTime);
+
+        //activates auto every cooldown
+        Slots
+            .FindAll(slot => slot.item.itemType == ItemType.AutoWeapon)
+            .ForEach(slot => ActivateItem(slot));
+
+
     }
 
 
