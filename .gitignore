@@ -49,7 +49,7 @@ crashlytics-build.properties
 /UserSettings/
 
 # ProbuilderSettings
-/ProjectSettings/Packages/com.unity.probuilder/Settings.json
+ProjectSettings/Packages/com.unity.probuilder/Settings.json
 
 # VSCode
 .vscode
