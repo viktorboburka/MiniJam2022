@@ -12,4 +12,8 @@ public class Item : MonoBehaviour
     public string itemName;
     public Sprite itemSprite;
     public ItemType itemType;
+
+    public virtual void Activate(){
+        
+    }
 }
