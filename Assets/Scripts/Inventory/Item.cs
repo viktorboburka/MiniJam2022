@@ -7,6 +7,10 @@ public enum ItemType {
     AutoWeapon
 }
 
+public class ItemArgs {
+    public Transform shootPoint;
+}
+
 public class Item : ScriptableObject
 {
     //Information
@@ -20,6 +24,10 @@ public class Item : ScriptableObject
     public float speed;
 
     //Functions
+    public virtual void Activate(ItemArgs _args){
+        
+    }
+    
     public virtual void Activate(){
         
     }
