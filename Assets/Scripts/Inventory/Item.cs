@@ -7,7 +7,7 @@ public enum ItemType {
     AutoWeapon
 }
 
-public class Item : MonoBehaviour
+public class Item : ScriptableObject
 {
     public string itemName;
     public Sprite itemSprite;
