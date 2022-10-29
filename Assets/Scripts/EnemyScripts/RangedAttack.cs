@@ -11,26 +11,14 @@ public class RangedAttack : Attack
     [SerializeField]
     GameObject projectilePrefab;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void Perform(GameObject player, Enemy enemy) {
         //TODO: play animation & sound
 
-        playerMovementPrediction = GetDistanceFromPlayer(player) / projectileSpeed;
-        Vector3 projectileTarget = player.transform.position + player.transform.GetComponent<Rigidbody>().velocity * playerMovementPrediction;
+        //playerMovementPrediction = GetDistanceFromPlayer(player) / projectileSpeed;
+        Vector3 projectileTarget = player.transform.position - transform.position; // + player.transform.GetComponent<Rigidbody>().velocity * playerMovementPrediction;
 
-        GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.LookRotation(projectileTarget - this.transform.position, Vector3.up));
-        projectile.GetComponent<Rigidbody>().velocity = (projectileTarget - this.transform.position).normalized * projectileSpeed;
+        GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.LookRotation(projectileTarget, Vector3.up));
+        projectile.GetComponent<Rigidbody>().velocity = projectile.transform.forward  * projectileSpeed;
         projectile.GetComponent<EnemyProjectile>().info = new AttackInfo(enemy.getDmg(), 0);
     }
 
