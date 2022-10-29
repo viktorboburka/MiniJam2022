@@ -18,8 +18,6 @@ public class Enemy : MonoBehaviour
     private int dmg;
     [SerializeField]
     private float attackSpeed;
-    [SerializeField]
-    private float pursueDistance;
 
     private float knockbackSpeed = 100.0f;
 
@@ -63,9 +61,6 @@ public class Enemy : MonoBehaviour
         hp = maxHp;
     }
 
-    public float getPursueDistance() {
-        return pursueDistance;
-    }
 
     public float getRange() {
         return range;

@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent navAgent;
     private Enemy enemy;
 
-    private bool isKnockedBack;
+    private bool isKnockedBack = false;
 
     private float lastAttackTime = -Mathf.Infinity;
 
@@ -22,8 +22,6 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         navAgent = this.GetComponent<NavMeshAgent>();
         enemy = gameObject.GetComponent<Enemy>();
-        isKnockedBack = false;
-
 
         navAgent.speed = enemy.getMovementSpeed();
         navAgent.angularSpeed = navAgent.speed * navAngularModifier;
@@ -32,12 +30,23 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (GetDistanceFromPlayer() >= enemy.getPursueDistance() && !isKnockedBack) {
+        if (!isKnockedBack) {
             navAgent.SetDestination(player.transform.position);
+            if (GetDistanceFromPlayer() <= navAgent.stoppingDistance) {
+                Quaternion lookRotation = Quaternion.LookRotation(player.transform.position - this.transform.position);
+                transform.rotation = Quaternion.Slerp(this.transform.rotation, lookRotation, Time.deltaTime * navAgent.angularSpeed/10.0f);
+            }
         }
         if (PlayerInRange() && ReadyToAttack()) {
             Attack();
         }
+    }
+
+    private Vector3 GetRandomPointInRadius(float r) {
+        float rx = Random.RandomRange(-r, r);
+        float rz = Random.RandomRange(-r, r);
+
+        return new Vector3(rx, transform.position.y, rz);
     }
 
     private float GetDistanceFromPlayer() {
