@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
     }
 
     //returns true if this unit got killed
-    public bool getAttacked(AttackInfo info) {
+    public void getAttacked(AttackInfo info) {
         //Debug.Log(this + " getAttacked called");
 
         hp -= info.dmg;
@@ -54,9 +54,7 @@ public class Enemy : MonoBehaviour
             }
 
             Destroy(gameObject);
-            //TODO: get killed
         }
-        return false;
     }
 
 
