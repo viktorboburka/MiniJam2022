@@ -23,6 +23,13 @@ public class PlayerStat{
 
 public class Inventory : MonoBehaviour
 {
+    //HP SYSTEM + LEVELING HEALING TO-DO
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int health;
+
+    [SerializeField] private float bloodCooldown = 0.6f;
+    [SerializeField] private bool canBloodDmg = true;
+
     [SerializeField] private LevelUISystem levelSystem;
     [SerializeField] private int experienceNeeded = 250;
     private int experience = 0;
@@ -31,6 +38,26 @@ public class Inventory : MonoBehaviour
     [SerializeField] private UnityEvent<Item> onAddedItem;
     [SerializeField] private UnityEvent<Item> onUpgradedItem;
     [SerializeField] public PlayerStat stats = new PlayerStat();
+
+    void Awake(){
+        health = maxHealth;
+    }
+
+    void Update(){
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, Vector3.down, out hit, 2f)){
+            if(hit.transform.tag == "Blood" && canBloodDmg){
+                StartCoroutine(BloodCooldown());
+                GetDamaged(hit.collider.GetComponent<BloodSplat>().damage);
+            }
+        }
+    }
+
+    IEnumerator BloodCooldown(){
+        canBloodDmg = false;
+        yield return new WaitForSeconds(bloodCooldown);
+        canBloodDmg = true;
+    }
 
     void OnTriggerEnter(Collider coll){
         Debug.Log("Entered");
@@ -44,6 +71,27 @@ public class Inventory : MonoBehaviour
             
             Destroy(coll.gameObject);
         }
+    }
+
+    public void GetDamaged(int dmg){
+        health -= dmg;
+        if(health <= 0)
+            health = 0;
+            //GameController.GameOver();
+    }
+
+    public void GetHealed(int heal){
+        if(health + heal > maxHealth)
+            health = maxHealth;
+        else
+            health += heal;
+    }
+
+    public void LevelHeal(){
+        if(health + (maxHealth * 0.2f) > maxHealth)
+            health = maxHealth;
+        else
+            health += (int)(maxHealth * 0.2f);
     }
 
     public void AddItem(Item _item){

@@ -10,6 +10,7 @@ TagManager:
   - WorldBorder
   - WorldObject
   - World
+  - Blood
   layers:
   - Default
   - TransparentFX

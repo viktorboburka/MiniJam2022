@@ -2435,6 +2435,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2876065330878745845}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: LevelHeal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1555630605500764196
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,6 +3113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9bdb1c7ee76812488d193f6e93b87b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 0
   levelSystem: {fileID: 7148424676858967790}
   experienceNeeded: 50
   items: []
