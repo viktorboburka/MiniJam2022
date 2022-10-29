@@ -7,7 +7,7 @@ public class SpriteRotation : MonoBehaviour
     public Transform playerPos;
 
     void Start(){
-        playerPos = GameObject.FindWithTag("Player").transform;
+        playerPos = Camera.main.transform;
     }
 
     // Update is called once per frame
