@@ -12,20 +12,25 @@ public class WaveManager : MonoBehaviour
 
 
     [Header("Spawner Attributes")]
-    [SerializeField] private float defaultWaveTime = 60;
+    [SerializeField] private float baseWaveTime = 60;
     [SerializeField] private float spawnRadiusMax = 60;
     [SerializeField] private float spawnRadiusMin = 40;
     [SerializeField] private LayerMask layersForSpawns;
 
     [Header("Wave Modifiers")]
-    [SerializeField] private int increaseGroupCountEachXWave = 2;
-    [SerializeField] private int increaseGroupSizeEachXWave = 10;
+    [SerializeField] private int increaseWaveTimeOn = 5;
+    [SerializeField] private float increaseWaveTimeBy = 10;
+    [SerializeField] private float waveTimeModifier;
+    [SerializeField] private int increaseGroupCountOn = 2;
+    [SerializeField] private int increaseGroupCountBy = 1;
+    [SerializeField] private int increaseGroupSizeOn = 10;
+    [SerializeField] private int increaseGroupSizeBy = 1;
 
     [Header("Next Wave")]
     [SerializeField] public int waveNumber = 1;
     [SerializeField] private float nextWaveIn = 15;
-    [SerializeField] private int nextWaveGroups = 5;
-    [SerializeField] private int nextWaveEnemiesInGroup = 1;
+    [SerializeField] private int nextWaveGroupCount = 5;
+    [SerializeField] private int nextWaveGroupSize = 1;
 
     [Header("Stats")]
     [SerializeField] public int actualWaveNumber = 0;
@@ -76,7 +81,6 @@ public class WaveManager : MonoBehaviour
 
     public bool IsValidSpawnPoint(Vector3 pos)
     {
-
         RaycastHit hitRay;
         if (Physics.Raycast(pos, Vector3.down, out hitRay, Mathf.Infinity, layersForSpawns))
         {
@@ -93,7 +97,6 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    
 
     public void SpawnRandomEnemy(Vector3 pos)
     {
@@ -106,7 +109,15 @@ public class WaveManager : MonoBehaviour
             if (enemy == null)
                 continue;
 
-            for(int i = 0; i < enemy.chanceToSpawn; i++)
+            int spawnChance = enemy.chanceToSpawn;
+            if(waveNumber % enemy.modifyChanceToSpawnOn == 0)
+            {
+                int modifyChanceToSpawnBy = waveNumber / enemy.modifyChanceToSpawnOn;
+                spawnChance += enemy.modifyChanceToSpawnBy * modifyChanceToSpawnBy;
+            }
+
+
+            for(int i = 0; i < spawnChance; i++)
                 enemyPrefabs.Add(enemy.enemyPrefab);
         }
 
@@ -171,16 +182,16 @@ public class WaveManager : MonoBehaviour
     void SpawnWave()
     {
         Vector3 pos;
-        for (int i = 0; i < nextWaveGroups; i++)
+        for (int i = 0; i < nextWaveGroupCount; i++)
         {
             if (GetRandomPos(out pos))
             {
-                SpawnRandomEnemyGroup(pos, nextWaveEnemiesInGroup, 20);
+                SpawnRandomEnemyGroup(pos, nextWaveGroupSize, 20);
             }
         }
     }
 
-    public void HandleElitesSpawn(int multiplier = 1)
+    public void HandleGuaranteedSpawns(int multiplier = 1)
     {
         if (enemyData.Count == 0)
             return;
@@ -192,12 +203,18 @@ public class WaveManager : MonoBehaviour
 
 
 
-            if (enemy.eliteSpawnEachWave == 0)
+            if (enemy.guaranteedSpawnOn == 0)
                 continue;
 
-            if (waveNumber % enemy.eliteSpawnEachWave == 0)
+            if (waveNumber % enemy.guaranteedSpawnOn == 0)
             {
-                for(int i = 0; i < multiplier; i++)
+                int guaranteedSpawnCount = enemy.guaranteedSpawnCount;
+                if(waveNumber % enemy.modifyGuaranteedSpawnCountOn == 0)
+                {
+                    int modifyguaranteedSpawnCountBy = waveNumber / enemy.modifyGuaranteedSpawnCountOn;
+                    guaranteedSpawnCount += enemy.modifyGuaranteedSpawnCountBy * modifyguaranteedSpawnCountBy;
+                }
+                for(int i = 0; i < multiplier * guaranteedSpawnCount; i++)
                 {
                     Vector3 pos;
                     if (GetRandomPos(out pos))
@@ -209,19 +226,28 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        waveTimeModifier = baseWaveTime;
+    }
+
 
     void StartNextWave()
     {
         actualWaveNumber = waveNumber;
         SpawnWave();
-        HandleElitesSpawn();
+        HandleGuaranteedSpawns();
         waveNumber++;
-        if(waveNumber % increaseGroupCountEachXWave == 0)
-            nextWaveGroups++;
+        if(waveNumber % increaseGroupCountOn == 0)
+            nextWaveGroupCount += increaseGroupCountBy;
 
-        if(waveNumber % increaseGroupSizeEachXWave == 0)
-            nextWaveEnemiesInGroup++;
-        nextWaveIn = defaultWaveTime;
+        if(waveNumber % increaseGroupSizeOn == 0)
+            nextWaveGroupSize += increaseGroupSizeBy;
+
+        if(waveNumber % increaseWaveTimeOn == 0)
+            waveTimeModifier += increaseWaveTimeBy;
+
+        nextWaveIn = waveTimeModifier;
 
     }
 

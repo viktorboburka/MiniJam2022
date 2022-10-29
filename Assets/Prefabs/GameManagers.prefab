@@ -45,18 +45,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawRays: 1
-  defaultWaveTime: 15
+  baseWaveTime: 10
   spawnRadiusMax: 100
   spawnRadiusMin: 60
   layersForSpawns:
     serializedVersion: 2
     m_Bits: 256
-  increaseGroupCountEachXWave: 2
-  increaseGroupSizeEachXWave: 10
+  increaseWaveTimeOn: 1
+  increaseWaveTimeBy: 1
+  waveTimeModifier: 0
+  increaseGroupCountOn: 10
+  increaseGroupCountBy: 1
+  increaseGroupSizeOn: 15
+  increaseGroupSizeBy: 2
   waveNumber: 1
   nextWaveIn: 1
-  nextWaveGroups: 1
-  nextWaveEnemiesInGroup: 5
+  nextWaveGroupCount: 2
+  nextWaveGroupSize: 1
   actualWaveNumber: 0
   enemiesSpawned: 0
   enemiesKilled: 0
