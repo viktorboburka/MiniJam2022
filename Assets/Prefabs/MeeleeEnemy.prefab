@@ -22,7 +22,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1431905860022747925
 Transform:
   m_ObjectHideFlags: 0
@@ -155,7 +155,9 @@ MonoBehaviour:
   dmg: 0
   attackSpeed: 2
   pursueDistance: 1.5
-  bloodPuddle: {fileID: 9088948930767243423, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
+  drops:
+  - {fileID: 9088948930767243423, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
+  - {fileID: 1948108312405830696, guid: 3f17e52e7c3453944b43613d745c7685, type: 3}
 --- !u!114 &1431905860022747947
 MonoBehaviour:
   m_ObjectHideFlags: 0

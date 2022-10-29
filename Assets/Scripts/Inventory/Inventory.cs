@@ -4,11 +4,21 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerStat{
+    public PlayerStat(){
+        items.Add(boltCount);
+        items.Add(garlicCount);
+        items.Add(crossCount);
+        items.Add(crossbowCount);
+        items.Add(stakeCount);
+    }
+
     public int boltCount = 0;
     public int garlicCount = 0;
     public int crossCount = 0;
     public int crossbowCount = 0;
     public int stakeCount = 0;
+
+    public List<int> items = new();
 }
 
 public class Inventory : MonoBehaviour
@@ -30,6 +40,15 @@ public class Inventory : MonoBehaviour
             
             Destroy(coll.gameObject);
         }
+    }
+
+    public void AddItem(Item _item){
+        items.Add(_item);
+
+        if(!CheckItemCount(_item))
+            onAddedItem.Invoke(_item);
+        else
+            onUpgradedItem.Invoke(_item);
     }
 
     public void AddItemCount(Item _item){
@@ -89,5 +108,16 @@ public class Inventory : MonoBehaviour
         }
 
         return 0;
+    }
+
+    public int GetItemUniqueCount(){
+        int count = 0;
+        
+        foreach(int itemCount in stats.items){
+            if(itemCount > 0)
+                count++;
+        }
+
+        return count;
     }
 }

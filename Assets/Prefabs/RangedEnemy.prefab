@@ -155,7 +155,9 @@ MonoBehaviour:
   dmg: 10
   attackSpeed: 0.5
   pursueDistance: 4
-  bloodPuddle: {fileID: 9088948930767243423, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
+  drops:
+  - {fileID: 9088948930767243423, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
+  - {fileID: 1948108312405830696, guid: 3f17e52e7c3453944b43613d745c7685, type: 3}
 --- !u!114 &5337521773576550567
 MonoBehaviour:
   m_ObjectHideFlags: 0

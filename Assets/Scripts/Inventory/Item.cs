@@ -20,6 +20,7 @@ public class Item : ScriptableObject
     public string itemName;
     public Sprite itemSprite;
     public ItemType itemType;
+    public string itemDescription;
 
     //Stats
     public float cooldown;

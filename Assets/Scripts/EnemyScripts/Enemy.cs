@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     private float knockbackSpeed = 100.0f;
 
     [SerializeField]
-    GameObject bloodPuddle;
+    private GameObject[] drops;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +47,10 @@ public class Enemy : MonoBehaviour
 
         //TODO: animation and sound feedback
         if (hp <= 0) {
-            Instantiate(bloodPuddle, gameObject.transform.position + Vector3.up * 1.5f, bloodPuddle.transform.rotation);
+            foreach(GameObject drop in drops) {
+                Instantiate(drop, transform.position + (Vector3.up * 0.25f), Quaternion.identity);
+            }
+
             Destroy(gameObject);
             //TODO: get killed
         }
