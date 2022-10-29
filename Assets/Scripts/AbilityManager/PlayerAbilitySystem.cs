@@ -12,12 +12,11 @@ public class PlayerAbilitySystem : MonoBehaviour
 
 
     [SerializeField] private ItemArgs ItemArgumets = new();
-    private InputManager inputManager;
+    [SerializeField] private InputActionAsset actions;
 
 
     void Awake()
     {
-        inputManager = new InputManager();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -25,7 +24,6 @@ public class PlayerAbilitySystem : MonoBehaviour
 
     private void OnEnable()
     {
-        inputManager.Enable();
     }
 
 
@@ -35,6 +33,7 @@ public class PlayerAbilitySystem : MonoBehaviour
     public void AddedItem(Item item)
     {
 
+
         Item newItem = item;
         var newSlot = new Slot() { item = newItem };
         Slots.Add(newSlot);
@@ -43,7 +42,7 @@ public class PlayerAbilitySystem : MonoBehaviour
         {
             //gets number of manual wepons
             var position = Slots.FindAll(slot => slot.item.itemType == ItemType.ManualWeapon).Count;
-            newSlot.KeyBind = inputManager.FindAction("Player/Abillity" + (position));
+            newSlot.KeyBind = actions["Player/Abillity" + position];
             newSlot.KeyBind.Enable();
             newSlot.KeyBind.performed += ctx => ActivateItem(newSlot);
         }
