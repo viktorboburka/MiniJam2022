@@ -10,32 +10,18 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private PlayerAbilitySystem AbilitySys;
     [SerializeField] private GameObject itemIcons;
 
-    [SerializeField] private Image heartImage;
-
     [SerializeField] private Image expirienceFillBar;
     [SerializeField] private Image HpFillBar;
 
 
     [SerializeField] private Inventory playerStats;
 
-    [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text timeText;
 
 
     private Image[] iconImage;
     private RectTransform[] barImage;
     private TMP_Text[] texts;
-
-    private int score;
-    public int Score 
-    { 
-        get => score; 
-        set 
-        {
-            score = value;
-            scoreText.text = score.ToString("000");
-        }
-    }
 
     public void NewSlotWasAdded() {
         var slotCount = AbilitySys.Slots.Count;
