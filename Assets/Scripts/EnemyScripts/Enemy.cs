@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject[] drops;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +46,6 @@ public class Enemy : MonoBehaviour
         //Debug.Log(this + " getAttacked called");
 
         hp -= info.dmg;
-        gameObject.GetComponent<EnemyAI>().getKnockedBack(info);
 
         //TODO: animation and sound feedback
         if (hp <= 0) {
@@ -54,7 +54,10 @@ public class Enemy : MonoBehaviour
             }
 
             Destroy(gameObject);
+            return;
         }
+
+        gameObject.GetComponent<EnemyAI>().getKnockedBack(info);
     }
 
 
