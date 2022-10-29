@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1680966876191265965}
   - component: {fileID: -1826566490782556484}
   - component: {fileID: 8306372589982088695}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: attackSideCube
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1267717757705257621}
   - component: {fileID: 7979338055246260182}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6459786764014207523}
   - component: {fileID: 1467842776793957745}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

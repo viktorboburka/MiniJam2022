@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7959200209575296326}
   - component: {fileID: 1680966876191265965}
   - component: {fileID: -1826566490782556484}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: attackCube
   m_TagString: Projectile
   m_Icon: {fileID: 0}

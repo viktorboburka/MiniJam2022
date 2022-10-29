@@ -48,6 +48,10 @@ public class PlayerUI : MonoBehaviour
 
     }
 
+    private void Awake(){
+        gameObject.SetActive(true);
+    }
+
     private void Start()
     {
         StopTime.resetTimer();
