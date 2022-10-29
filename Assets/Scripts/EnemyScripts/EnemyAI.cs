@@ -62,9 +62,6 @@ public class EnemyAI : MonoBehaviour
                 }
                 else {
                     randomDestination = GetRandomPointInRadius(enemy.getRandMovementRadius());
-                    /*do {
-                        randomDestination = GetRandomPointInRadius(randMovementRadius);
-                    } while ((randomDestination - player.transform.position).magnitude > GetDistanceFromPlayer());*/
                 }
 
                 isMovingRandomly = true;
@@ -118,6 +115,9 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void getKnockedBack(AttackInfo info) {
+        if (info.knockback < 0.1f) {
+            return;
+        }
         StartCoroutine(Knockback(info));
     }
 
