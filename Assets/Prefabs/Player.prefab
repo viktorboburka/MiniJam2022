@@ -3204,6 +3204,7 @@ MonoBehaviour:
     crossCount: 0
     crossbowCount: 0
     stakeCount: 0
+    dualBladeCount: 0
     items: 0000000000000000000000000000000000000000
   debugRestart:
     m_Name: Debug Restart

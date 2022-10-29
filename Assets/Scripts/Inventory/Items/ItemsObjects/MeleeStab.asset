@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8951d5e50836c8a4f8c74645b72dedf3, type: 3}
   m_Name: MeleeStab
   m_EditorClassIdentifier: 
-  itemName: Stabbing
+  itemName: Stake
   itemSprite: {fileID: 21300000, guid: 61ac40b257b3a994f841856ad38b2b6b, type: 3}
   itemType: 0
   itemDescription: stabs in front of you
@@ -20,7 +20,7 @@ MonoBehaviour:
   cooldownTick: 0
   damage: 5
   speed: 0
-  knockback: 30
+  knockback: 0
   radius: 0
   destructable: 0
   timeToDestroy: 0.3

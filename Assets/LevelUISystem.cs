@@ -42,6 +42,7 @@ public class LevelUISystem : MonoBehaviour
         }
 
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         anim.SetBool("isOpen", true);
     }
 
@@ -57,5 +58,8 @@ public class LevelUISystem : MonoBehaviour
         canLevelUp = true;
         Time.timeScale = timeScaleDefault;
         GetComponentInParent<MovementComponent>().SetLock(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        anim.SetBool("isOpen", false);
     }
 }

@@ -26,9 +26,7 @@ public class LevelItemUI : MonoBehaviour
     }
 
     public void SelectedItem(){
-        Cursor.lockState = CursorLockMode.Locked;
         btnSelf.enabled = false;
         inventory.AddItem(item);
-        animPrompt.SetBool("isOpen", false);
     }
 }

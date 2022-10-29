@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c86029fbf67494d950ccb38759fd8e, type: 3}
   m_Name: MeleeSlash
   m_EditorClassIdentifier: 
-  itemName: Side Slash
+  itemName: Dual Blades
   itemSprite: {fileID: 21300000, guid: a04ecc9d5e12d5d449077414eb86635e, type: 3}
-  itemType: 0
+  itemType: 1
   itemDescription: Side Slash
-  cooldown: 5
+  cooldown: 2
   cooldownTick: 0
-  damage: 3
+  damage: 20
   speed: 0
-  knockback: 90
+  knockback: 0
   radius: 0
   destructable: 0
   timeToDestroy: 0.3

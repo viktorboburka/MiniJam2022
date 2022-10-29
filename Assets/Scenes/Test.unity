@@ -313,7 +313,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh107234
+  m_Name: pb_Mesh123554
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -647,7 +647,7 @@ PrefabInstance:
     - target: {fileID: 6457156803058264131, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 299a35496df26704f88a5e33b2da69ba, type: 2}
+      objectReference: {fileID: 11400000, guid: 58fd27f318cb3b04c99ce99007c0d2a1, type: 2}
     - target: {fileID: 6457156803058264134, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
       propertyPath: m_Name
       value: ItemDrop (3)
@@ -1021,7 +1021,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh107218
+  m_Name: pb_Mesh123538
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1226,7 +1226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3722b0897243c19468af7e36780294c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 719a4efeec68be04ba72c1cbc49b9fe0, type: 2}
+  item: {fileID: 11400000, guid: 4486649f34cb3584f829b28609abfce5, type: 2}
   spriteRend: {fileID: 1628341308}
 --- !u!65 &1010016856
 BoxCollider:
@@ -1324,7 +1324,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh107186
+  m_Name: pb_Mesh123506
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2730,9 +2730,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7148424676858967791, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
-      propertyPath: m_UpdateMode
+    - target: {fileID: 5702041002741718910, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702041002741718910, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702041002741718910, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702041002741718910, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: Inventory, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}

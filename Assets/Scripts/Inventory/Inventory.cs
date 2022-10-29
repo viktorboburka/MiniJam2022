@@ -13,6 +13,7 @@ public class PlayerStat{
         items.Add(crossCount);
         items.Add(crossbowCount);
         items.Add(stakeCount);
+        items.Add(dualBladeCount);
     }
 
     public int boltCount = 0;
@@ -20,6 +21,7 @@ public class PlayerStat{
     public int crossCount = 0;
     public int crossbowCount = 0;
     public int stakeCount = 0;
+    public int dualBladeCount = 0;
 
     public List<int> items = new();
 }
@@ -150,6 +152,10 @@ public class Inventory : MonoBehaviour
                 stats.stakeCount++;
                 stats.items[4]++;
                 break;
+            case "Dual Blade":
+                stats.stakeCount++;
+                stats.items[5]++;
+                break;
         }
     }
 
@@ -180,6 +186,11 @@ public class Inventory : MonoBehaviour
                     return true;
                 else
                     return false;
+            case "Dual Blade":
+                if(stats.stakeCount > 0)
+                    return true;
+                else
+                    return false;
         }
 
         return false;
@@ -196,6 +207,8 @@ public class Inventory : MonoBehaviour
             case "Crossbow":
                     return stats.crossbowCount;
             case "Stake":
+                    return stats.stakeCount;
+            case "Dual Blade":
                     return stats.stakeCount;
         }
 
