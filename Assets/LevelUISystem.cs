@@ -34,6 +34,8 @@ public class LevelUISystem : MonoBehaviour
     }
 
     public void StartLevelingPrompt(){
+        GetComponentInParent<MovementComponent>().SetLock(true);
+
         Time.timeScale = 0;
         foreach(LevelItemUI itemLevel in itemsUI){
             itemLevel.UpdateItem(GenerateItem());
@@ -54,5 +56,6 @@ public class LevelUISystem : MonoBehaviour
     public void ConfirmLevelUp(){
         canLevelUp = true;
         Time.timeScale = timeScaleDefault;
+        GetComponentInParent<MovementComponent>().SetLock(false);
     }
 }

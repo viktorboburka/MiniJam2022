@@ -3010,7 +3010,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 06dd6d00aaf06544e90f43f5f3c06817, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -3120,6 +3120,7 @@ MonoBehaviour:
   mouseY: 0
   rotationX: 0
   rotationY: 0
+  locked: 0
 --- !u!54 &2876065330878745843
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4738,6 +4739,7 @@ MonoBehaviour:
   - {fileID: 1897316000}
   DebugLevelUp: 0
   levelUps: 0
+  timeScaleDefault: 0
 --- !u!1 &7148424678005577670
 GameObject:
   m_ObjectHideFlags: 0
