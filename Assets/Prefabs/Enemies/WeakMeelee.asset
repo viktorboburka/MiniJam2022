@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b074eac89be98654181ba26fdb5ca9d2, type: 3}
+  m_Name: WeakMeelee
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 1431905860022747923, guid: 0a896658f727dcb4aa8cc3f98bf679cd, type: 3}
+  chanceToSpawn: 1
+  modifyChanceToSpawnOn: 0
+  modifyChanceToSpawnBy: 0
+  guaranteedSpawnOn: 5
+  guaranteedSpawnCount: 5
+  modifyGuaranteedSpawnCountOn: 5
+  modifyGuaranteedSpawnCountBy: 5

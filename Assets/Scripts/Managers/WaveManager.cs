@@ -128,11 +128,12 @@ public class WaveManager : MonoBehaviour
                 continue;
 
             int spawnChance = enemy.chanceToSpawn;
-            if(waveNumber % enemy.modifyChanceToSpawnOn == 0)
-            {
-                int modifyChanceToSpawnBy = waveNumber / enemy.modifyChanceToSpawnOn;
-                spawnChance += enemy.modifyChanceToSpawnBy * modifyChanceToSpawnBy;
-            }
+            if (enemy.modifyChanceToSpawnOn != 0)
+                if(waveNumber % enemy.modifyChanceToSpawnOn == 0)
+                {
+                    int modifyChanceToSpawnBy = waveNumber / enemy.modifyChanceToSpawnOn;
+                    spawnChance += enemy.modifyChanceToSpawnBy * modifyChanceToSpawnBy;
+                }
 
 
             for(int i = 0; i < spawnChance; i++)
