@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
         //TODO: animation and sound feedback
         if (hp <= 0) {
             foreach(GameObject drop in drops) {
-                Instantiate(drop, transform.position + (Vector3.up * 0.25f), Quaternion.identity);
+                Instantiate(drop, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
             }
 
             Destroy(gameObject);
