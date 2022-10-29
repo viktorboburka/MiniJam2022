@@ -28,6 +28,7 @@ public class Item : ScriptableObject
     public int damage;
     public float speed;
     public float knockback;
+    public float radius;
     
     public bool destructable;
     public float timeToDestroy;

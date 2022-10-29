@@ -16,8 +16,12 @@ MonoBehaviour:
   itemSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   itemType: 2
   itemDescription: Circular AOE Damage
-  cooldown: 0.5
+  cooldown: 0
+  cooldownTick: 0.5
   damage: 1
-  speed: 0
+  speed: 2
   knockback: 0
+  radius: 2
+  destructable: 0
+  timeToDestroy: 0
   AOIPrefab: {fileID: 4985415678569948396, guid: b0a32d36d5689fa4bb15cb2b407a030f, type: 3}

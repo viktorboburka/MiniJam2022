@@ -22,14 +22,15 @@ public class AOEController : MonoBehaviour
         inventory = GameObject.FindWithTag("Player").GetComponent<Inventory>();
         _item = inventory.items.Find(x => x.itemName == AOEName);
 
-        Destroy(gameObject, timeToDestroy);
+        if(destructable)
+            Destroy(gameObject, timeToDestroy);
         
         StartCoroutine(DealAOE(_item.cooldownTick, new AttackInfo(_item.damage, _item.knockback)));
     }
 
     void Update(){
-        coll.radius = 2f + (2f * (inventory.GetItemCount(_item) * 0.15f));
-        rend.gameObject.transform.localScale = new Vector3(4f, 4f, 4f) + (new Vector3(4f, 4f, 4f) * (inventory.GetItemCount(_item) * 0.15f));
+        coll.radius = _item.radius + (_item.radius * (inventory.GetItemCount(_item) * 0.15f));
+        rend.gameObject.transform.localScale = (new Vector3(_item.radius, _item.radius, _item.radius) * 2) + ((new Vector3(_item.radius, _item.radius, _item.radius) * 2) * (inventory.GetItemCount(_item) * 0.15f));
     }
 
     void OnTriggerStay(Collider other){

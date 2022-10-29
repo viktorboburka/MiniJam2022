@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     public AttackInfo attackInfo;
 
     void OnTriggerEnter(Collider coll){
-        if(coll.tag == "Projectile")
+        if(coll.tag == "Projectile" || coll.tag == "Item")
             return;
 
         if(coll.tag == "Enemy"){

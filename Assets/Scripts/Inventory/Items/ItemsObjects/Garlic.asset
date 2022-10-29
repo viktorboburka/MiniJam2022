@@ -17,10 +17,11 @@ MonoBehaviour:
   itemType: 0
   itemDescription: Throws Garlicnade
   cooldown: 6
-  cooldownTick: 0.1
-  damage: 2
+  cooldownTick: 0.3
+  damage: 1
   speed: 1
   knockback: 0
+  radius: 4
   destructable: 1
   timeToDestroy: 4
   throwablePrefab: {fileID: 4813395409346847008, guid: c5905bdf486932b48a93011eb48b242e, type: 3}
