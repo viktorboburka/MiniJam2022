@@ -14,6 +14,11 @@ public class LevelUISystem : MonoBehaviour
 
     public int levelUps = 0;
     private bool canLevelUp = true;
+    public float timeScaleDefault = 0;
+
+    private void Awake(){
+        timeScaleDefault = Time.timeScale;
+    }
 
     private void Update(){
         if(DebugLevelUp){
@@ -29,6 +34,7 @@ public class LevelUISystem : MonoBehaviour
     }
 
     public void StartLevelingPrompt(){
+        Time.timeScale = 0;
         foreach(LevelItemUI itemLevel in itemsUI){
             itemLevel.UpdateItem(GenerateItem());
         }
@@ -47,5 +53,6 @@ public class LevelUISystem : MonoBehaviour
 
     public void ConfirmLevelUp(){
         canLevelUp = true;
+        Time.timeScale = timeScaleDefault;
     }
 }
