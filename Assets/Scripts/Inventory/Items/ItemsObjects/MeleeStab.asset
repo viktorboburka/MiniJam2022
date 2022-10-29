@@ -18,10 +18,10 @@ MonoBehaviour:
   itemDescription: stabs in front of you
   cooldown: 2
   cooldownTick: 0
-  damage: 20
+  damage: 5
   speed: 0
-  knockback: 60
+  knockback: 30
   radius: 0
   destructable: 0
-  timeToDestroy: 0
+  timeToDestroy: 0.3
   projectilePrefab: {fileID: 1625763195525071181, guid: f6a8c3520c72f424791fd8e43e7eee4a, type: 3}

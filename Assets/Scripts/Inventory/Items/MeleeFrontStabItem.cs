@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Melee", menuName = "ScriptableObjects/Items/Melee", order = 1)]
-public class MeleeItem : Item
+[CreateAssetMenu(fileName = "FrontMelee", menuName = "ScriptableObjects/Items/FrontMelee", order = 1)]
+public class MeleeFrontStabItem : Item
 {
     public GameObject projectilePrefab;
 
@@ -13,7 +13,7 @@ public class MeleeItem : Item
 
         GameObject dmgBox = Instantiate(projectilePrefab, _args.shootPoint.parent.position + _args.shootPoint.parent.forward * 1.5f, _args.shootPoint.parent.rotation, _args.shootPoint.transform);
 
-        Destroy(dmgBox, 1f);
+        Destroy(dmgBox, timeToDestroy);
 
         dmgBox.GetComponent<Melee>().attackInfo = new AttackInfo(damage + (int)(damage * _args.inventory.GetItemCount(this) * 0.15f), knockback);
     }
