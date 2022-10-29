@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b074eac89be98654181ba26fdb5ca9d2, type: 3}
   m_Name: TestCube3
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 8943783089114162585, guid: 371af207edad0b946868fef82acf9887, type: 3}
-  chanceToSpawn: 3
+  enemyPrefab: {fileID: 5337521773576550591, guid: 5ae1c61223f61f3448f161f0028ec95d, type: 3}
+  chanceToSpawn: 500
+  eliteSpawnEachWave: 0
