@@ -9,6 +9,7 @@ public class WaveManager : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private bool drawRays;
+    [SerializeField] private bool generateUselessRandom;
 
 
     [Header("Spawner Attributes")]
@@ -56,7 +57,24 @@ public class WaveManager : MonoBehaviour
             Debug.DrawRay(a, b, col, dur);
     }
 
+    private void DrawSpawnArea(Color col)
+    {
+            int surfNumMin = 360 / (int)(spawnRadiusMin);
+            for (float i = 0; i < 360; i += surfNumMin)
+            {
+                float radsNow = i * Mathf.Deg2Rad;
+                Vector3 posStart = playerT.position + new Vector3(spawnRadiusMin * Mathf.Cos(radsNow), playerT.position.y, spawnRadiusMin * Mathf.Sin(radsNow));
+                DrawRay(posStart, Vector3.up * 5, col);
+            }
 
+            int surfNumMax = 360 / (int)(spawnRadiusMax);
+            for (float i = 0; i < 360; i += surfNumMax)
+            {
+                float radsNow = i * Mathf.Deg2Rad;
+                Vector3 posStart = playerT.position + new Vector3(spawnRadiusMax * Mathf.Cos(radsNow), playerT.position.y, spawnRadiusMax * Mathf.Sin(radsNow));
+                DrawRay(posStart, Vector3.up * 5, col);
+            }
+    }
 
 
     public void SpawnRandomEnemyGroup(Vector3 pos, int count, int spacer = 1)
@@ -270,8 +288,12 @@ public class WaveManager : MonoBehaviour
     void Update()
     {
         HandleDeadEnemies();
-        Vector3 pos;
-        GetRandomPos(out pos);
+        DrawSpawnArea(Color.magenta);
+        if (generateUselessRandom)
+        {
+            Vector3 pos;
+            GetRandomPos(out pos);
+        }
         nextWaveIn -= Time.deltaTime;
         if (nextWaveIn <= 0)
             StartNextWave();
