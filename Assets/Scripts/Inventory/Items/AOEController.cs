@@ -10,12 +10,23 @@ public class AOEController : MonoBehaviour
     [SerializeField] public float timeToDestroy;
     [SerializeField] private SpriteRenderer rend;
     [SerializeField] private SphereCollider coll;
+    [SerializeField] private ParticleSystem[] particles;
 
     private Inventory inventory;
+    private ParticleSystem.ShapeModule[] shapeParticles;
 
     List<Enemy> enemies = new List<Enemy>();
 
     void Start(){
+        shapeParticles = new ParticleSystem.ShapeModule[particles.Length];
+
+        int i = 0;
+        foreach(ParticleSystem particle in particles){
+            shapeParticles[i] = particle.GetComponent<ParticleSystem>().shape;
+            i++;
+        }
+
+
         AOEName = _item.itemName;
         destructable = _item.destructable;
         timeToDestroy = _item.timeToDestroy;
@@ -29,6 +40,9 @@ public class AOEController : MonoBehaviour
     }
 
     void Update(){
+        for(int i = 0; i< shapeParticles.Length; i++)
+            shapeParticles[i].radius = _item.radius + (_item.radius * (inventory.GetItemCount(_item) * 0.15f));
+
         coll.radius = _item.radius + (_item.radius * (inventory.GetItemCount(_item) * 0.15f));
         rend.gameObject.transform.localScale = (new Vector3(_item.radius, _item.radius, _item.radius) * 2) + ((new Vector3(_item.radius, _item.radius, _item.radius) * 2) * (inventory.GetItemCount(_item) * 0.15f));
     }
