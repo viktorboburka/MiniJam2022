@@ -12,6 +12,12 @@ public class PlayerUI : MonoBehaviour
 
     [SerializeField] private Image heartImage;
 
+    [SerializeField] private Image expirienceFillBar;
+    [SerializeField] private Image HpFillBar;
+
+
+    [SerializeField] private Inventory playerStats;
+
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text timeText;
 
@@ -82,6 +88,15 @@ public class PlayerUI : MonoBehaviour
 
         //time
         timeText.text = StopTime.GetTime<string>();
+
+
+        //hp
+        float expirience = 1f - ((float)playerStats.GetExperience() / (float)playerStats.GetExperienceNeeded());
+        float hp = 1f - ((float)playerStats.GetHP() / (float)playerStats.GetMaxHP());
+
+        HpFillBar.fillAmount = hp;
+        expirienceFillBar.fillAmount = expirience;
+
 
 
     }

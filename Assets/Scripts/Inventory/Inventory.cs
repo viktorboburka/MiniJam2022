@@ -240,6 +240,7 @@ public class Inventory : MonoBehaviour
     }
 
     public int GetHP() { return health; }
+    public int GetMaxHP() { return maxHealth; }
     public int GetExperience() { return experience; }
     public int GetExperienceNeeded() { return experienceNeeded; }
 }

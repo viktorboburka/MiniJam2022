@@ -33,7 +33,10 @@ public class PlayerAbilitySystem : MonoBehaviour
     public void AddedItem(Item item)
     {
         if (Slots.Count >= 5)
+        {
+            Debug.Log("Maximum items achived");
             return;
+        }
 
         Item newItem = item;
         var newSlot = new Slot() { item = newItem };
