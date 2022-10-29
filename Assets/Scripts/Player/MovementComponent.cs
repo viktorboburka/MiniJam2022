@@ -36,6 +36,8 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] private float rotationX;
     [SerializeField] private float rotationY;
 
+    [SerializeField] private bool locked = false;
+
 
     private void OnEnable()
     {
@@ -66,8 +68,11 @@ public class MovementComponent : MonoBehaviour
 
     void Update()
     {
+        if (locked)
+            return;
+
         direction = transform.right * moveInput.ReadValue<Vector2>().x + transform.forward * moveInput.ReadValue<Vector2>().y;
-        
+
         if(direction != Vector3.zero)
             anim.SetBool("isWalking", true);
         else
@@ -81,13 +86,23 @@ public class MovementComponent : MonoBehaviour
         Move(direction);
     }
 
+    public void SetLock(bool mLock)
+    {
+        locked = mLock;
+    }
+
     private void Move(Vector3 _dir)
     {
+        if (locked)
+            return;
         rb.AddForce(_dir * speed * speedMultiplier, ForceMode.Acceleration);
     }
 
     private void Look()
     {
+        if (locked)
+            return;
+
         mouseX = lookInput.ReadValue<Vector2>().y;
         mouseY = lookInput.ReadValue<Vector2>().x;
 
