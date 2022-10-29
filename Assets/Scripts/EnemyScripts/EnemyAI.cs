@@ -80,7 +80,7 @@ public class EnemyAI : MonoBehaviour
             navAgent.SetDestination(randomDestination);
 
         }
-        Debug.Log("pos: " + transform.position + " rand: " + randomDestination + " is moving randomly: " + isMovingRandomly + " navdest: " + navAgent.destination + " stopping dist: " + navAgent.stoppingDistance);
+        //Debug.Log("pos: " + transform.position + " rand: " + randomDestination + " is moving randomly: " + isMovingRandomly + " navdest: " + navAgent.destination + " stopping dist: " + navAgent.stoppingDistance);
         if (PlayerInRange() && ReadyToAttack()) {
             Attack();
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
+    [SerializeField]
     public AttackInfo info;
 
     void OnTriggerEnter(Collider coll) {
@@ -11,7 +12,7 @@ public class EnemyProjectile : MonoBehaviour
             return;
 
         if (coll.tag == "Player") {
-            coll.SendMessageUpwards("getAttacked", info); // add HitArguments
+            coll.SendMessageUpwards("GetDamaged", info.dmg); // add HitArguments
         }
         Destroy(gameObject);
     }

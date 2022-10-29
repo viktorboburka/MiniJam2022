@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MeeleeAttack : Attack
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,6 @@ public class MeeleeAttack : Attack
 
     public override void Perform(GameObject player, Enemy enemy) {
         //TODO: play animation & sound
-        //player.GetAttacked(enemy.getDamage());
+        player.SendMessageUpwards("GetDamaged", enemy.getDmg());
     }
 }
