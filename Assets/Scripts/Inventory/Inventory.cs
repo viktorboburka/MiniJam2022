@@ -238,4 +238,8 @@ public class Inventory : MonoBehaviour
             LevelUp();
         }
     }
+
+    public int GetHP() { return health; }
+    public int GetExperience() { return experience; }
+    public int GetExperienceNeeded() { return experienceNeeded; }
 }
