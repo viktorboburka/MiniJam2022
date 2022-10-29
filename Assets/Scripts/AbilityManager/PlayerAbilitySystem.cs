@@ -32,7 +32,8 @@ public class PlayerAbilitySystem : MonoBehaviour
     /// </summary>
     public void AddedItem(Item item)
     {
-
+        if (Slots.Count >= 5)
+            return;
 
         Item newItem = item;
         var newSlot = new Slot() { item = newItem };
