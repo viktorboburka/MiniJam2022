@@ -23,6 +23,7 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform cameraT;
     [SerializeField] public InputManager inputManager;
+    [SerializeField] public Animator anim;
 
 
 
@@ -66,6 +67,12 @@ public class MovementComponent : MonoBehaviour
     void Update()
     {
         direction = transform.right * moveInput.ReadValue<Vector2>().x + transform.forward * moveInput.ReadValue<Vector2>().y;
+        
+        if(direction != Vector3.zero)
+            anim.SetBool("isWalking", true);
+        else
+            anim.SetBool("isWalking", false);
+
         Look();
     }
 

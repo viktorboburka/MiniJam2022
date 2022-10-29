@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 [System.Serializable]
 public class PlayerStat{
@@ -40,7 +42,25 @@ public class Inventory : MonoBehaviour
     [SerializeField] private UnityEvent<Item> onUpgradedItem;
     [SerializeField] public PlayerStat stats = new PlayerStat();
 
+    
+    [SerializeField] public InputManager inputManager;
+    [SerializeField] private InputAction debugRestart;
+
+    void OnEnable(){
+        inputManager.Enable();
+
+        debugRestart = inputManager.Player.DebugRestart;
+        debugRestart.Enable();
+        debugRestart.performed += RestartSceneDebug;
+    }
+
+    void OnDisable(){
+        inputManager.Disable();
+        debugRestart.Disable();
+    }
+
     void Awake(){
+        inputManager = new();
         health = maxHealth;
     }
 
@@ -52,6 +72,10 @@ public class Inventory : MonoBehaviour
                 GetDamaged(hit.collider.GetComponent<BloodSplat>().damage);
             }
         }
+    }
+
+    public void RestartSceneDebug(InputAction.CallbackContext context){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     IEnumerator BloodCooldown(){
@@ -75,9 +99,10 @@ public class Inventory : MonoBehaviour
 
     public void GetDamaged(int dmg){
         health -= dmg;
-        if(health <= 0)
+        if(health <= 0){
             health = 0;
-            //GameController.GameOver();
+            GetComponent<CapsuleCollider>().enabled = false;
+        }
     }
 
     public void GetHealed(int heal){
