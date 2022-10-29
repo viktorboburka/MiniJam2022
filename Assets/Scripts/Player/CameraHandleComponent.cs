@@ -14,6 +14,7 @@ public class CameraHandleComponent : MonoBehaviour
     [SerializeField] private LayerMask cameraObstructLayers;
     [SerializeField] private bool obstructHandleRotation = false;
     [SerializeField] private float obstructOffset = 0.1f;
+    [SerializeField] private float obstructRaycastSides = 1f;
 
     [Header("Camera Components")]
     [SerializeField] private Transform cameraRotationT;
@@ -22,7 +23,11 @@ public class CameraHandleComponent : MonoBehaviour
 
     [Header("Camera Obstructions")]
     [SerializeField] private List<GameObject> obstructions = new List<GameObject>();
-    [SerializeField] private float CameraSpring = 1;
+    [SerializeField] private float cameraSpring = 1;
+    [SerializeField] private float cameraSpringSides = 1;
+    [SerializeField] private bool cameraHitRight = false;
+    [SerializeField] private bool cameraHitLeft = false;
+    [SerializeField] private Vector3 cameraSidesOffest;
 
     private void DrawRay(Vector3 a, Vector3 b, Color col)
     {
@@ -75,28 +80,66 @@ public class CameraHandleComponent : MonoBehaviour
     }
 
 
+    private void HandleCameraSides(Vector3 cameraPos)
+    {
+        RaycastHit[] hitsRight = HandleRaycasts(cameraPos - cameraT.right * (obstructRaycastSides / 2), cameraT.right, obstructRaycastSides + (obstructRaycastSides / 2), cameraObstructLayers);
+        RaycastHit[] hitsLeft = HandleRaycasts(cameraPos + cameraT.right * (obstructRaycastSides / 2), -cameraT.right,  obstructRaycastSides + (obstructRaycastSides / 2), cameraObstructLayers);
+        cameraSpringSides = 1;
+        cameraHitRight = false;
+        cameraHitLeft = false;
+
+        if (hitsRight.Length == 0 && hitsLeft.Length == 0)
+            return;
+
+        foreach (RaycastHit hit in hitsRight)
+        {
+            if (hit.collider.tag != "WorldBorder")
+                continue;
+            cameraHitRight = true;
+            cameraSidesOffest -= cameraT.right * obstructRaycastSides;
+            DrawRay(cameraSidesOffest, Vector3.down, Color.cyan);
+            cameraSpringSides = (hit.distance / obstructRaycastSides) - (obstructRaycastSides / 2);
+        }
+
+        foreach (RaycastHit hit in hitsLeft)
+        {
+            if (hit.collider.tag != "WorldBorder")
+                continue;
+            cameraHitLeft = true;
+            cameraSidesOffest += cameraT.right * obstructRaycastSides;
+            DrawRay(cameraSidesOffest, Vector3.down, Color.cyan);
+            cameraSpringSides = (hit.distance / obstructRaycastSides) - (obstructRaycastSides / 2);
+        }
+
+    }
+
     private void HandleWorldBorder()
     {
         var heading = cameraHolderT.position - cameraRotationT.position;
         var dir = heading / cameraDefaultDist;
-        RaycastHit[] hits;
-        hits = HandleRaycasts(cameraRotationT.position, dir, cameraDefaultDist * (1 + obstructOffset), cameraObstructLayers);
+        RaycastHit[] hits = HandleRaycasts(cameraRotationT.position, dir, cameraDefaultDist * (1 + obstructOffset), cameraObstructLayers);
         if (hits.Length == 0)
-            CameraSpring = 1;
+            cameraSpring = 1;
+
 
 
         foreach (RaycastHit hit in hits)
         {
             if (hit.collider.tag != "WorldBorder")
                 continue;
-            CameraSpring = (hit.distance / cameraDefaultDist) - obstructOffset;
+            cameraSpring = (hit.distance / cameraDefaultDist) - obstructOffset;
         }
 
-        Vector3 newCameraPos = Vector3.Lerp(cameraRotationT.position, cameraHolderT.position, CameraSpring);
+
+        Vector3 newCameraPos = Vector3.Lerp(cameraRotationT.position, cameraHolderT.position, cameraSpring);
+        cameraSidesOffest = newCameraPos;
+        HandleCameraSides(newCameraPos);
+        newCameraPos = Vector3.Lerp(cameraSidesOffest, newCameraPos, cameraSpringSides);
+
         cameraT.position = newCameraPos;
         if (obstructHandleRotation)
         {
-            Vector3 newCameraRotation = Vector3.Lerp(cameraRotationT.eulerAngles, cameraHolderT.eulerAngles, CameraSpring);
+            Vector3 newCameraRotation = Vector3.Lerp(cameraRotationT.eulerAngles, cameraHolderT.eulerAngles, cameraSpring);
             cameraT.eulerAngles = newCameraRotation;
         }
 

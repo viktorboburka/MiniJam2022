@@ -23,5 +23,5 @@ MonoBehaviour:
   knockback: 90
   radius: 0
   destructable: 0
-  timeToDestroy: 0.03
+  timeToDestroy: 0.3
   projectilePrefab: {fileID: 1625763195525071181, guid: 0fb61a62f2dab204eb3dc30ed00a01e6, type: 3}

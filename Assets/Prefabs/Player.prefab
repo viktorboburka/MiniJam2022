@@ -3232,12 +3232,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   obstructHandleRotation: 0
-  obstructOffset: 0.25
+  obstructOffset: 0.15
+  obstructRaycastSides: 0.25
   cameraRotationT: {fileID: 8278148126955008331}
   cameraHolderT: {fileID: 8975591838423760459}
   cameraT: {fileID: 7597033886483688337}
   obstructions: []
-  CameraSpring: 1
+  cameraSpring: 1
+  cameraSpringSides: 1
+  cameraHitRight: 0
+  cameraHitLeft: 0
+  cameraSidesOffest: {x: 0, y: 0, z: 0}
 --- !u!114 &2876065330878745800
 MonoBehaviour:
   m_ObjectHideFlags: 0
