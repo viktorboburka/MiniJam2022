@@ -11,6 +11,6 @@ public class AOE : Item
     {
         base.Activate(_args);
 
-        Instantiate(AOIPrefab, _args.shootPoint.parent).GetComponent<AOEController>().AOEName = itemName;
+        Instantiate(AOIPrefab, _args.shootPoint.parent).GetComponent<AOEController>()._item = this;
     }
 }

@@ -24,9 +24,13 @@ public class Item : ScriptableObject
 
     //Stats
     public float cooldown;
+    public float cooldownTick;
     public int damage;
     public float speed;
     public float knockback;
+    
+    public bool destructable;
+    public float timeToDestroy;
 
     //Functions
     public virtual void Activate(ItemArgs _args){

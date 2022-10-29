@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class AOEController : MonoBehaviour
 {
-    [SerializeField] private Item _item;
+    [SerializeField] public Item _item;
     [SerializeField] public string AOEName;
+    [SerializeField] public bool destructable;
+    [SerializeField] public float timeToDestroy;
     [SerializeField] private SpriteRenderer rend;
     [SerializeField] private SphereCollider coll;
 
@@ -14,27 +16,34 @@ public class AOEController : MonoBehaviour
     List<Enemy> enemies = new List<Enemy>();
 
     void Start(){
-        inventory = transform.parent.GetComponent<Inventory>();
-        Debug.Log(inventory.items[0]);
+        AOEName = _item.itemName;
+        destructable = _item.destructable;
+        timeToDestroy = _item.timeToDestroy;
+        inventory = GameObject.FindWithTag("Player").GetComponent<Inventory>();
         _item = inventory.items.Find(x => x.itemName == AOEName);
-        StartCoroutine(DealAOE(_item.cooldown, new AttackInfo(_item.damage, _item.knockback)));
+
+        Destroy(gameObject, timeToDestroy);
+        
+        StartCoroutine(DealAOE(_item.cooldownTick, new AttackInfo(_item.damage, _item.knockback)));
     }
 
     void Update(){
-        coll.radius = 2f + (2f * (inventory.stats.crossCount * 0.15f));
-        rend.gameObject.transform.localScale = new Vector3(4f, 4f, 4f) + (new Vector3(4f, 4f, 4f) * (inventory.stats.crossCount * 0.15f));
+        coll.radius = 2f + (2f * (inventory.GetItemCount(_item) * 0.15f));
+        rend.gameObject.transform.localScale = new Vector3(4f, 4f, 4f) + (new Vector3(4f, 4f, 4f) * (inventory.GetItemCount(_item) * 0.15f));
     }
 
-    void OnTriggerEnter(Collider coll){
-        if(coll.tag == "Enemy")
-        if(!enemies.Contains(coll.gameObject.GetComponent<Enemy>()))
-            enemies.Add(coll.gameObject.GetComponent<Enemy>());
+    void OnTriggerStay(Collider other){
+            Debug.Log(other.gameObject);
+        if(other.tag == "Enemy" && !enemies.Contains(other.GetComponent<Enemy>())){
+            Debug.Log("Enemy in");
+            enemies.Add(other.GetComponent<Enemy>());
+        }
     }
 
-    void OnTriggerExit(Collider coll){
-        if(coll.tag == "Enemy")
-        if(enemies.Contains(coll.gameObject.GetComponent<Enemy>()))
-             enemies.Remove(coll.gameObject.GetComponent<Enemy>());
+    private void OnTriggerExit (Collider other) {
+        if(enemies.Contains(other.GetComponent<Enemy>())){
+            enemies.Remove(other.GetComponent<Enemy>());
+        }
     }
 
     IEnumerator DealAOE(float _cooldown, AttackInfo atkInfo){
