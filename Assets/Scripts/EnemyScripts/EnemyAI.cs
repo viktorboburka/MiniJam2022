@@ -18,8 +18,6 @@ public class EnemyAI : MonoBehaviour
     private float navAngularModifier = 35;
     private float navStoppingDist;
 
-    [SerializeField]
-    private float randMovementRadius = 3;
     private bool isMovingRandomly = false;
     private Vector3 randomDestination;
 
@@ -39,7 +37,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update() {
 
-        if (isKnockedBack) {
+        if (isKnockedBack || GetDistanceFromPlayer() > enemy.getIdleDistance()) {
             return;
         }
 
@@ -59,11 +57,11 @@ public class EnemyAI : MonoBehaviour
             if (!isMovingRandomly) {
                 if (GetDistanceFromPlayer() < enemy.getRange() / 2.0f) {
                     do {
-                        randomDestination = GetRandomPointInRadius(randMovementRadius);
+                        randomDestination = GetRandomPointInRadius(enemy.getRandMovementRadius());
                     } while ((randomDestination - player.transform.position).magnitude < GetDistanceFromPlayer());
                 }
                 else {
-                    randomDestination = GetRandomPointInRadius(randMovementRadius);
+                    randomDestination = GetRandomPointInRadius(enemy.getRandMovementRadius());
                     /*do {
                         randomDestination = GetRandomPointInRadius(randMovementRadius);
                     } while ((randomDestination - player.transform.position).magnitude > GetDistanceFromPlayer());*/

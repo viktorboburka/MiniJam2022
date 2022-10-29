@@ -18,6 +18,10 @@ public class Enemy : MonoBehaviour
     private int dmg;
     [SerializeField]
     private float attackSpeed;
+    [SerializeField]
+    private float randMovementRadius = 3f;
+    [SerializeField]
+    private float idleDistance = 40f;
 
     private float knockbackSpeed = 100.0f;
 
@@ -80,6 +84,14 @@ public class Enemy : MonoBehaviour
 
     public int getDmg() {
         return dmg;
+    }
+
+    public float getRandMovementRadius() {
+        return randMovementRadius;
+    }
+
+    public float getIdleDistance() {
+        return idleDistance;
     }
 
 }
