@@ -12,10 +12,19 @@ public class LevelUISystem : MonoBehaviour
     
     [SerializeField] private bool DebugLevelUp = false;
 
+    public int levelUps = 0;
+    private bool canLevelUp = true;
+
     private void Update(){
         if(DebugLevelUp){
-            StartLevelingPrompt();
+            levelUps++;
             DebugLevelUp = false;
+        }
+
+        if(levelUps > 0 && canLevelUp){
+            canLevelUp = false;
+            levelUps--;
+            StartLevelingPrompt();
         }
     }
 
@@ -34,5 +43,9 @@ public class LevelUISystem : MonoBehaviour
         }
 
         return inventory.items[Random.Range(0, inventory.items.Count)];
+    }
+
+    public void ConfirmLevelUp(){
+        canLevelUp = true;
     }
 }

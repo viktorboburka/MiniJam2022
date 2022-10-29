@@ -23,6 +23,10 @@ public class PlayerStat{
 
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] private LevelUISystem levelSystem;
+    [SerializeField] private int experienceNeeded = 250;
+    private int experience = 0;
+
     [SerializeField] public List<Item> items = new List<Item>();
     [SerializeField] private UnityEvent<Item> onAddedItem;
     [SerializeField] private UnityEvent<Item> onUpgradedItem;
@@ -112,12 +116,25 @@ public class Inventory : MonoBehaviour
 
     public int GetItemUniqueCount(){
         int count = 0;
-        
+
         foreach(int itemCount in stats.items){
             if(itemCount > 0)
                 count++;
         }
 
         return count;
+    }
+
+    public void LevelUp(){
+        levelSystem.levelUps++;
+    }
+
+    public void EXPCollected(int exp){
+        experience += exp;
+        if(experience >= experienceNeeded){
+            experience -= experienceNeeded;
+            experienceNeeded = (int)(experienceNeeded * 1.5f);
+            LevelUp();
+        }
     }
 }

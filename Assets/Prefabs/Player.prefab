@@ -2422,7 +2422,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1035939655693488070}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7148424676858967790}
+        m_TargetAssemblyTypeName: LevelUISystem, Assembly-CSharp
+        m_MethodName: ConfirmLevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1555630605500764196
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,6 +3101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9bdb1c7ee76812488d193f6e93b87b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelSystem: {fileID: 7148424676858967790}
+  experienceNeeded: 50
   items: []
   onAddedItem:
     m_PersistentCalls:
@@ -3449,6 +3463,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 7148424676858967790}
+        m_TargetAssemblyTypeName: LevelUISystem, Assembly-CSharp
+        m_MethodName: ConfirmLevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7148424676858967789}
         m_TargetAssemblyTypeName: LevelItemUI, Assembly-CSharp
         m_MethodName: SelectedItem
@@ -3959,6 +3985,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 7148424676858967790}
+        m_TargetAssemblyTypeName: LevelUISystem, Assembly-CSharp
+        m_MethodName: ConfirmLevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1419187826}
         m_TargetAssemblyTypeName: LevelItemUI, Assembly-CSharp
         m_MethodName: SelectedItem
@@ -4115,6 +4153,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 7148424676858967790}
+        m_TargetAssemblyTypeName: LevelUISystem, Assembly-CSharp
+        m_MethodName: ConfirmLevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1897316000}
         m_TargetAssemblyTypeName: LevelItemUI, Assembly-CSharp
         m_MethodName: SelectedItem
@@ -4594,6 +4644,7 @@ MonoBehaviour:
   - {fileID: 1419187826}
   - {fileID: 1897316000}
   DebugLevelUp: 0
+  levelUps: 0
 --- !u!1 &7148424678005577670
 GameObject:
   m_ObjectHideFlags: 0
