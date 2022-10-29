@@ -15,7 +15,6 @@ public class CameraHandleComponent : MonoBehaviour
     [SerializeField] private bool obstructHandleRotation = false;
     [SerializeField] private float obstructOffset = 0.1f;
     [SerializeField] private float obstructRaycastSides = 1f;
-    [SerializeField] private float obstructOffsetSides = 0.5f;
 
     [Header("Camera Components")]
     [SerializeField] private Transform cameraRotationT;
