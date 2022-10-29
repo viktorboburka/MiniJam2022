@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
 public class PlayerStat{
     public PlayerStat(){
         items.Add(boltCount);
@@ -60,7 +61,6 @@ public class Inventory : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider coll){
-        Debug.Log("Entered");
         if(coll.tag == "Item"){
             items.Add(coll.GetComponent<ItemDrop>().GetItem());
 
@@ -107,15 +107,23 @@ public class Inventory : MonoBehaviour
         switch(_item.itemName){
             case "Bolt":
                 stats.boltCount++;
+                stats.items[0]++;
+                break;
+            case "Garlic":
+                stats.garlicCount++;
+                stats.items[1]++;
                 break;
             case "Cross":
                 stats.crossCount++;
+                stats.items[2]++;
                 break;
             case "Crossbow":
                 stats.crossbowCount++;
+                stats.items[3]++;
                 break;
             case "Stake":
                 stats.stakeCount++;
+                stats.items[4]++;
                 break;
         }
     }
@@ -124,6 +132,11 @@ public class Inventory : MonoBehaviour
         switch(_item.itemName){
             case "Bolt":
                 if(stats.boltCount > 0)
+                    return true;
+                else
+                    return false;
+            case "Garlic":
+                if(stats.garlicCount > 0)
                     return true;
                 else
                     return false;
@@ -151,6 +164,8 @@ public class Inventory : MonoBehaviour
         switch(_item.itemName){
             case "Bolt":
                     return stats.boltCount;
+            case "Garlic":
+                    return stats.garlicCount;
             case "Cross":
                     return stats.crossCount;
             case "Crossbow":

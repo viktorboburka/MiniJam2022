@@ -62,9 +62,6 @@ public class EnemyAI : MonoBehaviour
                 }
                 else {
                     randomDestination = GetRandomPointInRadius(enemy.getRandMovementRadius());
-                    /*do {
-                        randomDestination = GetRandomPointInRadius(randMovementRadius);
-                    } while ((randomDestination - player.transform.position).magnitude > GetDistanceFromPlayer());*/
                 }
 
                 isMovingRandomly = true;
@@ -80,7 +77,7 @@ public class EnemyAI : MonoBehaviour
             navAgent.SetDestination(randomDestination);
 
         }
-        Debug.Log("pos: " + transform.position + " rand: " + randomDestination + " is moving randomly: " + isMovingRandomly + " navdest: " + navAgent.destination + " stopping dist: " + navAgent.stoppingDistance);
+        //Debug.Log("pos: " + transform.position + " rand: " + randomDestination + " is moving randomly: " + isMovingRandomly + " navdest: " + navAgent.destination + " stopping dist: " + navAgent.stoppingDistance);
         if (PlayerInRange() && ReadyToAttack()) {
             Attack();
         }
@@ -118,6 +115,9 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void getKnockedBack(AttackInfo info) {
+        if (info.knockback < 0.1f) {
+            return;
+        }
         StartCoroutine(Knockback(info));
     }
 
