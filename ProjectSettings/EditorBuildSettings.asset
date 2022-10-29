@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: a45f3d6604b4ef64db03b1e67fc15282
+  - enabled: 1
+    path: Assets/Scenes/Moxi Scene.unity
+    guid: 1d43b4f43914e934b8eeb83d1b8cbe0f
   m_configObjects: {}

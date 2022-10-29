@@ -6,8 +6,8 @@ public class RangedAttack : Attack
 {
     [SerializeField]
     private float projectileSpeed;
-    [SerializeField]
-    private float playerMovementPrediction = 2f;
+    //[SerializeField]
+    private float playerMovementPrediction = 1f;
     [SerializeField]
     GameObject projectilePrefab;
 
@@ -25,9 +25,16 @@ public class RangedAttack : Attack
 
     public override void Perform(GameObject player, Enemy enemy) {
         //TODO: play animation & sound
+
+        playerMovementPrediction = GetDistanceFromPlayer(player) / projectileSpeed;
         Vector3 projectileTarget = player.transform.position + player.transform.GetComponent<Rigidbody>().velocity * playerMovementPrediction;
-        GameObject projectile = Instantiate(projectilePrefab, this.transform.position + (projectileTarget - this.transform.position).normalized * 0.1f, this.transform.rotation);
-        projectile.GetComponent<Rigidbody>().velocity = projectile.transform.forward * projectileSpeed;
+
+        GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.LookRotation(projectileTarget - this.transform.position, Vector3.up));
+        projectile.GetComponent<Rigidbody>().velocity = (projectileTarget - this.transform.position).normalized * projectileSpeed;
         projectile.GetComponent<EnemyProjectile>().info = new AttackInfo(enemy.getDmg(), 0);
+    }
+
+    private float GetDistanceFromPlayer(GameObject player) {
+        return Vector3.Distance(this.transform.position, player.transform.position);
     }
 }

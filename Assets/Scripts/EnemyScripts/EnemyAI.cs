@@ -10,34 +10,87 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent navAgent;
     private Enemy enemy;
 
-    private bool isKnockedBack;
+    private bool isKnockedBack = false;
 
     private float lastAttackTime = -Mathf.Infinity;
 
     private float navAccelerationModifier = 20f;
     private float navAngularModifier = 35;
+    private float navStoppingDist;
+
+    private bool isMovingRandomly = false;
+    private Vector3 randomDestination;
+
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         navAgent = this.GetComponent<NavMeshAgent>();
         enemy = gameObject.GetComponent<Enemy>();
-        isKnockedBack = false;
 
-
+        navStoppingDist = enemy.getRange() - 1;
         navAgent.speed = enemy.getMovementSpeed();
         navAgent.angularSpeed = navAgent.speed * navAngularModifier;
         navAgent.acceleration = navAgent.speed * navAccelerationModifier;
+        navAgent.stoppingDistance = navStoppingDist;
     }
 
-    void Update()
-    {
-        if (GetDistanceFromPlayer() >= enemy.getPursueDistance() && !isKnockedBack) {
-            navAgent.SetDestination(player.transform.position);
+    void Update() {
+
+        if (isKnockedBack || GetDistanceFromPlayer() > enemy.getIdleDistance()) {
+            return;
         }
+
+        if (GetDistanceFromPlayer() >= navStoppingDist) {
+            navAgent.SetDestination(player.transform.position);
+            isMovingRandomly = false;
+            navAgent.stoppingDistance = navStoppingDist;
+            navAgent.speed = enemy.getMovementSpeed();
+        }
+
+        //if enemy has range on player, rotate to face player
+        else {
+            Quaternion lookRotation = Quaternion.LookRotation(player.transform.position - this.transform.position);
+            transform.rotation = Quaternion.Slerp(this.transform.rotation, lookRotation, Time.deltaTime * navAgent.angularSpeed / 10.0f);
+
+            //if player is in range, move randomly. if they are closer than half range, tend to move away
+            if (!isMovingRandomly) {
+                if (GetDistanceFromPlayer() < enemy.getRange() / 2.0f) {
+                    do {
+                        randomDestination = GetRandomPointInRadius(enemy.getRandMovementRadius());
+                    } while ((randomDestination - player.transform.position).magnitude < GetDistanceFromPlayer());
+                }
+                else {
+                    randomDestination = GetRandomPointInRadius(enemy.getRandMovementRadius());
+                    /*do {
+                        randomDestination = GetRandomPointInRadius(randMovementRadius);
+                    } while ((randomDestination - player.transform.position).magnitude > GetDistanceFromPlayer());*/
+                }
+
+                isMovingRandomly = true;
+                navAgent.stoppingDistance = 0f;
+                navAgent.speed = enemy.getMovementSpeed() / 2.0f;
+            }
+            if ((transform.position - randomDestination).magnitude < 0.5f) {
+                isMovingRandomly = false;
+                navAgent.stoppingDistance = navStoppingDist;
+                navAgent.speed = enemy.getMovementSpeed();
+            }
+
+            navAgent.SetDestination(randomDestination);
+
+        }
+        Debug.Log("pos: " + transform.position + " rand: " + randomDestination + " is moving randomly: " + isMovingRandomly + " navdest: " + navAgent.destination + " stopping dist: " + navAgent.stoppingDistance);
         if (PlayerInRange() && ReadyToAttack()) {
             Attack();
         }
+    }
+
+    private Vector3 GetRandomPointInRadius(float r) {
+        float rx = Random.Range(-r, r);
+        float rz = Random.Range(-r, r);
+
+        return this.transform.position + new Vector3(rx, 0, rz);
     }
 
     private float GetDistanceFromPlayer() {
