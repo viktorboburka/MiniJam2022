@@ -2996,6 +2996,9 @@ MonoBehaviour:
   AbilitySys: {fileID: 2876065330878745800}
   itemIcons: {fileID: 1099086252}
   heartImage: {fileID: 2086802885}
+  expirienceFillBar: {fileID: 0}
+  HpFillBar: {fileID: 0}
+  playerStats: {fileID: 0}
   scoreText: {fileID: 1382733019}
   timeText: {fileID: 953733354}
 --- !u!95 &7148424676858967791
@@ -4733,6 +4736,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 719a4efeec68be04ba72c1cbc49b9fe0, type: 2}
   - {fileID: 11400000, guid: e9ada68ffea17d540b29a3d56bb5adbc, type: 2}
   - {fileID: 11400000, guid: 68c4e0416274b334ca88274a35e79934, type: 2}
+  - {fileID: 11400000, guid: 299a35496df26704f88a5e33b2da69ba, type: 2}
+  - {fileID: 11400000, guid: 58fd27f318cb3b04c99ce99007c0d2a1, type: 2}
+  - {fileID: 11400000, guid: 4486649f34cb3584f829b28609abfce5, type: 2}
   anim: {fileID: 7148424676858967791}
   itemsUI:
   - {fileID: 7148424676858967789}
