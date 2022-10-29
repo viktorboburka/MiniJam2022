@@ -461,6 +461,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5337521773576550562, guid: 5ae1c61223f61f3448f161f0028ec95d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5337521773576550591, guid: 5ae1c61223f61f3448f161f0028ec95d, type: 3}
       propertyPath: m_Name
       value: RangedEnemy
@@ -1127,11 +1131,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2876065330878745840, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
   m_PrefabInstance: {fileID: 7148424676858967784}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1594290000 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5311147706163265402, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
-  m_PrefabInstance: {fileID: 7148424676858967784}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1628341307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,6 +1290,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+--- !u!1 &1958742357 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8654385035112664999, guid: aa1a1f9fe57ef934b9a2d75b20857600, type: 3}
+  m_PrefabInstance: {fileID: 1977933804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1958742360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958742357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2cf00ebae237844b93d81da08973c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPos: {fileID: 0}
 --- !u!1001 &1977933804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1298,6 +1315,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1431905860022747920, guid: aa1a1f9fe57ef934b9a2d75b20857600, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1431905860022747923, guid: aa1a1f9fe57ef934b9a2d75b20857600, type: 3}
       propertyPath: m_Name
       value: MeeleeEnemy
@@ -1464,10 +1485,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2876065330878745842, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 1594290000}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
 --- !u!1001 &7694839950892920423

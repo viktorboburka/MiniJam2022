@@ -3205,7 +3205,7 @@ MonoBehaviour:
     stakeCount: 0
     items: 0000000000000000000000000000000000000000
   debugRestart:
-    m_Name: 
+    m_Name: Debug Restart
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 5dc6c120-61b6-4f62-b738-834635356882
@@ -3269,6 +3269,7 @@ MonoBehaviour:
   ItemArgumets:
     shootPoint: {fileID: 7148424678005577671}
     inventory: {fileID: 2876065330878745845}
+  actions: {fileID: -944628639613478452, guid: 6e812fee30bcbe943ac28c72cc571ada, type: 3}
 --- !u!95 &5311147706163265402
 Animator:
   serializedVersion: 4
