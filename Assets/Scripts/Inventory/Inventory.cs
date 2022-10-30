@@ -255,7 +255,7 @@ public class Inventory : MonoBehaviour
         if(experience >= experienceNeeded){
             level++;
             experience -= experienceNeeded;
-            experienceNeeded = (int)(experienceNeeded + ((level * (experienceNeeded * 0.15f)) * 1.2f));
+            experienceNeeded = (experienceNeeded * level) / 3;
             LevelUp();
         }
     }
