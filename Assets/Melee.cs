@@ -21,6 +21,7 @@ public class Melee : MonoBehaviour
     }
 
     public void DestroyItself(){
-        Destroy(gameObject);
+        GetComponent<BoxCollider>().enabled = false;
+        Destroy(gameObject, .3f);
     }
 }
