@@ -19,4 +19,8 @@ public class Melee : MonoBehaviour
             coll.SendMessageUpwards("getAttacked", attackInfo, SendMessageOptions.DontRequireReceiver); // add HitArguments
         }
     }
+
+    public void DestroyItself(){
+        Destroy(gameObject);
+    }
 }
