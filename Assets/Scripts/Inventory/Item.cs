@@ -40,7 +40,7 @@ public class Item : ScriptableObject
     //Functions
     public virtual void Activate(ItemArgs _args){
         if(soundEffect != null)
-            AudioSource.PlayClipAtPoint(soundEffect, _args.shootPoint.position, 1);
+            AudioSource.PlayClipAtPoint(soundEffect, _args.shootPoint.position);
     }
 
     public virtual void Activate(){

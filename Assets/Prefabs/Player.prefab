@@ -4005,6 +4005,16 @@ MonoBehaviour:
   waterCooldownTime: 0
   cooldownBar: {fileID: 3224228411601433826}
   waterText: {fileID: 2075156077333478316}
+  playerDmgSound:
+  - {fileID: 8300000, guid: 3d20a032624c93e4aad70fd274125ac5, type: 3}
+  - {fileID: 8300000, guid: 2d6135146a58c524f9eadd244a494a9d, type: 3}
+  - {fileID: 8300000, guid: 0605f8fa79c148546bb30f531c4e376e, type: 3}
+  - {fileID: 8300000, guid: c910d3e029974fe48bacf83724a4668f, type: 3}
+  - {fileID: 8300000, guid: 000581faac6829f4f8942e93981b73f0, type: 3}
+  - {fileID: 8300000, guid: 6c5c64197ea60cc448f56fa437e39dc0, type: 3}
+  - {fileID: 8300000, guid: ae508a1c580c55244ac0d068c9645e92, type: 3}
+  - {fileID: 8300000, guid: e591f3de9a615e145b291e002bd54108, type: 3}
+  - {fileID: 8300000, guid: a6131f5de472a76469021b7e3e519eb9, type: 3}
 --- !u!114 &5075382222865726746
 MonoBehaviour:
   m_ObjectHideFlags: 0

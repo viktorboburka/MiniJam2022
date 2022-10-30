@@ -68,6 +68,10 @@ public class Inventory : MonoBehaviour
     [SerializeField] private RectTransform cooldownBar;
     [SerializeField] private TMP_Text waterText;
 
+
+
+    [SerializeField] private AudioClip[] playerDmgSound;
+
     void OnEnable(){
         inputManager.Enable();
 
@@ -149,6 +153,11 @@ public class Inventory : MonoBehaviour
     public void GetDamaged(int dmg){
         cooldownTime = 0;
         health -= dmg;
+
+        var randomSound = playerDmgSound[Random.Range(0, playerDmgSound.Length)];
+
+        AudioSource.PlayClipAtPoint(randomSound, transform.position);
+
         if(health <= 0){
             health = 0;
             GetComponent<CapsuleCollider>().enabled = false;
