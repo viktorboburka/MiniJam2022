@@ -29,16 +29,20 @@ public class Item : ScriptableObject
     public float speed;
     public float knockback;
     public float radius;
-    
+
+    //audio
+    public AudioClip soundEffect;
+
+
     public bool destructable;
     public float timeToDestroy;
 
     //Functions
     public virtual void Activate(ItemArgs _args){
-        
+        if(soundEffect != null)
+            AudioSource.PlayClipAtPoint(soundEffect, _args.shootPoint.position, 1);
     }
 
     public virtual void Activate(){
-        
     }
 }

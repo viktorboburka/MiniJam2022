@@ -22,6 +22,7 @@ MonoBehaviour:
   speed: 2
   knockback: 0
   radius: 2
+  soundEffect: {fileID: 0}
   destructable: 0
   timeToDestroy: 0
   AOIPrefab: {fileID: 4985415678569948396, guid: b0a32d36d5689fa4bb15cb2b407a030f, type: 3}
