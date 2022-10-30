@@ -23,10 +23,12 @@ public class Options : MonoBehaviour
     public void SetSFX(float value){
         masterSFXMixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20);
         PlayerPrefs.SetFloat("SFXVolume", value);
+        PlayerPrefs.Save();
     }
 
     public void SetMusic(float value){
         masterMusicMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
         PlayerPrefs.SetFloat("MusicVolume", value);
+        PlayerPrefs.Save();
     }
 }
