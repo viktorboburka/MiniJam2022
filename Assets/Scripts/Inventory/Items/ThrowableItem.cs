@@ -16,6 +16,8 @@ public class ThrowableItem : Item
         throwable.itemThrowable = this;
         throwable.throwableSplashPrefab = throwableSplashPrefab;
 
+        AudioSource.PlayClipAtPoint(soundEffect, _args.shootPoint.position);
+
         throwable.GetComponent<Rigidbody>().AddForce((_args.shootPoint.forward * speed) + (_args.shootPoint.up * speed / 2f), ForceMode.Impulse);
         throwable.GetComponent<Rigidbody>().AddTorque((_args.shootPoint.forward * speed) + (_args.shootPoint.up * speed / 2f), ForceMode.Impulse);
     }

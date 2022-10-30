@@ -162,7 +162,7 @@ MonoBehaviour:
   xpDropAmount: 5
   hpPrefab: {fileID: 8610715033494390966, guid: 884fcef7fe1aba64280a639e96e871a3, type: 3}
   hpDropAmount: 5
-  hpDropChance: 1
+  hpDropChance: 100
   itemPrefabs: []
   itemDropChance: 0
   rend: {fileID: 3295877738064001563}

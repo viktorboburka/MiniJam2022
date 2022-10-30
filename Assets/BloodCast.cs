@@ -6,6 +6,7 @@ public class BloodCast : MonoBehaviour
 {
     [SerializeField] private GameObject[] bloodPrefab;
     public ParticleSystem part;
+    public int damage = 2;
     public List<ParticleCollisionEvent> collisionEvents;
 
     // Start is called before the first frame update
@@ -28,7 +29,8 @@ public class BloodCast : MonoBehaviour
         while (i < numCollisionEvents)
         {
             Vector3 pos = collisionEvents[i].intersection;
-            Instantiate(bloodPrefab[Random.Range(0, bloodPrefab.Length)], collisionEvents[i].intersection + (Vector3.up * 0.01f), Quaternion.FromToRotation(Vector3.forward, collisionEvents[i].normal));
+            GameObject bloodObj = Instantiate(bloodPrefab[Random.Range(0, bloodPrefab.Length)], collisionEvents[i].intersection + (Vector3.up * 0.01f), Quaternion.FromToRotation(Vector3.forward, collisionEvents[i].normal));
+            bloodObj.GetComponent<BloodSplat>().damage = damage;
             i++;
         }
     }
