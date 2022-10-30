@@ -252,7 +252,7 @@ MonoBehaviour:
   maxHp: 250
   movementSpeed: 5
   range: 40
-  dmg: 1
+  dmg: 5
   attackSpeed: 3
   randMovementRadius: 5
   idleDistance: 10000
