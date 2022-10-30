@@ -10,6 +10,7 @@ public class Heal : MonoBehaviour
 
     private Transform target;
     public bool canMove = false;
+    private bool healed = false;
 
     void Start(){
         target = GameObject.FindWithTag("Player").transform;
@@ -28,11 +29,12 @@ public class Heal : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider coll){
-        if(coll.gameObject.tag == "Player"){
+        if(coll.gameObject.tag == "Player" && !healed){
             GetComponent<ParticleSystem>().Stop();
             //transform.GetChild(0).gameObject.SetActive(false);
             canMove = false;
             coll.SendMessageUpwards("GetHealed", healPoints, SendMessageOptions.DontRequireReceiver);
+            healed = true;
             Destroy(gameObject, 3f);
         }
     }
