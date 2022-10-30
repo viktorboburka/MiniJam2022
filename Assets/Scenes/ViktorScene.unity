@@ -25595,9 +25595,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: saveOn
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
       propertyPath: playerT
       value: 
       objectReference: {fileID: 421846376}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: aiMaxLimit
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: saveLenght
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: saveTimeOn
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: saveTimeAfter
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: saveBloodFadeTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: layersForSpawns.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 6256827232281166298, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
       propertyPath: m_Name
       value: GameManagers
@@ -36441,7 +36469,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26606
+  m_Name: pb_Mesh30698
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

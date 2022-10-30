@@ -16,7 +16,15 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private float baseWaveTime = 60;
     [SerializeField] private float spawnRadiusMax = 60;
     [SerializeField] private float spawnRadiusMin = 40;
+    [SerializeField] private float aiMaxLimit = 2000;
     [SerializeField] private LayerMask layersForSpawns;
+
+    [Header("Save Time")]
+    [SerializeField] private int saveTimeAfter = 5;
+    [SerializeField] private float saveTimeLenght = 10;
+    [SerializeField] private float saveTimeFadeTimerLenght = 1;
+    [SerializeField] private float saveTimeFadeTimerNow = 0;
+    [SerializeField] private float saveTimeFade = 1;
 
     [Header("Wave Modifiers")]
     [SerializeField] private int increaseWaveTimeOn = 5;
@@ -28,13 +36,15 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private int increaseGroupSizeBy = 1;
 
     [Header("Next Wave")]
-    [SerializeField] public int waveNumber = 1;
+    [SerializeField] public int nextWaveNumber = 1;
     [SerializeField] private float nextWaveIn = 15;
     [SerializeField] private int nextWaveGroupCount = 5;
     [SerializeField] private int nextWaveGroupSize = 1;
 
     [Header("Stats")]
-    [SerializeField] public int actualWaveNumber = 0;
+    [SerializeField] public int waveNumber = 0;
+    [SerializeField] public bool isSaveTime = false;
+    [SerializeField] public bool isSaveTimeAfterWave = false;
     [SerializeField] public int enemiesSpawned = 0;
     [SerializeField] public int enemiesKilled = 0;
     [SerializeField] public int enemiesAlive = 0;
@@ -129,9 +139,9 @@ public class WaveManager : MonoBehaviour
 
             int spawnChance = enemy.chanceToSpawn;
             if (enemy.modifyChanceToSpawnOn != 0)
-                if(waveNumber % enemy.modifyChanceToSpawnOn == 0)
+                if(nextWaveNumber % enemy.modifyChanceToSpawnOn == 0)
                 {
-                    int modifyChanceToSpawnBy = waveNumber / enemy.modifyChanceToSpawnOn;
+                    int modifyChanceToSpawnBy = nextWaveNumber / enemy.modifyChanceToSpawnOn;
                     spawnChance += enemy.modifyChanceToSpawnBy * modifyChanceToSpawnBy;
                 }
 
@@ -143,7 +153,8 @@ public class WaveManager : MonoBehaviour
         if (enemyPrefabs.Count == 0)
             return;
         int enemyToSpawn = Random.Range(0, enemyPrefabs.Count);
-        SpawnEnemy(enemyPrefabs[enemyToSpawn], pos);
+        if(aiMaxLimit > (enemiesSpawned - enemiesKilled))
+            SpawnEnemy(enemyPrefabs[enemyToSpawn], pos);
     }
 
 
@@ -225,12 +236,12 @@ public class WaveManager : MonoBehaviour
             if (enemy.guaranteedSpawnOn == 0)
                 continue;
 
-            if (waveNumber % enemy.guaranteedSpawnOn == 0)
+            if (nextWaveNumber % enemy.guaranteedSpawnOn == 0)
             {
                 int guaranteedSpawnCount = enemy.guaranteedSpawnCount;
-                if(waveNumber % enemy.modifyGuaranteedSpawnCountOn == 0)
+                if(nextWaveNumber % enemy.modifyGuaranteedSpawnCountOn == 0)
                 {
-                    int modifyguaranteedSpawnCountBy = waveNumber / enemy.modifyGuaranteedSpawnCountOn;
+                    int modifyguaranteedSpawnCountBy = nextWaveNumber / enemy.modifyGuaranteedSpawnCountOn;
                     guaranteedSpawnCount += enemy.modifyGuaranteedSpawnCountBy * modifyguaranteedSpawnCountBy;
                 }
                 for(int i = 0; i < multiplier * guaranteedSpawnCount; i++)
@@ -250,24 +261,99 @@ public class WaveManager : MonoBehaviour
         waveTimeModifier = baseWaveTime;
     }
 
-
-    void StartNextWave()
+    void HandleSaveTime()
     {
-        actualWaveNumber = waveNumber;
-        SpawnWave();
-        HandleGuaranteedSpawns();
-        waveNumber++;
-        if(waveNumber % increaseGroupCountOn == 0)
+        isSaveTime = true;
+        nextWaveIn = saveTimeLenght;
+    }
+
+    private void ChangeObjectAlpha(ref GameObject obj, float alpha)
+    {
+        Renderer renderer = obj.GetComponent<Renderer>();
+        Color c = renderer.material.color;
+        renderer.material.color = new Color(c.r, c.g, c.b, alpha);
+    }
+
+    void HandleSaveTimeCleanup()
+    {
+        GameObject[] bloodObjects = GameObject.FindGameObjectsWithTag("Blood");
+        GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        if (bloodObjects.Length == 0 && enemyObjects.Length == 0)
+            return;
+
+        if (saveTimeFadeTimerNow > saveTimeFadeTimerLenght)
+        {
+            foreach(GameObject blood in bloodObjects)
+                Destroy(blood);
+            foreach(GameObject enemy in enemyObjects)
+                Destroy(enemy);
+            return;
+        }
+
+        saveTimeFadeTimerNow += Time.deltaTime;
+        saveTimeFade = 1 - saveTimeFadeTimerNow / saveTimeFadeTimerLenght;
+
+        for (int i = 0; i < bloodObjects.Length; i++)
+            ChangeObjectAlpha(ref bloodObjects[i], saveTimeFade);
+
+        GameObject[] enemySprites = GameObject.FindGameObjectsWithTag("EnemySprite");
+        for (int i = 0; i < enemySprites.Length; i++)
+            ChangeObjectAlpha(ref enemySprites[i], saveTimeFade);
+    }
+
+
+    void HandleWaveModifiers()
+    {
+        if(nextWaveNumber % increaseGroupCountOn == 0)
             nextWaveGroupCount += increaseGroupCountBy;
 
-        if(waveNumber % increaseGroupSizeOn == 0)
+        if(nextWaveNumber % increaseGroupSizeOn == 0)
             nextWaveGroupSize += increaseGroupSizeBy;
 
-        if(waveNumber % increaseWaveTimeOn == 0)
+        if(nextWaveNumber % increaseWaveTimeOn == 0)
             waveTimeModifier += increaseWaveTimeBy;
 
         nextWaveIn = waveTimeModifier;
+        if(isSaveTimeAfterWave)
+            nextWaveIn += saveTimeLenght;
+    }
 
+    void StartNextWave()
+    {
+        EndWave();
+        saveTimeFade = 1;
+        saveTimeFadeTimerNow = 0;
+        if (isSaveTime)
+            return;
+
+        waveNumber = nextWaveNumber;
+        nextWaveNumber++;
+        if(waveNumber % saveTimeAfter == 0)
+        {
+            isSaveTimeAfterWave = true;
+        }
+
+        SpawnWave();
+        HandleGuaranteedSpawns();
+        HandleWaveModifiers();
+
+    }
+
+    void EndWave()
+    {
+        if (isSaveTime)
+        {
+            isSaveTime = false;
+            isSaveTimeAfterWave = false;
+            return;
+        }
+
+        if(waveNumber <= 1)
+            return;
+        if(waveNumber % saveTimeAfter == 0)
+        {
+            HandleSaveTime();
+        }
     }
 
     void HandleDeadEnemies()
@@ -288,6 +374,8 @@ public class WaveManager : MonoBehaviour
 
     void Update()
     {
+        if(isSaveTime)
+            HandleSaveTimeCleanup();
         HandleDeadEnemies();
         DrawSpawnArea(Color.magenta);
         if (generateUselessRandom)

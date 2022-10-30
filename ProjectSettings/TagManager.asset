@@ -12,6 +12,7 @@ TagManager:
   - World
   - Blood
   - Throwable
+  - EnemySprite
   layers:
   - Default
   - TransparentFX
