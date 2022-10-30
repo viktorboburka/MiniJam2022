@@ -71,13 +71,15 @@ public class Inventory : MonoBehaviour
     
     [SerializeField] private Animator UIAnim;
 
+    [SerializeField] private GameObject dmgSound;
+    [SerializeField] private GameObject xpSound;
+    [SerializeField] private GameObject healSound;
 
+    void playSound(GameObject sound)
+    {
+        Instantiate(sound, transform);
+    }
 
-    [SerializeField] private AudioClip[] playerDmgSound;
-
-    [SerializeField] private AudioClip[] playerXpColectSound;
-
-    [SerializeField] private AudioClip playerHealSound;
 
     void OnEnable(){
         inputManager.Enable();
@@ -165,11 +167,9 @@ public class Inventory : MonoBehaviour
         cooldownTime = 0;
         health -= dmg;
 
-        var randomSound = playerDmgSound[Random.Range(0, playerDmgSound.Length)];
+        playSound(dmgSound);
 
-        AudioSource.PlayClipAtPoint(randomSound, transform.position);
-
-        if(health <= 0){
+        if (health <= 0){
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             health = 0;
@@ -181,7 +181,7 @@ public class Inventory : MonoBehaviour
     public void GetHealed(int heal){
         cooldownTimeHeal = 0;
 
-        AudioSource.PlayClipAtPoint(playerHealSound, transform.position);
+        playSound(healSound);
 
         if (health + heal > maxHealth)
             health = maxHealth;
@@ -191,7 +191,7 @@ public class Inventory : MonoBehaviour
 
     public void LevelHeal(){
 
-        AudioSource.PlayClipAtPoint(playerHealSound, transform.position);
+        playSound(healSound);
 
         if (health + (maxHealth * 0.2f) > maxHealth)
             health = maxHealth;
@@ -330,9 +330,7 @@ public class Inventory : MonoBehaviour
     public void EXPCollected(int exp){
         experience += exp;
 
-        var randomSound = playerXpColectSound[Random.Range(0, playerXpColectSound.Length)];
-        AudioSource.PlayClipAtPoint(randomSound, transform.position);
-
+        playSound(xpSound);
 
         if (experience >= experienceNeeded){
             level++;

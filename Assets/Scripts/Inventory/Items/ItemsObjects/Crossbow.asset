@@ -22,7 +22,6 @@ MonoBehaviour:
   speed: 15
   knockback: 1
   radius: 0
-  soundEffect: {fileID: 8300000, guid: 9179f22ec7392274aa5525fc4e907fc1, type: 3}
   destructable: 0
   timeToDestroy: 0
-  projectilePrefab: {fileID: 6939021926476381880, guid: cc80a804e00fe484fa7d212b493a5899, type: 3}
+  projectilePrefab: {fileID: 6939021926476381880, guid: b4fc4021efd42df4ea55437f99982160, type: 3}

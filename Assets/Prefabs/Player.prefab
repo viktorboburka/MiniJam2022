@@ -5143,30 +5143,9 @@ MonoBehaviour:
   waterText: {fileID: 2075156077333478316}
   canvas: {fileID: 0}
   UIAnim: {fileID: 5075382221999544044}
-  playerDmgSound:
-  - {fileID: 8300000, guid: 3d20a032624c93e4aad70fd274125ac5, type: 3}
-  - {fileID: 8300000, guid: 2d6135146a58c524f9eadd244a494a9d, type: 3}
-  - {fileID: 8300000, guid: 0605f8fa79c148546bb30f531c4e376e, type: 3}
-  - {fileID: 8300000, guid: c910d3e029974fe48bacf83724a4668f, type: 3}
-  - {fileID: 8300000, guid: 000581faac6829f4f8942e93981b73f0, type: 3}
-  - {fileID: 8300000, guid: 6c5c64197ea60cc448f56fa437e39dc0, type: 3}
-  - {fileID: 8300000, guid: ae508a1c580c55244ac0d068c9645e92, type: 3}
-  - {fileID: 8300000, guid: e591f3de9a615e145b291e002bd54108, type: 3}
-  - {fileID: 8300000, guid: a6131f5de472a76469021b7e3e519eb9, type: 3}
-  playerXpColectSound:
-  - {fileID: 8300000, guid: 143c802893b325b4881510f9de5f8d9e, type: 3}
-  - {fileID: 8300000, guid: 6ac562f174465dd4fadbb9f0396ffb49, type: 3}
-  - {fileID: 8300000, guid: 419ed3d984e094e46ae64b9a59238f6e, type: 3}
-  - {fileID: 8300000, guid: 0d39d6e0a294fe3469059b64c75b7c25, type: 3}
-  - {fileID: 8300000, guid: 29a8bd2ae91a0f448b876384b8d703db, type: 3}
-  - {fileID: 8300000, guid: c5a311a24e0eafc4e9e57a8e2f30e0ae, type: 3}
-  - {fileID: 8300000, guid: 89ee1fe307526074a8fc5f24b1169461, type: 3}
-  - {fileID: 8300000, guid: 6b1aeb6b6e36166479c39cb1ae5e00ff, type: 3}
-  - {fileID: 8300000, guid: afbd52105c1af214a88fbf026ed25ee4, type: 3}
-  - {fileID: 8300000, guid: 16bee4b0e5bffb64b8aa468b89c3f35b, type: 3}
-  - {fileID: 8300000, guid: 4f3a3bb5c7184764b802c33ab6693030, type: 3}
-  - {fileID: 8300000, guid: e8922c03675ba2240a48b9f5786191ce, type: 3}
-  playerHealSound: {fileID: 8300000, guid: 99ad04d78c8e3ef4690d3a4fb855b9a8, type: 3}
+  dmgSound: {fileID: 3650606305971603778, guid: c5d1014252501b14ab3022e8e2a0637d, type: 3}
+  xpSound: {fileID: 3650606305971603778, guid: 0295734b4bbbdbb4383037799836e37c, type: 3}
+  healSound: {fileID: 3650606305971603778, guid: 21bbf79e21f556545a69e4a955c00a41, type: 3}
 --- !u!114 &5075382222865726746
 MonoBehaviour:
   m_ObjectHideFlags: 0

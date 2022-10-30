@@ -450,10 +450,9 @@ public class WaveManager : MonoBehaviour
     void SaveTimeEnding(){
         wasSaveTimeEndingCalled = true;
 
-
         MusicSource.Stop();
-        MusicSource.PlayDelayed(2);
-        SfxSource.clip = waveEnd;
+        MusicSource.PlayDelayed(10);
+        SfxSource.clip = waveStart;
         SfxSource.Play();
 
 
