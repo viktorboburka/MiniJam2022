@@ -5233,17 +5233,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 850287159913597035, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
-      propertyPath: m_text
-      value: 
+    - target: {fileID: 5075382222575003071, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+      propertyPath: m_margin.x
+      value: 19.799797
       objectReference: {fileID: 0}
-    - target: {fileID: 1467689805662072724, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813512881428868780, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
-      propertyPath: m_text
-      value: 
+    - target: {fileID: 5075382222575003071, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+      propertyPath: m_margin.z
+      value: 18.698746
       objectReference: {fileID: 0}
     - target: {fileID: 5075382222865726743, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
       propertyPath: m_Name
@@ -5293,13 +5289,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6346205506172031434, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
-      propertyPath: m_text
-      value: 
+    - target: {fileID: 5075382223744916301, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+      propertyPath: m_margin.x
+      value: 19.311615
       objectReference: {fileID: 0}
-    - target: {fileID: 7245449215770415753, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+    - target: {fileID: 5075382223744916301, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+      propertyPath: m_margin.z
+      value: 19.783508
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075382223955474303, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
       propertyPath: m_text
-      value: 
+      value: This is Test Item This is Test Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075382223955474303, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+      propertyPath: m_margin.x
+      value: 20.715996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075382223955474303, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+      propertyPath: m_margin.z
+      value: 18.555244
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
