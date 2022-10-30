@@ -67,6 +67,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private float waterCooldownTime;
     [SerializeField] private RectTransform cooldownBar;
     [SerializeField] private TMP_Text waterText;
+    [SerializeField] private Canvas canvas;
 
 
 
@@ -96,6 +97,7 @@ public class Inventory : MonoBehaviour
     void Awake(){
         inputManager = new();
         health = maxHealth;
+        canvas = GetComponentInChildren<Canvas>();
     }
 
     void Update(){
@@ -109,7 +111,10 @@ public class Inventory : MonoBehaviour
 
         if(waterCooldownTime > 0){
             waterText.text = Mathf.Floor(waterCooldownTime).ToString();
-            cooldownBar.sizeDelta = new Vector2(100f, (waterCooldownTime / waterCooldown) * 100f);
+            Transform a = cooldownBar.transform.parent;
+            cooldownBar.transform.SetParent(null, false);
+            cooldownBar.localScale = new Vector3(1f, waterCooldownTime / ((200 / (level + waterCooldown)) + 1), 1f);
+            cooldownBar.transform.SetParent(a, false);
             waterCooldownTime -= Time.deltaTime;
         }
 

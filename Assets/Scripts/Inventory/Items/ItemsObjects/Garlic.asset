@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Garlic
   m_EditorClassIdentifier: 
   itemName: Garlic
-  itemSprite: {fileID: 21300000, guid: aa7041784987e004c81eb659483dea2c, type: 3}
+  itemSprite: {fileID: 21300000, guid: 7771c6f47420391489ce7b2ffa69517d, type: 3}
   itemType: 0
   itemDescription: Throws Garlicnade
   cooldown: 2

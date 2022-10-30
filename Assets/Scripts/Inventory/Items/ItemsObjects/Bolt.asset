@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bolt
   m_EditorClassIdentifier: 
   itemName: Bolt
-  itemSprite: {fileID: 21300000, guid: 14d300eae1e9ec44698e8845b80727b2, type: 3}
+  itemSprite: {fileID: 21300000, guid: 6ef19c0a6c86f344c9c368868ef97933, type: 3}
   itemType: 0
   itemDescription: Shoot bolt where player is aiming
   cooldown: 2

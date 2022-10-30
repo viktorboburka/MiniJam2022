@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MeleeSlash
   m_EditorClassIdentifier: 
   itemName: Dual Blades
-  itemSprite: {fileID: 21300000, guid: a04ecc9d5e12d5d449077414eb86635e, type: 3}
+  itemSprite: {fileID: 21300000, guid: 40df50bb9a9b50940af1f1ebaacb477a, type: 3}
   itemType: 1
   itemDescription: Side Slash
   cooldown: 2

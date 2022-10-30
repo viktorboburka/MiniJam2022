@@ -20,7 +20,9 @@ public class BloodCast : MonoBehaviour
     void OnParticleCollision(GameObject other)
     {
         if(other.gameObject.layer != LayerMask.NameToLayer("WorldFloor"))
-            return;
+            if(other.gameObject.layer != LayerMask.NameToLayer("World"))
+                if(other.gameObject.tag == "WorldObject")
+                return;
 
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
 

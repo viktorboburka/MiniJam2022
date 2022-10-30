@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crossbow
   m_EditorClassIdentifier: 
   itemName: Crossbow
-  itemSprite: {fileID: 21300000, guid: 07238d5fe5d933d4c9e9eed434b70650, type: 3}
+  itemSprite: {fileID: 21300000, guid: 4ccc9cb9d39d186459af5ac7cf1817b1, type: 3}
   itemType: 1
   itemDescription: Autofires bolt to nearby enemies
   cooldown: 1

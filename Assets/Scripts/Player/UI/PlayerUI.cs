@@ -81,7 +81,7 @@ public class PlayerUI : MonoBehaviour
             {
                 texts[i].text = slots[i].CooldownTime.ToString("F1");
                 var completionPercantage = 1 - Mathf.Clamp01(slots[i].CooldownTime / slots[i].item.cooldown);
-                barImage[i].SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 100 * (1-completionPercantage));
+                barImage[i].localScale = new Vector3 (1f, slots[i].CooldownTime / playerStats.GetCooldown(slots[i].item), 1f);
                 iconImage[i].color = new Color(1, completionPercantage, completionPercantage);
             }
             else
