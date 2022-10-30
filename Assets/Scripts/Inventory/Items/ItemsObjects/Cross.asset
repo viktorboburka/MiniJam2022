@@ -18,7 +18,7 @@ MonoBehaviour:
   itemDescription: Circular AOE Damage
   cooldown: 0
   cooldownTick: 0.5
-  damage: 1
+  damage: 2
   speed: 2
   knockback: 0
   radius: 2

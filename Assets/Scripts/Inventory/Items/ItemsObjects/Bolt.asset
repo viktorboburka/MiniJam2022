@@ -16,8 +16,12 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 14d300eae1e9ec44698e8845b80727b2, type: 3}
   itemType: 0
   itemDescription: Shoot bolt where player is aiming
-  cooldown: 1
-  damage: 5
+  cooldown: 2
+  cooldownTick: 0
+  damage: 10
   speed: 20
   knockback: 1
+  radius: 0
+  destructable: 0
+  timeToDestroy: 0
   projectilePrefab: {fileID: 6939021926476381880, guid: cc80a804e00fe484fa7d212b493a5899, type: 3}

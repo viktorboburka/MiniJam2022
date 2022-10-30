@@ -230,6 +230,25 @@ public class Inventory : MonoBehaviour
         levelSystem.levelUps++;
     }
 
+    public float GetCooldown(Item _item){
+        switch(_item.itemName){
+            case "Bolt":
+                    return (100f/(GetItemCount(_item) + _item.cooldown)) / 10f; // cooldown 2
+            case "Garlic":
+                    return ((100f/(GetItemCount(_item) + _item.cooldown)) / 10f) + 2f; // cooldown 2
+            case "Cross":
+                    return stats.crossCount;
+            case "Crossbow":
+                    return (100f/(GetItemCount(_item) + _item.cooldown)) / 20f; // cooldown 1
+            case "Stake":
+                    return (100f/(GetItemCount(_item) + _item.cooldown)) / 10f; // 3
+            case "Dual Blade":
+                    return (100f/(GetItemCount(_item) + _item.cooldown)) / 10f; // 2
+        }
+
+        return 0f;
+    }
+
     public void EXPCollected(int exp){
         experience += exp;
         if(experience >= experienceNeeded){
@@ -243,4 +262,5 @@ public class Inventory : MonoBehaviour
     public int GetMaxHP() { return maxHealth; }
     public int GetExperience() { return experience; }
     public int GetExperienceNeeded() { return experienceNeeded; }
+
 }

@@ -13,6 +13,8 @@ public class PlayerAbilitySystem : MonoBehaviour
 
     [SerializeField] private ItemArgs ItemArgumets = new();
     [SerializeField] private InputActionAsset actions;
+    
+    [SerializeField] private Inventory inventory;
 
 
     void Awake()

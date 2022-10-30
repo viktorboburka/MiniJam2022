@@ -16,7 +16,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: aa7041784987e004c81eb659483dea2c, type: 3}
   itemType: 0
   itemDescription: Throws Garlicnade
-  cooldown: 6
+  cooldown: 2
   cooldownTick: 0.3
   damage: 1
   speed: 1
