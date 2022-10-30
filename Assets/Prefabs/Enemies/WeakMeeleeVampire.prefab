@@ -114,6 +114,13 @@ MonoBehaviour:
   hpDropChance: 10
   itemPrefabs: []
   itemDropChance: 0
+  enemyDeathSounds:
+  - {fileID: 8300000, guid: 6cb9d3b51e5a0a54180de764371a4daf, type: 3}
+  - {fileID: 8300000, guid: 4cef620aa4a2bec41ac905f74cca7469, type: 3}
+  - {fileID: 8300000, guid: 559381a57f5cf72468bed47376db804d, type: 3}
+  - {fileID: 8300000, guid: b2534aea2993177488bcc490a4a5db5c, type: 3}
+  - {fileID: 8300000, guid: a1b93cb968029914ab7f3da56d3d8bd8, type: 3}
+  - {fileID: 8300000, guid: ddd9db5f29b99554e9349df25eec40f3, type: 3}
   rend: {fileID: 1519918353111782722}
   cooldown: 0.5
   cooldownTime: 0.5

@@ -36,6 +36,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int hpDropChance = 0;
     [SerializeField] private GameObject[] itemPrefabs;
     [SerializeField] private int itemDropChance;
+
+
+    [SerializeField] private AudioClip[] enemyDeathSounds;
     
     [SerializeField]
     private SpriteRenderer rend;
@@ -98,6 +101,10 @@ public class Enemy : MonoBehaviour
                     Instantiate(itemPrefabs[itemId], transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
                 }
             }
+
+
+            var randomSound = enemyDeathSounds[Random.Range(0, enemyDeathSounds.Length)];
+            AudioSource.PlayClipAtPoint(randomSound, transform.position);
 
             Destroy(gameObject);
             return;
