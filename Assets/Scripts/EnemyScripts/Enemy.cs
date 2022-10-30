@@ -27,6 +27,13 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private GameObject[] drops;
+    
+    [SerializeField]
+    private SpriteRenderer rend;
+    [SerializeField]
+    private float cooldown = 0.5f;
+    [SerializeField]
+    private float cooldownTime = 0.5f;
 
 
     // Start is called before the first frame update
@@ -38,7 +45,10 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(cooldownTime < cooldown){
+            cooldownTime += Time.deltaTime;
+            rend.color = new Color(1f, Mathf.Clamp(1f * (cooldownTime / cooldown), 0f, 1f), Mathf.Clamp(1f * (cooldownTime / cooldown), 0f, 1f), 1f);
+        }
     }
 
     //returns true if this unit got killed
@@ -46,6 +56,7 @@ public class Enemy : MonoBehaviour
         //Debug.Log(this + " getAttacked called");
 
         hp -= info.dmg;
+        cooldownTime = 0f;
 
         //TODO: animation and sound feedback
         if (hp <= 0) {

@@ -233,7 +233,7 @@ public class Inventory : MonoBehaviour
     public float GetCooldown(Item _item){
         switch(_item.itemName){
             case "Bolt":
-                    return (100f/(GetItemCount(_item) + _item.cooldown)) / 10f; // cooldown 2
+                    return (100f/(GetItemCount(_item) + _item.cooldown)) / 20f; // cooldown 2
             case "Garlic":
                     return ((100f/(GetItemCount(_item) + _item.cooldown)) / 10f) + 2f; // cooldown 2
             case "Cross":
@@ -246,7 +246,7 @@ public class Inventory : MonoBehaviour
                     return (100f/(GetItemCount(_item) + _item.cooldown)) / 10f; // 2
         }
 
-        return 0f;
+        return 1f;
     }
 
     public void EXPCollected(int exp){
