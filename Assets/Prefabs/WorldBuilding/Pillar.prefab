@@ -86,7 +86,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!136 &2488308529833303265
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -100,7 +100,7 @@ CapsuleCollider:
   m_Radius: 0.35
   m_Height: 5.74
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 2.54, z: 0}
 --- !u!114 &3120827379599688909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,5 +128,5 @@ NavMeshObstacle:
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 2.18, z: 0}
   m_TimeToStationary: 0.5

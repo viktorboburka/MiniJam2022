@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3965521711348664138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.471, z: 0}
+  m_LocalPosition: {x: 0, y: -0.989, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &4834586679528617337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,7 +257,10 @@ MonoBehaviour:
   idleDistance: 10000
   bloodPrefab: {fileID: 9088948930767243423, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
   xpPrefab: {fileID: 1948108312405830696, guid: 3f17e52e7c3453944b43613d745c7685, type: 3}
-  xpAmount: 1
+  xpDropAmount: 1
+  hpPrefab: {fileID: 0}
+  hpDropAmount: 0
+  hpDropChance: 0
   itemPrefabs: []
   itemDropChance: 0
   rend: {fileID: 1561229965019163785}
