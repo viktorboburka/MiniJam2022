@@ -13,7 +13,7 @@ GameObject:
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -72,5 +72,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c397fffd5aec98f4199c6032783abbe7, type: 2}
   - {fileID: 11400000, guid: 6d5ca3bc198735b43adb671e5694b96e, type: 2}
   - {fileID: 11400000, guid: be228375a606e8a44add36497f8bf210, type: 2}
+  - {fileID: 11400000, guid: d3b9ff8987996af49895219160de4b91, type: 2}
   enemyList: []
   debugSpawn: {x: -69.9, y: 2.35, z: 29.61005}

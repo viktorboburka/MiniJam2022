@@ -78,7 +78,7 @@ public class PlayerUI : MonoBehaviour
 
         //hp
         float expirience = 1f - ((float)playerStats.GetExperience() / (float)playerStats.GetExperienceNeeded());
-        float hp = 1f - ((float)playerStats.GetHP() / (float)playerStats.GetMaxHP());
+        float hp = 1.06f - ((float)playerStats.GetHP() / (float)playerStats.GetMaxHP());
 
         HpFillBar.fillAmount = hp;
         expirienceFillBar.fillAmount = expirience;

@@ -155,13 +155,5 @@ public class CameraHandleComponent : MonoBehaviour
     {
         HandleWorldObjets();
         HandleWorldBorder();
-        /*
-        if (cameraSpring < 1)
-            cameraSpring += cameraSpringStep * Time.deltaTime;
-        if (cameraSpring > 1)
-            cameraSpring = 1;
-            */
     }
-
-    
 }
