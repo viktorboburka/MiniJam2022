@@ -29386,69 +29386,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: saveOn
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
       propertyPath: playerT
       value: 
       objectReference: {fileID: 421846376}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: aiMaxLimit
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: isSaveTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: nextWaveIn
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: saveLenght
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: saveTimeOn
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: baseWaveTime
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
       propertyPath: saveTimeAfter
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: saveTimeLenght
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: saveBloodFadeTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: increaseWaveTimeBy
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: isSaveTimeAfterWave
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: enemyData.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: layersForSpawns.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: enemyData.Array.data[4]
+      propertyPath: postProcessVolume
       value: 
-      objectReference: {fileID: 11400000, guid: 54d792767fccb94469ed03da1a93b9c6, type: 2}
+      objectReference: {fileID: 1507814455}
     - target: {fileID: 6256827232281166298, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
       propertyPath: m_Name
       value: GameManagers
@@ -30956,7 +30904,7 @@ MonoBehaviour:
   sharedProfile: {fileID: 11400000, guid: 4413d6461b9b63e4fb7a7d74cc66fca5, type: 2}
   isGlobal: 1
   blendDistance: 0
-  weight: 1
+  weight: 0
   priority: 0
 --- !u!1001 &1517329473
 PrefabInstance:

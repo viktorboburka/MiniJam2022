@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.Rendering.PostProcessing;
 
 public class WaveManager : MonoBehaviour
 {
@@ -25,6 +25,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private float saveTimeFadeTimerLenght = 1;
     [SerializeField] private float saveTimeFadeTimerNow = 0;
     [SerializeField] private float saveTimeFade = 1;
+    [SerializeField] private float saveTimePostProcessTime = 2;
+    [SerializeField] private float saveTimePostProcessWeight = 0;
 
     [Header("Wave Modifiers")]
     [SerializeField] private int increaseWaveTimeOn = 5;
@@ -52,6 +54,7 @@ public class WaveManager : MonoBehaviour
 
     [Header("Other Objects")]
     [SerializeField] private Transform playerT;
+    [SerializeField] private PostProcessVolume postProcessVolume;
 
 
 
@@ -60,6 +63,12 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField] private Vector3 debugSpawn;
     private int maxSpawnAtOneTime = 100;
+
+
+    void Awake()
+    {
+        playerT = GameObject.FindWithTag("Player").transform;
+    }
 
     private void DrawRay(Vector3 a, Vector3 b, Color col, float dur = 1.0f)
     {
@@ -268,6 +277,21 @@ public class WaveManager : MonoBehaviour
         nextWaveIn = saveTimeLenght;
     }
 
+    void HandlePostProcess()
+    {
+        if(isSaveTime)
+        {
+            if (nextWaveIn < saveTimePostProcessTime)
+                saveTimePostProcessWeight = (saveTimePostProcessTime - nextWaveIn) / saveTimePostProcessTime;
+        }
+        else if(isSaveTimeAfterWave)
+        {
+            if (nextWaveIn < saveTimePostProcessTime)
+                saveTimePostProcessWeight = 1 - (saveTimePostProcessTime - nextWaveIn) / saveTimePostProcessTime;
+        }
+        postProcessVolume.weight = saveTimePostProcessWeight;
+    }
+
     private void ChangeObjectAlpha(ref GameObject obj, float alpha)
     {
         Renderer renderer = obj.GetComponent<Renderer>();
@@ -375,6 +399,7 @@ public class WaveManager : MonoBehaviour
 
     void Update()
     {
+        HandlePostProcess();
         if(isSaveTime)
             HandleSaveTimeCleanup();
         HandleDeadEnemies();

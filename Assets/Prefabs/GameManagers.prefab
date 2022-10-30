@@ -58,6 +58,8 @@ MonoBehaviour:
   saveTimeFadeTimerLenght: 1
   saveTimeFadeTimerNow: 0
   saveTimeFade: 1
+  saveTimePostProcessTime: 2
+  saveTimePostProcessWeight: 0
   increaseWaveTimeOn: 1
   increaseWaveTimeBy: 3
   waveTimeModifier: 0
@@ -76,6 +78,7 @@ MonoBehaviour:
   enemiesKilled: 0
   enemiesAlive: 0
   playerT: {fileID: 0}
+  postProcessVolume: {fileID: 0}
   enemyData:
   - {fileID: 11400000, guid: c397fffd5aec98f4199c6032783abbe7, type: 2}
   - {fileID: 11400000, guid: 6d5ca3bc198735b43adb671e5694b96e, type: 2}
