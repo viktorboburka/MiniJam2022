@@ -29319,14 +29319,6 @@ PrefabInstance:
       propertyPath: postProcessVolume
       value: 
       objectReference: {fileID: 1507814455}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: enemyData.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: enemyData.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 7588581f218608b4eac83e262e4c2333, type: 2}
     - target: {fileID: 6256827232281166298, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
       propertyPath: m_Name
       value: GameManagers
