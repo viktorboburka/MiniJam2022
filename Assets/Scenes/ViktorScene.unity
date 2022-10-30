@@ -29316,7 +29316,15 @@ PrefabInstance:
       objectReference: {fileID: 421846376}
     - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
       propertyPath: aiMaxLimit
-      value: 500
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: isSaveTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: nextWaveIn
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
       propertyPath: saveLenght
@@ -29327,12 +29335,28 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: baseWaveTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
       propertyPath: saveTimeAfter
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: saveTimeLenght
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
       propertyPath: saveBloodFadeTime
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: increaseWaveTimeBy
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: isSaveTimeAfterWave
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
       propertyPath: enemyData.Array.size

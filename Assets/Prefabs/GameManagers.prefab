@@ -46,24 +46,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawRays: 1
   generateUselessRandom: 0
-  baseWaveTime: 10
+  baseWaveTime: 20
   spawnRadiusMax: 60
   spawnRadiusMin: 30
+  aiMaxLimit: 1000
   layersForSpawns:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 128
+  saveTimeAfter: 10
+  saveTimeLenght: 30
+  saveTimeFadeTimerLenght: 1
+  saveTimeFadeTimerNow: 0
+  saveTimeFade: 1
   increaseWaveTimeOn: 1
-  increaseWaveTimeBy: 1
+  increaseWaveTimeBy: 3
   waveTimeModifier: 0
   increaseGroupCountOn: 10
   increaseGroupCountBy: 10
   increaseGroupSizeOn: 20
   increaseGroupSizeBy: 2
-  waveNumber: 1
-  nextWaveIn: 1
+  nextWaveNumber: 1
+  nextWaveIn: 15
   nextWaveGroupCount: 10
   nextWaveGroupSize: 1
-  actualWaveNumber: 0
+  waveNumber: 1
+  isSaveTime: 1
+  isSaveTimeAfterWave: 1
   enemiesSpawned: 0
   enemiesKilled: 0
   enemiesAlive: 0
@@ -73,5 +81,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d5ca3bc198735b43adb671e5694b96e, type: 2}
   - {fileID: 11400000, guid: be228375a606e8a44add36497f8bf210, type: 2}
   - {fileID: 11400000, guid: d3b9ff8987996af49895219160de4b91, type: 2}
+  - {fileID: 11400000, guid: 54d792767fccb94469ed03da1a93b9c6, type: 2}
   enemyList: []
   debugSpawn: {x: -69.9, y: 2.35, z: 29.61005}

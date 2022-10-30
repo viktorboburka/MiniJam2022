@@ -251,12 +251,13 @@ MonoBehaviour:
   hp: 0
   maxHp: 30
   movementSpeed: 5
-  range: 30
-  dmg: 2
-  attackSpeed: 2
+  range: 40
+  dmg: 1
+  attackSpeed: 3
   randMovementRadius: 5
   idleDistance: 10000
   bloodPrefab: {fileID: 9088948930767243423, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
+  bloodDamage: 2
   xpPrefab: {fileID: 1948108312405830696, guid: 3f17e52e7c3453944b43613d745c7685, type: 3}
   xpDropAmount: 35
   hpPrefab: {fileID: 8610715033494390966, guid: 884fcef7fe1aba64280a639e96e871a3, type: 3}
@@ -279,9 +280,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558f87d24a6710b4a8dc487895ea9fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 30
+  projectileSpeed: 35
   projectileSpawnT: {fileID: 5166851743695967751}
-  projectilePrefab: {fileID: 6939021926476381880, guid: 1924b3469832e4a4f8eaabb91e8828e4, type: 3}
+  projectilePrefab: {fileID: 6939021926476381880, guid: 1a875ffdc63efa240b9d89d61a4e0065, type: 3}
 --- !u!1 &6355931590990216621
 GameObject:
   m_ObjectHideFlags: 0
