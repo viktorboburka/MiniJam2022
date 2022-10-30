@@ -72,16 +72,18 @@ public class Enemy : MonoBehaviour
             Instantiate(bloodPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
 
             // XP Drop
-            for (int i = 0; i < xpDropAmount; i++)
-                Instantiate(xpPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
+            GameObject xpObj = Instantiate(xpPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
+            xpObj.GetComponent<Experience>().experiencePoints = xpDropAmount;
 
             // HP Drop
             if (hpDropChance > 0 && hpDropAmount > 0 && hpPrefab != null)
             {
                 if(Random.Range(0, hpDropChance) == 0)
                 {
-                    for (int i = 0; i < hpDropAmount; i++)
-                        Instantiate(hpPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
+
+                    GameObject hpObj = Instantiate(hpPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
+                    hpObj.GetComponent<Heal>().healPoints = hpDropAmount;
+
                 }
             }
 
