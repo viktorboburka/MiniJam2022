@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a882ff17db7f824c9bfe521b78978a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experiencePoints: 10
-  speed: 8
+  experiencePoints: 25
+  speed: 15
 --- !u!198 &1948108312405830698
 ParticleSystem:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class PlayerStat{
         items.Add(crossCount);
         items.Add(crossbowCount);
         items.Add(stakeCount);
-        items.Add(dualBladeCount);
+        items.Add(dualBladesCount);
     }
 
     public int boltCount = 0;
@@ -21,7 +21,7 @@ public class PlayerStat{
     public int crossCount = 0;
     public int crossbowCount = 0;
     public int stakeCount = 0;
-    public int dualBladeCount = 0;
+    public int dualBladesCount = 0;
 
     public List<int> items = new();
 }
@@ -36,6 +36,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private bool canBloodDmg = true;
 
     [SerializeField] private LevelUISystem levelSystem;
+    [SerializeField] private int level = 1;
     [SerializeField] private int experienceNeeded = 250;
     private int experience = 0;
 
@@ -152,8 +153,8 @@ public class Inventory : MonoBehaviour
                 stats.stakeCount++;
                 stats.items[4]++;
                 break;
-            case "Dual Blade":
-                stats.stakeCount++;
+            case "Dual Blades":
+                stats.dualBladesCount++;
                 stats.items[5]++;
                 break;
         }
@@ -186,8 +187,8 @@ public class Inventory : MonoBehaviour
                     return true;
                 else
                     return false;
-            case "Dual Blade":
-                if(stats.stakeCount > 0)
+            case "Dual Blades":
+                if(stats.dualBladesCount > 0)
                     return true;
                 else
                     return false;
@@ -208,8 +209,8 @@ public class Inventory : MonoBehaviour
                     return stats.crossbowCount;
             case "Stake":
                     return stats.stakeCount;
-            case "Dual Blade":
-                    return stats.stakeCount;
+            case "Dual Blades":
+                    return stats.dualBladesCount;
         }
 
         return 0;
@@ -242,7 +243,7 @@ public class Inventory : MonoBehaviour
                     return (100f/(GetItemCount(_item) + _item.cooldown)) / 20f; // cooldown 1
             case "Stake":
                     return (100f/(GetItemCount(_item) + _item.cooldown)) / 10f; // 3
-            case "Dual Blade":
+            case "Dual Blades":
                     return (100f/(GetItemCount(_item) + _item.cooldown)) / 10f; // 2
         }
 
@@ -252,8 +253,9 @@ public class Inventory : MonoBehaviour
     public void EXPCollected(int exp){
         experience += exp;
         if(experience >= experienceNeeded){
+            level++;
             experience -= experienceNeeded;
-            experienceNeeded = (int)(experienceNeeded * 1.5f);
+            experienceNeeded = (experienceNeeded * level) / 3;
             LevelUp();
         }
     }
