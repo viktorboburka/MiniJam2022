@@ -151,9 +151,9 @@ public class WaveManager : MonoBehaviour
 
             int spawnChance = enemy.chanceToSpawn;
             if (enemy.modifyChanceToSpawnOn != 0)
-                if((float)nextWaveNumber / (float)enemy.modifyChanceToSpawnOn > 1.0f)
+                if((float)waveNumber / (float)enemy.modifyChanceToSpawnOn > 1.0f)
                 {
-                    int modifyChanceToSpawnBy = nextWaveNumber / enemy.modifyChanceToSpawnOn;
+                    int modifyChanceToSpawnBy = waveNumber / enemy.modifyChanceToSpawnOn;
                     spawnChance += enemy.modifyChanceToSpawnBy * modifyChanceToSpawnBy;
                     Debug.Log("Spawn Change Modified: " + spawnChance);
                 }
@@ -249,12 +249,12 @@ public class WaveManager : MonoBehaviour
             if (enemy.guaranteedSpawnOn == 0)
                 continue;
 
-            if (nextWaveNumber % enemy.guaranteedSpawnOn == 0)
+            if (waveNumber % enemy.guaranteedSpawnOn == 0)
             {
                 int guaranteedSpawnCount = enemy.guaranteedSpawnCount;
-                if((float)nextWaveNumber / (float)enemy.modifyGuaranteedSpawnCountOn > 1.0f)
+                if((float)waveNumber / (float)enemy.modifyGuaranteedSpawnCountOn > 1.0f)
                 {
-                    int modifyguaranteedSpawnCountBy = nextWaveNumber / enemy.modifyGuaranteedSpawnCountOn;
+                    int modifyguaranteedSpawnCountBy = waveNumber / enemy.modifyGuaranteedSpawnCountOn;
                     guaranteedSpawnCount += enemy.modifyGuaranteedSpawnCountBy * modifyguaranteedSpawnCountBy;
                 }
                 for(int i = 0; i < multiplier * guaranteedSpawnCount; i++)
