@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2488308529833303265}
   - component: {fileID: 3120827379599688909}
   - component: {fileID: -8216847464720845433}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pillar
-  m_TagString: Untagged
+  m_TagString: WorldObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

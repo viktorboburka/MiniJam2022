@@ -767,6 +767,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_TagString
+      value: WorldObject
+      objectReference: {fileID: 0}
     - target: {fileID: 5920904086741432503, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -8785,6 +8793,14 @@ PrefabInstance:
     - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_Name
       value: Pillar (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_TagString
+      value: WorldObject
       objectReference: {fileID: 0}
     - target: {fileID: 5920904086741432503, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_RootOrder
@@ -19925,6 +19941,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_TagString
+      value: WorldObject
+      objectReference: {fileID: 0}
     - target: {fileID: 5920904086741432503, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -24705,6 +24729,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_TagString
+      value: WorldObject
+      objectReference: {fileID: 0}
     - target: {fileID: 5920904086741432503, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -25814,6 +25846,14 @@ PrefabInstance:
     - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_Name
       value: Pillar (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_TagString
+      value: WorldObject
       objectReference: {fileID: 0}
     - target: {fileID: 5920904086741432503, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_RootOrder
@@ -28544,6 +28584,14 @@ PrefabInstance:
     - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_Name
       value: Pillar (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_TagString
+      value: WorldObject
       objectReference: {fileID: 0}
     - target: {fileID: 5920904086741432503, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_RootOrder
@@ -33937,6 +33985,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_TagString
+      value: WorldObject
+      objectReference: {fileID: 0}
     - target: {fileID: 5920904086741432503, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -37475,6 +37531,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_TagString
+      value: WorldObject
+      objectReference: {fileID: 0}
     - target: {fileID: 5920904086741432503, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -38021,6 +38085,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar
       objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920904086741432498, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
+      propertyPath: m_TagString
+      value: WorldObject
+      objectReference: {fileID: 0}
     - target: {fileID: 5920904086741432503, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -38031,7 +38103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5920904086741432503, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 31.813477
+      value: 21.6
       objectReference: {fileID: 0}
     - target: {fileID: 5920904086741432503, guid: d7363d1e2c03584459dd1f91e665a488, type: 3}
       propertyPath: m_LocalPosition.z
