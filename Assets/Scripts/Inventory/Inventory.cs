@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using TMPro;
 
 [System.Serializable]
@@ -45,6 +46,15 @@ public class Inventory : MonoBehaviour
     [SerializeField] private UnityEvent<Item> onAddedItem;
     [SerializeField] private UnityEvent<Item> onUpgradedItem;
     [SerializeField] public PlayerStat stats = new PlayerStat();
+    
+    [SerializeField] public Image damageIndicator;
+    [SerializeField] private float cooldown = 0.5f;
+    [SerializeField] private float cooldownTime = 0.5f;
+
+    
+    [SerializeField] public Image healIndicator;
+    [SerializeField] private float cooldownHeal = 0.5f;
+    [SerializeField] private float cooldownTimeHeal = 0.5f;
 
     
     [SerializeField] public InputManager inputManager;
@@ -94,6 +104,16 @@ public class Inventory : MonoBehaviour
             cooldownBar.sizeDelta = new Vector2(100f, (waterCooldownTime / waterCooldown) * 100f);
             waterCooldownTime -= Time.deltaTime;
         }
+
+        if(cooldownTime < cooldown){
+            cooldownTime += Time.deltaTime;
+            damageIndicator.color = new Color(1f, 1f, 1f, 0.75f - Mathf.Clamp(1f * (cooldownTime / cooldown), 0f, 0.75f));
+        }
+
+        if(cooldownTimeHeal < cooldownHeal){
+            cooldownTimeHeal += Time.deltaTime;
+            healIndicator.color = new Color(healIndicator.color.r, healIndicator.color.g, healIndicator.color.b, 0.3f - Mathf.Clamp(1f * (cooldownTimeHeal / cooldownHeal), 0f, 0.3f));
+        }
     }
 
     public void RestartSceneDebug(InputAction.CallbackContext context){
@@ -127,6 +147,7 @@ public class Inventory : MonoBehaviour
     }
 
     public void GetDamaged(int dmg){
+        cooldownTime = 0;
         health -= dmg;
         if(health <= 0){
             health = 0;
@@ -135,6 +156,7 @@ public class Inventory : MonoBehaviour
     }
 
     public void GetHealed(int heal){
+        cooldownTimeHeal = 0;
         if(health + heal > maxHealth)
             health = maxHealth;
         else
