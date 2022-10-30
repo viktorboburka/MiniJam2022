@@ -16,7 +16,7 @@ MonoBehaviour:
   chanceToSpawn: 0
   modifyChanceToSpawnOn: 16
   modifyChanceToSpawnBy: 1
-  guaranteedSpawnOn: 2
+  guaranteedSpawnOn: 15
   guaranteedSpawnCount: 1
   modifyGuaranteedSpawnCountOn: 16
   modifyGuaranteedSpawnCountBy: 1
