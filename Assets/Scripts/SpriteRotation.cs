@@ -13,8 +13,9 @@ public class SpriteRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 lookRot = (new Vector3(playerPos.position.x, 0f, playerPos.position.z) - new Vector3(transform.position.x, 0f, transform.position.z));
-
-        transform.rotation = Quaternion.LookRotation(new Vector3(lookRot.x, transform.position.y, lookRot.z) , Vector3.up);
+        var lookPos = playerPos.position - transform.position;
+        lookPos.y = 0;
+        var rotation = Quaternion.LookRotation(lookPos);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
     }
 }
