@@ -3917,7 +3917,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  waterCooldown: 20
+  waterCooldown: 9
   waterCooldownTime: 0
   cooldownBar: {fileID: 3224228411601433826}
   waterText: {fileID: 2075156077333478316}
