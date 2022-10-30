@@ -13,6 +13,8 @@ public class Heal : MonoBehaviour
 
     void Start(){
         target = GameObject.FindWithTag("Player").transform;
+        ParticleSystem.EmissionModule paEmission = this.GetComponent<ParticleSystem>().emission;
+        paEmission.rateOverTime = healPoints;
     }
 
     void FixedUpdate(){
