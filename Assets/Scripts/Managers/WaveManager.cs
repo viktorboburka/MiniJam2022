@@ -61,9 +61,16 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private Transform playerT;
     [SerializeField] private PostProcessVolume postProcessVolume;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioSource MusicSource;
+    [SerializeField] private AudioSource SfxSource;
+    [SerializeField] private AudioClip waveStart;
+    [SerializeField] private AudioClip waveEnd;
+    [SerializeField] private AudioClip music;
 
 
-    [SerializeField] public List<EnemySpawnData> enemyData = new List<EnemySpawnData>();
+
+     [SerializeField] public List<EnemySpawnData> enemyData = new List<EnemySpawnData>();
     [SerializeField] public List<GameObject> enemyList = new List<GameObject>();
 
     [SerializeField] private Vector3 debugSpawn;
@@ -73,6 +80,8 @@ public class WaveManager : MonoBehaviour
     void Awake()
     {
         playerT = GameObject.FindWithTag("Player").transform;
+        MusicSource = GameObject.Find("MusicPlayer").GetComponent<AudioSource>();
+        SfxSource = GameObject.Find("SFXPlayer").GetComponent<AudioSource>();
     }
 
     private void DrawRay(Vector3 a, Vector3 b, Color col, float dur = 1.0f)
@@ -419,11 +428,20 @@ public class WaveManager : MonoBehaviour
 
     void NextWaveIncoming(){
         wasNextWaveIncomingCalled = true;
+
         Debug.Log("Next Wave Incoming: " + nextWaveNumber);
     }
 
     void SaveTimeIncoming(){
         wasSaveTimeIncomingCalled = true;
+
+
+        MusicSource.Stop();
+        MusicSource.PlayDelayed(2);
+        SfxSource.clip = waveEnd;
+        SfxSource.Play();
+
+
         Debug.Log("Save Time Incoming");
     }
 

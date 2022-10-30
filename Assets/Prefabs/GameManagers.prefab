@@ -50,6 +50,8 @@ MonoBehaviour:
   spawnRadiusMax: 60
   spawnRadiusMin: 30
   aiMaxLimit: 1000
+  fastenWaveOnLessThan: 10
+  fastenWaveTo: 5
   layersForSpawns:
     serializedVersion: 2
     m_Bits: 128
@@ -82,6 +84,8 @@ MonoBehaviour:
   enemiesAlive: 0
   playerT: {fileID: 0}
   postProcessVolume: {fileID: 0}
+  waveStart: {fileID: 8300000, guid: 4674bb72517568948a1c2654e5db1b88, type: 3}
+  waveEnd: {fileID: 8300000, guid: c5f9900e23fb7544bbc8bc4dcfabd945, type: 3}
   enemyData:
   - {fileID: 11400000, guid: c397fffd5aec98f4199c6032783abbe7, type: 2}
   - {fileID: 11400000, guid: 6d5ca3bc198735b43adb671e5694b96e, type: 2}
