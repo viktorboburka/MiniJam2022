@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Drops")]
     [SerializeField] private GameObject bloodPrefab;
+    [SerializeField] private int bloodDamage = 2;
     [SerializeField] private GameObject xpPrefab;
     [SerializeField] private int xpDropAmount = 1;
     [SerializeField] private GameObject hpPrefab;
@@ -69,7 +70,8 @@ public class Enemy : MonoBehaviour
         //TODO: animation and sound feedback
         if (hp <= 0) {
             // Blood Drop
-            Instantiate(bloodPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
+            GameObject bloodObj = Instantiate(bloodPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
+            bloodObj.GetComponent<BloodCast>().damage = bloodDamage;
 
             // XP Drop
             GameObject xpObj = Instantiate(xpPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
