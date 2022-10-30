@@ -1929,10 +1929,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6457156803058264131, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
-      propertyPath: item
-      value: 
-      objectReference: {fileID: 11400000, guid: 299a35496df26704f88a5e33b2da69ba, type: 2}
     - target: {fileID: 6457156803058264134, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
       propertyPath: m_Name
       value: ItemDrop
@@ -25556,10 +25552,6 @@ PrefabInstance:
       propertyPath: playerT
       value: 
       objectReference: {fileID: 421846376}
-    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: layersForSpawns.m_Bits
-      value: 384
-      objectReference: {fileID: 0}
     - target: {fileID: 6256827232281166298, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
       propertyPath: m_Name
       value: GameManagers

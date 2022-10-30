@@ -51,7 +51,7 @@ MonoBehaviour:
   spawnRadiusMin: 30
   layersForSpawns:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
   increaseWaveTimeOn: 1
   increaseWaveTimeBy: 1
   waveTimeModifier: 0
