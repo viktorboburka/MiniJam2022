@@ -17,6 +17,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private float spawnRadiusMax = 60;
     [SerializeField] private float spawnRadiusMin = 40;
     [SerializeField] private float aiMaxLimit = 2000;
+    [SerializeField] private float fastenWaveOnLessThan = 10;
+    [SerializeField] private float fastenWaveTo = 5;
     [SerializeField] private LayerMask layersForSpawns;
 
     [Header("Save Time")]
@@ -404,6 +406,16 @@ public class WaveManager : MonoBehaviour
         enemiesAlive = enemiesSpawned - enemiesKilled;
     }
 
+    void FastenWaveEnd()
+    {
+        if(isSaveTime)
+            return;
+        if(nextWaveIn < fastenWaveTo)
+            return;
+        if(enemiesAlive < fastenWaveOnLessThan)
+            nextWaveIn = 5;
+    }
+
 
     void NextWaveIncoming(){
         wasNextWaveIncomingCalled = true;
@@ -427,7 +439,7 @@ public class WaveManager : MonoBehaviour
             HandleSaveTimeCleanup();
         HandleDeadEnemies();
         DrawSpawnArea(Color.magenta);
-
+        FastenWaveEnd();
         if (isSaveTimeAfterWave && !isSaveTime  && !wasLastWaveIncomingCalled)
             LastWaveBeforeSaveTime();
 
