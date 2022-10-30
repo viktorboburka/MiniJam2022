@@ -68,6 +68,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private RectTransform cooldownBar;
     [SerializeField] private TMP_Text waterText;
     [SerializeField] private Canvas canvas;
+    
+    [SerializeField] private Animator UIAnim;
 
 
 
@@ -130,7 +132,7 @@ public class Inventory : MonoBehaviour
     }
 
     public void RestartSceneDebug(InputAction.CallbackContext context){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     IEnumerator BloodCooldown(){
@@ -168,8 +170,11 @@ public class Inventory : MonoBehaviour
         AudioSource.PlayClipAtPoint(randomSound, transform.position);
 
         if(health <= 0){
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             health = 0;
-            GetComponent<CapsuleCollider>().enabled = false;
+            Time.timeScale = 0;
+            UIAnim.SetBool("isDead", true);
         }
     }
 
@@ -335,6 +340,18 @@ public class Inventory : MonoBehaviour
             experienceNeeded += (int)((experienceNeeded * level) * 0.01f);
             LevelUp();
         }
+    }
+
+    public void RestartGame(){
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(1);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void MainMenu(){
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 
     public int GetHP() { return health; }

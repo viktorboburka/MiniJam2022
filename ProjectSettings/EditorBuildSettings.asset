@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: a45f3d6604b4ef64db03b1e67fc15282
   - enabled: 1
-    path: Assets/Scenes/Moxi Scene.unity
-    guid: 1d43b4f43914e934b8eeb83d1b8cbe0f
+    path: Assets/Scenes/ViktorScene.unity
+    guid: 7e4219693adf56f4b85f10736a509a9e
   m_configObjects: {}

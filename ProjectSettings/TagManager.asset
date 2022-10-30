@@ -13,6 +13,7 @@ TagManager:
   - Blood
   - Throwable
   - EnemySprite
+  - WaveManager
   layers:
   - Default
   - TransparentFX
