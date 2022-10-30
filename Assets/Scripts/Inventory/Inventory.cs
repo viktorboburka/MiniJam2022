@@ -74,6 +74,8 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private AudioClip[] playerXpColectSound;
 
+    [SerializeField] private AudioClip playerHealSound;
+
     void OnEnable(){
         inputManager.Enable();
 
@@ -168,14 +170,20 @@ public class Inventory : MonoBehaviour
 
     public void GetHealed(int heal){
         cooldownTimeHeal = 0;
-        if(health + heal > maxHealth)
+
+        AudioSource.PlayClipAtPoint(playerHealSound, transform.position);
+
+        if (health + heal > maxHealth)
             health = maxHealth;
         else
             health += heal;
     }
 
     public void LevelHeal(){
-        if(health + (maxHealth * 0.2f) > maxHealth)
+
+        AudioSource.PlayClipAtPoint(playerHealSound, transform.position);
+
+        if (health + (maxHealth * 0.2f) > maxHealth)
             health = maxHealth;
         else
             health += (int)(maxHealth * 0.2f);

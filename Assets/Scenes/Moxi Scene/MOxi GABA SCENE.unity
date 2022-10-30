@@ -5361,6 +5361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5075382222865726747, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+      propertyPath: playerHealSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 99ad04d78c8e3ef4690d3a4fb855b9a8, type: 3}
     - target: {fileID: 5075382222865726751, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
       propertyPath: m_RootOrder
       value: 1
