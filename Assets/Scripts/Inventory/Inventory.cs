@@ -72,6 +72,8 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private AudioClip[] playerDmgSound;
 
+    [SerializeField] private AudioClip[] playerXpColectSound;
+
     void OnEnable(){
         inputManager.Enable();
 
@@ -309,7 +311,12 @@ public class Inventory : MonoBehaviour
 
     public void EXPCollected(int exp){
         experience += exp;
-        if(experience >= experienceNeeded){
+
+        var randomSound = playerXpColectSound[Random.Range(0, playerXpColectSound.Length)];
+        AudioSource.PlayClipAtPoint(randomSound, transform.position);
+
+
+        if (experience >= experienceNeeded){
             level++;
             experience -= experienceNeeded;
             experienceNeeded += (int)((experienceNeeded * level) * 0.01f);
