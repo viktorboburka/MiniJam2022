@@ -26,9 +26,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3965521711348664138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.989, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: -0.973, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5337521773576550561}
   m_RootOrder: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 1
+  m_SpriteSortPoint: 0
 --- !u!114 &4834586679528617337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 5337521773576550566}
   - component: {fileID: 5337521773576550567}
   m_Layer: 12
-  m_Name: WeakRangedVampire
+  m_Name: EliteRangedVampire
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,6 +134,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3546646081103254823}
+  - {fileID: 5166851743695967751}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -248,16 +249,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  maxHp: 35
-  movementSpeed: 3
-  range: 20
-  dmg: 10
-  attackSpeed: 0.5
+  maxHp: 30
+  movementSpeed: 5
+  range: 30
+  dmg: 2
+  attackSpeed: 2
   randMovementRadius: 5
   idleDistance: 10000
   bloodPrefab: {fileID: 9088948930767243423, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
   xpPrefab: {fileID: 1948108312405830696, guid: 3f17e52e7c3453944b43613d745c7685, type: 3}
-  xpDropAmount: 3
+  xpDropAmount: 20
   hpPrefab: {fileID: 0}
   hpDropAmount: 0
   hpDropChance: 0
@@ -278,6 +279,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558f87d24a6710b4a8dc487895ea9fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 20
-  projectileSpawnT: {fileID: 0}
+  projectileSpeed: 30
+  projectileSpawnT: {fileID: 5166851743695967751}
   projectilePrefab: {fileID: 6939021926476381880, guid: 1924b3469832e4a4f8eaabb91e8828e4, type: 3}
+--- !u!1 &6355931590990216621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5166851743695967751}
+  m_Layer: 12
+  m_Name: projectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5166851743695967751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6355931590990216621}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5337521773576550561}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
