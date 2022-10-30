@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  maxHp: 35
+  maxHp: 50
   movementSpeed: 3
   range: 20
   dmg: 10
@@ -288,6 +288,7 @@ MonoBehaviour:
   randMovementRadius: 5
   idleDistance: 10000
   bloodPrefab: {fileID: 9088948930767243423, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
+  bloodDamage: 2
   xpPrefab: {fileID: 1948108312405830696, guid: 3f17e52e7c3453944b43613d745c7685, type: 3}
   xpDropAmount: 10
   hpPrefab: {fileID: 8610715033494390966, guid: 884fcef7fe1aba64280a639e96e871a3, type: 3}
