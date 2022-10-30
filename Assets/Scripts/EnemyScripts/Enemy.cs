@@ -80,8 +80,10 @@ public class Enemy : MonoBehaviour
             {
                 if(Random.Range(0, hpDropChance) == 0)
                 {
-                    for (int i = 0; i < hpDropAmount; i++)
-                        Instantiate(hpPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
+
+                    GameObject hpObj = Instantiate(hpPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
+                    hpObj.GetComponent<Heal>().healPoints = hpDropAmount;
+
                 }
             }
 
