@@ -67,7 +67,7 @@ public class PlayerAbilitySystem : MonoBehaviour
         if (slot.CooldownTime > 0)
             return;
         slot.item.Activate(ItemArgumets);
-        slot.CooldownTime = slot.item.cooldown;
+        slot.CooldownTime = inventory.GetCooldown(slot.item);
     }
 
     // Start is called before the first frame update

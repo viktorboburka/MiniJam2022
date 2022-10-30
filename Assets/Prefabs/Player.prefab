@@ -1233,6 +1233,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 719a4efeec68be04ba72c1cbc49b9fe0, type: 2}
   - {fileID: 11400000, guid: e9ada68ffea17d540b29a3d56bb5adbc, type: 2}
   - {fileID: 11400000, guid: 68c4e0416274b334ca88274a35e79934, type: 2}
+  - {fileID: 11400000, guid: 299a35496df26704f88a5e33b2da69ba, type: 2}
+  - {fileID: 11400000, guid: 58fd27f318cb3b04c99ce99007c0d2a1, type: 2}
+  - {fileID: 11400000, guid: 4486649f34cb3584f829b28609abfce5, type: 2}
   anim: {fileID: 5075382221999544044}
   itemsUI:
   - {fileID: 5075382223108501753}
@@ -2420,7 +2423,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5075382222865726743}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4ebe4f3a5627ace40adba4e1057901c3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -2628,6 +2631,7 @@ MonoBehaviour:
     shootPoint: {fileID: 5075382222639885117}
     inventory: {fileID: 5075382222865726747}
   actions: {fileID: -944628639613478452, guid: 6e812fee30bcbe943ac28c72cc571ada, type: 3}
+  inventory: {fileID: 0}
 --- !u!95 &5075382222865726740
 Animator:
   serializedVersion: 4

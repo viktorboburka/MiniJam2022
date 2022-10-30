@@ -18,7 +18,7 @@ MonoBehaviour:
   itemDescription: Side Slash
   cooldown: 2
   cooldownTick: 0
-  damage: 20
+  damage: 8
   speed: 0
   knockback: 0
   radius: 0

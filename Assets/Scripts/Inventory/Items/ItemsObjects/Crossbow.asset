@@ -18,7 +18,7 @@ MonoBehaviour:
   itemDescription: Autofires bolt to nearby enemies
   cooldown: 1
   cooldownTick: 0
-  damage: 4
+  damage: 5
   speed: 15
   knockback: 1
   radius: 0

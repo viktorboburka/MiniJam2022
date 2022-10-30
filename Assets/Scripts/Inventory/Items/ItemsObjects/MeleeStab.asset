@@ -18,7 +18,7 @@ MonoBehaviour:
   itemDescription: stabs in front of you
   cooldown: 3
   cooldownTick: 0
-  damage: 5
+  damage: 15
   speed: 0
   knockback: 0
   radius: 0
