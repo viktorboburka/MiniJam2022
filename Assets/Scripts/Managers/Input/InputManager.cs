@@ -98,6 +98,15 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WaterAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f0ee515-1ae5-4382-834c-f1e4f0349697"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -232,6 +241,17 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""action"": ""DebugRestart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8fa4e4c9-f519-4866-b141-87819a40fbac"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WaterAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -248,6 +268,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         m_Player_Abillity4 = m_Player.FindAction("Abillity4", throwIfNotFound: true);
         m_Player_Abillity5 = m_Player.FindAction("Abillity5", throwIfNotFound: true);
         m_Player_DebugRestart = m_Player.FindAction("DebugRestart", throwIfNotFound: true);
+        m_Player_WaterAction = m_Player.FindAction("WaterAction", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -315,6 +336,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Abillity4;
     private readonly InputAction m_Player_Abillity5;
     private readonly InputAction m_Player_DebugRestart;
+    private readonly InputAction m_Player_WaterAction;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
@@ -327,6 +349,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         public InputAction @Abillity4 => m_Wrapper.m_Player_Abillity4;
         public InputAction @Abillity5 => m_Wrapper.m_Player_Abillity5;
         public InputAction @DebugRestart => m_Wrapper.m_Player_DebugRestart;
+        public InputAction @WaterAction => m_Wrapper.m_Player_WaterAction;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -360,6 +383,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @DebugRestart.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDebugRestart;
                 @DebugRestart.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDebugRestart;
                 @DebugRestart.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDebugRestart;
+                @WaterAction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaterAction;
+                @WaterAction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaterAction;
+                @WaterAction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaterAction;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -388,6 +414,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @DebugRestart.started += instance.OnDebugRestart;
                 @DebugRestart.performed += instance.OnDebugRestart;
                 @DebugRestart.canceled += instance.OnDebugRestart;
+                @WaterAction.started += instance.OnWaterAction;
+                @WaterAction.performed += instance.OnWaterAction;
+                @WaterAction.canceled += instance.OnWaterAction;
             }
         }
     }
@@ -402,5 +431,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         void OnAbillity4(InputAction.CallbackContext context);
         void OnAbillity5(InputAction.CallbackContext context);
         void OnDebugRestart(InputAction.CallbackContext context);
+        void OnWaterAction(InputAction.CallbackContext context);
     }
 }

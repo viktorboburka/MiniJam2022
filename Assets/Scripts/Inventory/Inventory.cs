@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using TMPro;
 
 [System.Serializable]
 public class PlayerStat{
@@ -49,12 +50,24 @@ public class Inventory : MonoBehaviour
     [SerializeField] public InputManager inputManager;
     [SerializeField] private InputAction debugRestart;
 
+    //Water Logic
+    [SerializeField] private GameObject water;
+    [SerializeField] private InputAction waterAction;
+    [SerializeField] private float waterCooldown;
+    [SerializeField] private float waterCooldownTime;
+    [SerializeField] private RectTransform cooldownBar;
+    [SerializeField] private TMP_Text waterText;
+
     void OnEnable(){
         inputManager.Enable();
 
         debugRestart = inputManager.Player.DebugRestart;
         debugRestart.Enable();
         debugRestart.performed += RestartSceneDebug;
+
+        waterAction = inputManager.Player.WaterAction;
+        waterAction.Enable();
+        waterAction.performed += CastWater;
     }
 
     void OnDisable(){
@@ -74,6 +87,13 @@ public class Inventory : MonoBehaviour
                 StartCoroutine(BloodCooldown());
                 GetDamaged(hit.collider.GetComponent<BloodSplat>().damage);
             }
+        }
+
+        if(waterCooldownTime > 0){
+            Debug.Log((waterCooldownTime / waterCooldown) * 100f);
+            waterText.text = Mathf.Floor(waterCooldownTime).ToString();
+            cooldownBar.sizeDelta = new Vector2(100f, (waterCooldownTime / waterCooldown) * 100f);
+            waterCooldownTime -= Time.deltaTime;
         }
     }
 
@@ -97,6 +117,13 @@ public class Inventory : MonoBehaviour
                 onUpgradedItem.Invoke(coll.GetComponent<ItemDrop>().GetItem());
             
             Destroy(coll.gameObject);
+        }
+    }
+
+    public void CastWater(InputAction.CallbackContext context){
+        if(waterCooldownTime <= 0){
+            Instantiate(water, transform.position - Vector3.up * 0.9f, transform.rotation);
+            waterCooldownTime = waterCooldown;
         }
     }
 
@@ -255,7 +282,7 @@ public class Inventory : MonoBehaviour
         if(experience >= experienceNeeded){
             level++;
             experience -= experienceNeeded;
-            experienceNeeded = (experienceNeeded * level) / 3;
+            experienceNeeded += (int)((experienceNeeded * level) * 0.01f);
             LevelUp();
         }
     }
