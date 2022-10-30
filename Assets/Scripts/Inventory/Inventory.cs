@@ -90,7 +90,6 @@ public class Inventory : MonoBehaviour
         }
 
         if(waterCooldownTime > 0){
-            Debug.Log((waterCooldownTime / waterCooldown) * 100f);
             waterText.text = Mathf.Floor(waterCooldownTime).ToString();
             cooldownBar.sizeDelta = new Vector2(100f, (waterCooldownTime / waterCooldown) * 100f);
             waterCooldownTime -= Time.deltaTime;
