@@ -29,10 +29,10 @@ public class Enemy : MonoBehaviour
     [Header("Drops")]
     [SerializeField] private GameObject bloodPrefab;
     [SerializeField] private GameObject xpPrefab;
-    [SerializeField] private int xpAmount = 1;
+    [SerializeField] private int xpDropAmount = 1;
     [SerializeField] private GameObject hpPrefab;
-    [SerializeField] private int hpAmount = 1;
-    [SerializeField] private int hpDropChance = 1;
+    [SerializeField] private int hpDropAmount = 0;
+    [SerializeField] private int hpDropChance = 0;
     [SerializeField] private GameObject[] itemPrefabs;
     [SerializeField] private int itemDropChance;
     
@@ -68,19 +68,25 @@ public class Enemy : MonoBehaviour
 
         //TODO: animation and sound feedback
         if (hp <= 0) {
+            // Blood Drop
             Instantiate(bloodPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
-            for (int i = 0; i < xpAmount; i++)
+
+            // XP Drop
+            for (int i = 0; i < xpDropAmount; i++)
                 Instantiate(xpPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
-            if (hpDropChance > 0)
+
+            // HP Drop
+            if (hpDropChance > 0 && hpDropAmount > 0 && hpPrefab != null)
             {
                 if(Random.Range(0, hpDropChance) == 0)
                 {
-                    for (int i = 0; i < hpAmount; i++)
+                    for (int i = 0; i < hpDropAmount; i++)
                         Instantiate(hpPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
                 }
             }
 
-            if (itemDropChance > 0)
+            // Item Drop
+            if (itemDropChance > 0  && itemPrefabs.Length > 0)
             {
                 if(Random.Range(0, itemDropChance) == 0)
                 {
