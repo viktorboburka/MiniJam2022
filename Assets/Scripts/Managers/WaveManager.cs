@@ -47,6 +47,9 @@ public class WaveManager : MonoBehaviour
     [SerializeField] public int waveNumber = 0;
     [SerializeField] public bool isSaveTime = false;
     [SerializeField] public bool isSaveTimeAfterWave = false;
+    [SerializeField] public bool wasNextWaveIncomingCalled = false;
+    [SerializeField] public bool wasSaveTimeIncomingCalled = false;
+    [SerializeField] public bool wasLastWaveIncomingCalled = false;
     [SerializeField] public int enemiesSpawned = 0;
     [SerializeField] public int enemiesKilled = 0;
     [SerializeField] public int enemiesAlive = 0;
@@ -275,10 +278,15 @@ public class WaveManager : MonoBehaviour
     {
         isSaveTime = true;
         nextWaveIn = saveTimeLenght;
+        wasSaveTimeIncomingCalled = false;
+        wasLastWaveIncomingCalled = false;
     }
 
     void HandlePostProcess()
     {
+        if(postProcessVolume == null)
+            return;
+
         if(isSaveTime)
         {
             if (nextWaveIn < saveTimePostProcessTime)
@@ -361,7 +369,7 @@ public class WaveManager : MonoBehaviour
         SpawnWave();
         HandleGuaranteedSpawns();
         HandleWaveModifiers();
-
+        wasNextWaveIncomingCalled = false;
     }
 
     void EndWave()
@@ -397,6 +405,21 @@ public class WaveManager : MonoBehaviour
     }
 
 
+    void NextWaveIncoming(){
+        wasNextWaveIncomingCalled = true;
+        Debug.Log("Next Wave Incoming: " + nextWaveNumber);
+    }
+
+    void SaveTimeIncoming(){
+        wasSaveTimeIncomingCalled = true;
+        Debug.Log("Save Time Incoming");
+    }
+
+    void LastWaveBeforeSaveTime(){
+        wasLastWaveIncomingCalled = true;
+        Debug.Log("Last Wave: " + waveNumber);
+    }
+
     void Update()
     {
         HandlePostProcess();
@@ -404,6 +427,20 @@ public class WaveManager : MonoBehaviour
             HandleSaveTimeCleanup();
         HandleDeadEnemies();
         DrawSpawnArea(Color.magenta);
+
+        if (isSaveTimeAfterWave && !isSaveTime  && !wasLastWaveIncomingCalled)
+            LastWaveBeforeSaveTime();
+
+
+        if(nextWaveIn < 3 && (!wasNextWaveIncomingCalled && !wasSaveTimeIncomingCalled))
+        {
+            if(isSaveTimeAfterWave && !isSaveTime)
+                SaveTimeIncoming();
+            else
+                NextWaveIncoming();
+        }
+
+
         if (generateUselessRandom)
         {
             Vector3 pos;

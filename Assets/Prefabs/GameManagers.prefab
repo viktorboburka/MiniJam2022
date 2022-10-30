@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawRays: 1
   generateUselessRandom: 0
-  baseWaveTime: 20
+  baseWaveTime: 15
   spawnRadiusMax: 60
   spawnRadiusMin: 30
   aiMaxLimit: 1000
@@ -54,7 +54,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   saveTimeAfter: 10
-  saveTimeLenght: 30
+  saveTimeLenght: 15
   saveTimeFadeTimerLenght: 1
   saveTimeFadeTimerNow: 0
   saveTimeFade: 1
@@ -74,6 +74,9 @@ MonoBehaviour:
   waveNumber: 1
   isSaveTime: 1
   isSaveTimeAfterWave: 1
+  wasNextWaveIncomingCalled: 0
+  wasSaveTimeIncomingCalled: 0
+  wasLastWaveIncomingCalled: 0
   enemiesSpawned: 0
   enemiesKilled: 0
   enemiesAlive: 0

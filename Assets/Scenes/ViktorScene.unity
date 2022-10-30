@@ -29312,8 +29312,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 421846376}
     - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
-      propertyPath: saveTimeAfter
-      value: 10
+      propertyPath: baseWaveTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
+      propertyPath: saveTimeLenght
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6256827232281166297, guid: a9259fd74eed800428cd6e60a800abe8, type: 3}
       propertyPath: postProcessVolume
