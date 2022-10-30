@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MeleeStab
   m_EditorClassIdentifier: 
   itemName: Stake
-  itemSprite: {fileID: 21300000, guid: 61ac40b257b3a994f841856ad38b2b6b, type: 3}
+  itemSprite: {fileID: 21300000, guid: 30605dd8fe4ebed4d850c914b22f5568, type: 3}
   itemType: 0
   itemDescription: stabs in front of you
   cooldown: 3
