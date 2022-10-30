@@ -13,9 +13,6 @@ public class MeleeFrontStabItem : Item
 
         GameObject dmgBox = Instantiate(projectilePrefab, _args.shootPoint.parent.position + _args.shootPoint.parent.forward * 1.5f, _args.shootPoint.parent.rotation, _args.shootPoint.transform);
 
-
-        Destroy(dmgBox, timeToDestroy);
-
         dmgBox.GetComponent<Melee>().attackInfo = new AttackInfo(damage + (int)(damage * _args.inventory.GetItemCount(this) * 0.15f), knockback);
     }
 }
