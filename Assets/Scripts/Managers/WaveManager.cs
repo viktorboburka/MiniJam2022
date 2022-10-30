@@ -50,7 +50,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] public bool isSaveTime = false;
     [SerializeField] public bool isSaveTimeAfterWave = false;
     [SerializeField] public bool wasNextWaveIncomingCalled = false;
-    [SerializeField] public bool wasSaveTimeIncomingCalled = false;
+    [SerializeField] public bool wasSaveTimeStartingCalled = false;
+    [SerializeField] public bool wasSaveTimeEndingCalled = false;
     [SerializeField] public bool wasLastWaveIncomingCalled = false;
     [SerializeField] public int enemiesSpawned = 0;
     [SerializeField] public int enemiesKilled = 0;
@@ -289,7 +290,8 @@ public class WaveManager : MonoBehaviour
     {
         isSaveTime = true;
         nextWaveIn = saveTimeLenght;
-        wasSaveTimeIncomingCalled = false;
+        wasSaveTimeStartingCalled = false;
+        wasSaveTimeEndingCalled = false;
         wasLastWaveIncomingCalled = false;
     }
 
@@ -432,8 +434,8 @@ public class WaveManager : MonoBehaviour
         Debug.Log("Next Wave Incoming: " + nextWaveNumber);
     }
 
-    void SaveTimeIncoming(){
-        wasSaveTimeIncomingCalled = true;
+    void SaveTimeStarting(){
+        wasSaveTimeStartingCalled = true;
 
 
         MusicSource.Stop();
@@ -442,7 +444,20 @@ public class WaveManager : MonoBehaviour
         SfxSource.Play();
 
 
-        Debug.Log("Save Time Incoming");
+        Debug.Log("Save Time Starting");
+    }
+
+    void SaveTimeEnding(){
+        wasSaveTimeEndingCalled = true;
+
+
+        MusicSource.Stop();
+        MusicSource.PlayDelayed(2);
+        SfxSource.clip = waveEnd;
+        SfxSource.Play();
+
+
+        Debug.Log("Save Time Ending");
     }
 
     void LastWaveBeforeSaveTime(){
@@ -461,11 +476,13 @@ public class WaveManager : MonoBehaviour
         if (isSaveTimeAfterWave && !isSaveTime  && !wasLastWaveIncomingCalled)
             LastWaveBeforeSaveTime();
 
+        if(nextWaveIn < 3 && (!wasSaveTimeEndingCalled) && (isSaveTimeAfterWave && isSaveTime))
+            SaveTimeEnding();
 
-        if(nextWaveIn < 3 && (!wasNextWaveIncomingCalled && !wasSaveTimeIncomingCalled))
+        if(nextWaveIn < 3 && (!wasNextWaveIncomingCalled && !wasSaveTimeStartingCalled))
         {
             if(isSaveTimeAfterWave && !isSaveTime)
-                SaveTimeIncoming();
+                SaveTimeStarting();
             else
                 NextWaveIncoming();
         }
