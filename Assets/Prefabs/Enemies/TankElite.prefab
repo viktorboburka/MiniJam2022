@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  maxHp: 250
+  maxHp: 1000
   movementSpeed: 4
   range: 6
   dmg: 25
