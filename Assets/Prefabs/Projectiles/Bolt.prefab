@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6939021926167474021}
   - component: {fileID: 6939021926167474020}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6939021926476381829}
   - component: {fileID: 6939021926476381830}
   - component: {fileID: 7806369844198130018}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Bolt
   m_TagString: Projectile
   m_Icon: {fileID: 0}

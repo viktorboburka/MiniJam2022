@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3741244987983708002}
   - component: {fileID: 3741244987983708005}
   - component: {fileID: 3741244987983708004}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

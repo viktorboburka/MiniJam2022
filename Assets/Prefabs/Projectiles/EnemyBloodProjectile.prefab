@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6939021926167474021}
   - component: {fileID: 6939021926167474020}
   - component: {fileID: 2121233572688494439}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 6939021926476381830}
   - component: {fileID: -8605287640297959361}
   - component: {fileID: -6384055795307547155}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EnemyBloodProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
