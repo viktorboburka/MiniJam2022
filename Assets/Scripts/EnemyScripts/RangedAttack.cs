@@ -20,12 +20,11 @@ public class RangedAttack : Attack
         
         Vector3 projectileSpawnPos = this.transform.position;
         Quaternion projectileSpawnRot = Quaternion.LookRotation(projectileTarget - this.transform.position, Vector3.up);
-        if (projectileSpawnT != null)
-        {
-            projectileSpawnT.LookAt(player.transform);
-            projectileSpawnPos = projectileSpawnT.position;
-            projectileSpawnRot = projectileSpawnT.rotation;
-        }
+
+        projectileSpawnT.LookAt(player.transform);
+        projectileSpawnPos = projectileSpawnT.position;
+        projectileSpawnRot = projectileSpawnT.rotation;
+
 
 
         playerMovementPrediction = GetDistanceFromPlayer(player) / projectileSpeed;
