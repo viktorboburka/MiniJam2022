@@ -6,6 +6,7 @@ public class RangedAttack : Attack
 {
     [SerializeField]
     private float projectileSpeed;
+    [SerializeField] private bool enableProjectilePrediction;
     //[SerializeField]
     private float playerMovementPrediction = 1f;
     [SerializeField]

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b074eac89be98654181ba26fdb5ca9d2, type: 3}
-  m_Name: WeakMeelee
+  m_Name: TankElite
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1431905860022747923, guid: 0a896658f727dcb4aa8cc3f98bf679cd, type: 3}
-  chanceToSpawn: 1
+  enemyPrefab: {fileID: 1431905860022747923, guid: e913b299ad208f14fb4367ce1490a7a3, type: 3}
+  chanceToSpawn: 0
   modifyChanceToSpawnOn: 0
   modifyChanceToSpawnBy: 0
-  guaranteedSpawnOn: 5
-  guaranteedSpawnCount: 5
-  modifyGuaranteedSpawnCountOn: 6
-  modifyGuaranteedSpawnCountBy: 5
+  guaranteedSpawnOn: 10
+  guaranteedSpawnCount: 1
+  modifyGuaranteedSpawnCountOn: 11
+  modifyGuaranteedSpawnCountBy: 1
