@@ -53,7 +53,7 @@ public class Inventory : MonoBehaviour
     //Water Logic
     [SerializeField] private GameObject water;
     [SerializeField] private InputAction waterAction;
-    [SerializeField] private float waterCooldown;
+    [SerializeField] private float waterCooldown = 9;
     [SerializeField] private float waterCooldownTime;
     [SerializeField] private RectTransform cooldownBar;
     [SerializeField] private TMP_Text waterText;
@@ -122,7 +122,7 @@ public class Inventory : MonoBehaviour
     public void CastWater(InputAction.CallbackContext context){
         if(waterCooldownTime <= 0){
             Instantiate(water, transform.position - Vector3.up * 0.9f, transform.rotation);
-            waterCooldownTime = waterCooldown;
+            waterCooldownTime = (200 / (level + waterCooldown)) + 1;
         }
     }
 
