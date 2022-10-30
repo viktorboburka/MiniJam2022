@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4813395409173208482}
   - component: {fileID: 3641592903036015477}
   - component: {fileID: 2442994396111976921}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: model
   m_TagString: Throwable
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4813395409346847010}
   - component: {fileID: 4813395409346847011}
   - component: {fileID: 3398232258278183109}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Garlic
   m_TagString: Throwable
   m_Icon: {fileID: 0}

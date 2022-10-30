@@ -29,8 +29,8 @@ TagManager:
   - Enemy
   - Projectile
   - Water
-  - 
-  - 
+  - Objects
+  - FriendProjectile
   - 
   - 
   - 
