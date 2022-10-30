@@ -16,6 +16,8 @@ public class PlayerAbilitySystem : MonoBehaviour
     
     [SerializeField] private Inventory inventory;
 
+    private List<Slot> activatedSlots = new();
+
 
     void Awake()
     {
@@ -50,29 +52,40 @@ public class PlayerAbilitySystem : MonoBehaviour
             var position = Slots.FindAll(slot => slot.item.itemType == ItemType.ManualWeapon).Count;
             newSlot.KeyBind = actions["Player/Abillity" + position];
             newSlot.KeyBind.Enable();
-            newSlot.KeyBind.performed += ctx => ActivateItem(newSlot);
+            //newSlot.KeyBind.performed += ctx => ActivateItem(newSlot);
+            newSlot.KeyBind.started += ctx => StartActivating(newSlot);
+            newSlot.KeyBind.canceled += ctx => StopActivating(newSlot);
         }
         else if (newItem.itemType == ItemType.AOEWeapon)
         {
             newItem.Activate(ItemArgumets);
         }
+        else if (newItem.itemType == ItemType.AutoWeapon)
+        {
+            activatedSlots.Add(newSlot);
+        }
 
         onAddedItem.Invoke();
     }
-
-
-
-    private void ActivateItem(Slot slot)
+    private void StartActivating(Slot slot)
     {
-        if (slot.CooldownTime > 0)
-            return;
-        slot.item.Activate(ItemArgumets);
-        slot.CooldownTime = inventory.GetCooldown(slot.item);
+        activatedSlots.Add(slot);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void StopActivating(Slot slot)
     {
+        activatedSlots.Remove(slot);
+    }
+
+    private void ActivateItem()
+    {
+        foreach(Slot slot in activatedSlots)
+        {
+            if (slot.CooldownTime > 0)
+                continue;
+            slot.item.Activate(ItemArgumets);
+            slot.CooldownTime = inventory.GetCooldown(slot.item);
+        }
     }
 
     // Update is called once per frame
@@ -83,10 +96,7 @@ public class PlayerAbilitySystem : MonoBehaviour
             .FindAll(slot => slot.CooldownTime > 0)
             .ForEach(slot => slot.CooldownTime -= Time.deltaTime);
 
-        //activates auto every cooldown
-        Slots
-            .FindAll(slot => slot.item.itemType == ItemType.AutoWeapon)
-            .ForEach(slot => ActivateItem(slot));
+        ActivateItem();
 
 
     }
