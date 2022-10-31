@@ -48,9 +48,9 @@ public class AOEController : MonoBehaviour
     }
 
     void OnTriggerStay(Collider other){
-            Debug.Log(other.gameObject);
+            //Debug.Log(other.gameObject);
         if(other.tag == "Enemy" && !enemies.Contains(other.GetComponent<Enemy>())){
-            Debug.Log("Enemy in");
+            //Debug.Log("Enemy in");
             enemies.Add(other.GetComponent<Enemy>());
         }
     }
