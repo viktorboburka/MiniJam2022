@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Heal : MonoBehaviour
 {
     public int healPoints = 10;
 
     public float speed = 1f;
+
+    public UnityEvent onPickup;
 
     private Transform target;
     public bool canMove = false;
@@ -30,6 +33,7 @@ public class Heal : MonoBehaviour
 
     void OnTriggerEnter(Collider coll){
         if(coll.gameObject.tag == "Player" && !healed){
+            onPickup.Invoke();
             GetComponent<ParticleSystem>().Stop();
             //transform.GetChild(0).gameObject.SetActive(false);
             canMove = false;

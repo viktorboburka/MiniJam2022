@@ -107,6 +107,15 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e8094eb-c786-410f-bb11-4e7a642553dd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -252,6 +261,28 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""action"": ""WaterAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88fe73d6-5159-4652-be37-7bf5be4d34e7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4b21e8c2-e5ca-4f49-b509-aed37587775e"",
+                    ""path"": ""<Keyboard>/semicolon"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -269,6 +300,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         m_Player_Abillity5 = m_Player.FindAction("Abillity5", throwIfNotFound: true);
         m_Player_DebugRestart = m_Player.FindAction("DebugRestart", throwIfNotFound: true);
         m_Player_WaterAction = m_Player.FindAction("WaterAction", throwIfNotFound: true);
+        m_Player_OpenMenu = m_Player.FindAction("OpenMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -337,6 +369,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Abillity5;
     private readonly InputAction m_Player_DebugRestart;
     private readonly InputAction m_Player_WaterAction;
+    private readonly InputAction m_Player_OpenMenu;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
@@ -350,6 +383,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         public InputAction @Abillity5 => m_Wrapper.m_Player_Abillity5;
         public InputAction @DebugRestart => m_Wrapper.m_Player_DebugRestart;
         public InputAction @WaterAction => m_Wrapper.m_Player_WaterAction;
+        public InputAction @OpenMenu => m_Wrapper.m_Player_OpenMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -386,6 +420,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @WaterAction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaterAction;
                 @WaterAction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaterAction;
                 @WaterAction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaterAction;
+                @OpenMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenMenu;
+                @OpenMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenMenu;
+                @OpenMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenMenu;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -417,6 +454,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @WaterAction.started += instance.OnWaterAction;
                 @WaterAction.performed += instance.OnWaterAction;
                 @WaterAction.canceled += instance.OnWaterAction;
+                @OpenMenu.started += instance.OnOpenMenu;
+                @OpenMenu.performed += instance.OnOpenMenu;
+                @OpenMenu.canceled += instance.OnOpenMenu;
             }
         }
     }
@@ -432,5 +472,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         void OnAbillity5(InputAction.CallbackContext context);
         void OnDebugRestart(InputAction.CallbackContext context);
         void OnWaterAction(InputAction.CallbackContext context);
+        void OnOpenMenu(InputAction.CallbackContext context);
     }
 }
