@@ -22,6 +22,10 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TMP_Text timeText;
 
 
+    [SerializeField] private GameObject menu;
+
+    private bool isMenuOpen = false;
+
     private Image[] iconImage;
     private RectTransform[] barImage;
     private TMP_Text[] texts;
@@ -52,6 +56,13 @@ public class PlayerUI : MonoBehaviour
 
     private void Start()
     {
+
+        Debug.Log("setting open menu open menu");
+
+        var openMenu = actions["Player/OpenMenu"];
+        openMenu.Enable();
+        openMenu.performed += (obj) => OpenMenu_performed();
+
         StopTime.resetTimer();
 
         var count = itemIcons.transform.childCount;
@@ -65,6 +76,50 @@ public class PlayerUI : MonoBehaviour
             texts[i] = itemIcons.transform.GetChild(i).GetComponentInChildren<TMP_Text>();
             barImage[i] = itemIcons.transform.GetChild(i).Find("Coldown_bar").GetComponent<RectTransform>();
             bindTexts[i] = itemIcons.transform.GetChild(i).Find("BindBox").GetComponentInChildren<TMP_Text>();
+        }
+
+    }
+
+    private void OpenMenu_performed()
+    {
+
+        if (isMenuOpen)
+        {
+            foreach(InputAction action in actions)
+            {
+                action.Enable();
+            }
+
+            GameObject.Find("OptionsPanel").SetActive(false);
+
+            isMenuOpen = false;
+            Time.timeScale = 1;
+            menu.SetActive(false);
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            NewSlotWasAdded();
+
+        }
+        else
+        {
+            foreach (InputAction action in actions)
+            {
+                action.Disable();
+            }
+
+            var openMenu = actions["Player/OpenMenu"];
+            openMenu.Enable();
+
+            isMenuOpen = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0;
+            menu.SetActive(true);
+
+            NewSlotWasAdded();
+
         }
 
     }
@@ -97,7 +152,6 @@ public class PlayerUI : MonoBehaviour
         //hp
         float expirience = 1f - ((float)playerStats.GetExperience() / (float)playerStats.GetExperienceNeeded());
         float hp = 1f - ((float)playerStats.GetHP() / (float)playerStats.GetMaxHP());
-        Debug.Log("hp stuff is " + hp);
 
 
         HpFillBar.fillAmount = hp;
