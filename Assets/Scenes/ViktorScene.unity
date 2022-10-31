@@ -5958,6 +5958,23 @@ PrefabInstance:
       objectReference: {fileID: 1697461467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+--- !u!1 &262345948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5075382222742513009, guid: 75cde572135d1f44fb4675efb3a60404, type: 3}
+  m_PrefabInstance: {fileID: 262345947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &262345949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262345948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7031a22c8b714ae49867235e60f6b382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &264974371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22345,7 +22362,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 30aa88697eaa0e04181eb204fb04417b, type: 2}
+  - {fileID: 2100000, guid: 10d775f7497f57a46a5169eb12663ef1, type: 2}
   - {fileID: 2100000, guid: 3d6aa6a6850d41f49884d03b0d207b52, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -22866,7 +22883,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 2102214945}
-  m_VersionIndex: 3706
+  m_VersionIndex: 3722
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -43101,7 +43118,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh44404
+  m_Name: pb_Mesh51236
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
