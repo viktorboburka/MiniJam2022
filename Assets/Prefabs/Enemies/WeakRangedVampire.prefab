@@ -290,10 +290,10 @@ MonoBehaviour:
   bloodPrefab: {fileID: 9088948930767243423, guid: ef94756de72e137468b201c55ab0a03f, type: 3}
   bloodDamage: 3
   xpPrefab: {fileID: 1948108312405830696, guid: 3f17e52e7c3453944b43613d745c7685, type: 3}
-  xpDropAmount: 10
+  xpDropAmount: 20
   hpPrefab: {fileID: 8610715033494390966, guid: 884fcef7fe1aba64280a639e96e871a3, type: 3}
   hpDropAmount: 10
-  hpDropChance: 10
+  hpDropChance: 5
   itemPrefabs: []
   itemDropChance: 0
   enemyDeathSounds:
@@ -306,6 +306,9 @@ MonoBehaviour:
   rend: {fileID: 1561229965019163785}
   cooldown: 0.5
   cooldownTime: 0.5
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5337521773576550567
 MonoBehaviour:
   m_ObjectHideFlags: 0
