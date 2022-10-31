@@ -39,14 +39,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6256827232281166298}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b9ee3ec3abd6b44b84e6d94ddb7cc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   drawRays: 1
   generateUselessRandom: 0
-  baseWaveTime: 15
+  baseWaveTime: 20
   spawnRadiusMax: 60
   spawnRadiusMin: 30
   aiMaxLimit: 1000
@@ -70,7 +70,7 @@ MonoBehaviour:
   increaseGroupSizeOn: 20
   increaseGroupSizeBy: 2
   nextWaveNumber: 1
-  nextWaveIn: 15
+  nextWaveIn: 5
   nextWaveGroupCount: 10
   nextWaveGroupSize: 1
   waveNumber: 1
