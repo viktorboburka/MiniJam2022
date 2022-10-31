@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -47,8 +46,6 @@ public class Enemy : MonoBehaviour
     private float cooldown = 0.5f;
     [SerializeField]
     private float cooldownTime = 0.5f;
-    
-    public UnityEvent onDeath;
 
 
     // Start is called before the first frame update
@@ -75,8 +72,6 @@ public class Enemy : MonoBehaviour
 
         //TODO: animation and sound feedback
         if (hp <= 0) {
-            onDeath.Invoke();
-
             // Blood Drop
             GameObject bloodObj = Instantiate(bloodPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.Euler(-90, 0, 0));
             bloodObj.GetComponent<BloodCast>().damage = bloodDamage;

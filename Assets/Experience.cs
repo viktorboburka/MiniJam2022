@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Experience : MonoBehaviour
 {
     public int experiencePoints = 10;
 
     public float speed = 1f;
-    
-    public UnityEvent onPickup;
 
     private Transform target;
-    public bool canMove = true;
+    private bool canMove = true;
 
     void Start(){
         target = GameObject.FindWithTag("Player").transform;
@@ -30,7 +27,6 @@ public class Experience : MonoBehaviour
 
     void OnTriggerEnter(Collider coll){
         if(coll.gameObject.tag == "Player"){
-            onPickup.Invoke();
             GetComponent<ParticleSystem>().Stop();
             transform.GetChild(0).gameObject.SetActive(false);
             canMove = false;

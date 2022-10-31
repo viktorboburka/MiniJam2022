@@ -82,7 +82,6 @@ public class Inventory : MonoBehaviour
 
 
     void OnEnable(){
-
         inputManager.Enable();
 
         debugRestart = inputManager.Player.DebugRestart;
