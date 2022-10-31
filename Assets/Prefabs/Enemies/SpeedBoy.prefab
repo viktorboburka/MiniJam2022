@@ -99,9 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   maxHp: 10
-  movementSpeed: 15
+  movementSpeed: 12
   range: 1
-  dmg: 2
+  dmg: 1
   attackSpeed: 10
   randMovementRadius: 3
   idleDistance: 10000
@@ -124,6 +124,9 @@ MonoBehaviour:
   rend: {fileID: 1519918353111782722}
   cooldown: 0.5
   cooldownTime: 0.5
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1431905860022747947
 MonoBehaviour:
   m_ObjectHideFlags: 0
