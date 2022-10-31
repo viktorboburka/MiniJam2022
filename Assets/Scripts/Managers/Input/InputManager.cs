@@ -272,17 +272,6 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""action"": ""OpenMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4b21e8c2-e5ca-4f49-b509-aed37587775e"",
-                    ""path"": ""<Keyboard>/semicolon"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""OpenMenu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }

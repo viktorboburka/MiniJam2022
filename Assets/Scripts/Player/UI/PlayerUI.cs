@@ -82,7 +82,7 @@ public class PlayerUI : MonoBehaviour
 
     private void OpenMenu_performed()
     {
-
+        Debug.Log( "menu is open " +isMenuOpen);
         if (isMenuOpen)
         {
             foreach(InputAction action in actions)
@@ -90,7 +90,11 @@ public class PlayerUI : MonoBehaviour
                 action.Enable();
             }
 
-            GameObject.Find("OptionsPanel").SetActive(false);
+            var panel = GameObject.Find("OptionsPanel");
+            if(panel != null)
+            {
+                panel.SetActive(false);
+            }
 
             isMenuOpen = false;
             Time.timeScale = 1;
