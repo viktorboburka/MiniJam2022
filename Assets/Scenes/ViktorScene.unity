@@ -17477,7 +17477,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 719a4efeec68be04ba72c1cbc49b9fe0, type: 2}
     - target: {fileID: 6457156803058264131, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
       propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6457156803058264131, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
       propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -17485,7 +17485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6457156803058264131, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
       propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6457156803058264131, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
       propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -17498,7 +17498,7 @@ PrefabInstance:
     - target: {fileID: 6457156803058264131, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
       propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 805850955}
+      objectReference: {fileID: 805850957}
     - target: {fileID: 6457156803058264131, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
       propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -17521,7 +17521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6457156803058264131, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
       propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
+      value: SkipTutorial
       objectReference: {fileID: 0}
     - target: {fileID: 6457156803058264131, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
       propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -17533,7 +17533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6457156803058264131, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
       propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: ItemDrop, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6457156803058264131, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
       propertyPath: onPickup.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -17579,6 +17579,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6457156803058264128, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
   m_PrefabInstance: {fileID: 805850954}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &805850957 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6457156803058264131, guid: d7e2c80a52ed04d41a561fe942095da7, type: 3}
+  m_PrefabInstance: {fileID: 805850954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805850955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3722b0897243c19468af7e36780294c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &810369283
 PrefabInstance:
   m_ObjectHideFlags: 0

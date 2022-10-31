@@ -20,4 +20,6 @@ public class ItemDrop : MonoBehaviour
     }
 
     public Item GetItem() { return item; }
+
+    public void SkipTutorial() => StopTime.resetTimer();
 }
