@@ -38,6 +38,7 @@ public class PlayerAbilitySystem : MonoBehaviour
     {
         if (Slots.Count >= 5)
         {
+            Debug.Log("Maximum items achived");
             return;
         }
 
