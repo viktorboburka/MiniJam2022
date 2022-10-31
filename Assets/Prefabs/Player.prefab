@@ -10556,7 +10556,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6439890853866885993}
         m_TargetAssemblyTypeName: MenuLogic, Assembly-CSharp
-        m_MethodName: QuitButton
+        m_MethodName: QuitButtonToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10632,7 +10632,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: QUIT
+  m_text: MENU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 634a3004a7124254f98224c35a19d4b6, type: 2}
   m_sharedMaterial: {fileID: 9120100648328579035, guid: 634a3004a7124254f98224c35a19d4b6, type: 2}

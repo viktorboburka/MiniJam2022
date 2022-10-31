@@ -22,6 +22,13 @@ public class MenuLogic : MonoBehaviour
     }
 
 
+    public void QuitButtonToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+
+
     #region Credits
 
     [SerializeField] private GameObject CreditsPanel;
